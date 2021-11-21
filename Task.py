@@ -1,7 +1,7 @@
 import math
 
 class Task:
-    def __init__(self, task_id: int, deadline: int, duration: int, perfect_benefit: float) -> None:
+    def __init__(self, task_id: int, deadline: int, duration: int, perfect_benefit: float):
         """
         Creates a new task with the corresponding task_id,
         deadline, duration, and perfect_benefit
@@ -27,7 +27,7 @@ class Task:
         self.duration = duration
         self.perfect_benefit = perfect_benefit
         
-    def get_task_id(self) -> int:
+    def get_task_id(self):
         """ 
         Returns the task id of this Task 
 
@@ -37,7 +37,7 @@ class Task:
         """
         return self.task_id
 
-    def get_deadline(self) -> int:
+    def get_deadline(self):
         """ 
         Returns the start time of this Task 
 
@@ -47,7 +47,7 @@ class Task:
         """
         return self.deadline
 
-    def get_duration(self) -> int:
+    def get_duration(self):
         """ 
         Returns the duration of this task 
     
@@ -57,7 +57,7 @@ class Task:
         """
         return self.duration
     
-    def get_max_benefit(self) -> int:
+    def get_max_benefit(self):
         """ 
         Returns the max possible benefit recievable from this task 
         which is equal to the benefit recieved from completing 
@@ -69,7 +69,7 @@ class Task:
         """
         return self.perfect_benefit
 
-    def get_late_benefit(self, minutes_late: int) -> int:
+    def get_late_benefit(self, minutes_late: int):
         """
         Returns the benefit recieved from completing this task
         minutes_late minutes late

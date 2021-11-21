@@ -56,7 +56,7 @@ def read_input_file(path: str):
             tasks.append(task)
         return tasks
 
-def write_input_file(path: str, tasks)-> None:
+def write_input_file(path: str, tasks: Task):
     """
     Takes a path and list of Task objects and 
     generates the corresponding input file
@@ -193,3 +193,24 @@ def write_output_file(path: str, task_ids):
     output_file = open(path, 'w')
     output_file.writelines(output_lines)
     output_file.close()
+
+def check_output(tasks, task_ids:str):
+    """
+    check whether the total time for output does not exceed 1440
+    and return the benefit attained by this sequence:
+
+    Args: 
+    - tasks (List[int]): list of task_ids
+    - task_ids (List[int]): list of task_ids
+
+    Output:
+    - TotalBenefit: the benefit attained by the given sequence of task_ids
+    """
+    TotalTime = 0
+    TotalBenefit = 0
+    for i in task_ids:
+        TotalTime += tasks[i-1].get_duration()
+        TotalBenefit += tasks[i-1].get_late_benefit(TotalTime-tasks[i-1].get_deadline())
+    assert TotalTime <= 1440
+    return TotalBenefit
+        
