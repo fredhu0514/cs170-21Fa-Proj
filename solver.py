@@ -1,5 +1,4 @@
 from parse import read_input_file, write_output_file
-import numpy as np
 
 def solve(tasks):
     """
@@ -13,10 +12,12 @@ def solve(tasks):
     curTime = 0
     for _ in range(N):
         cur_task_quantity = len(tasks)
-        profit_over_duration_list = np.zeros(cur_task_quantity)
+        profit_over_duration_list = [0] * cur_task_quantity
+        greedy_index = 0
         for i in range(cur_task_quantity):
             profit_over_duration_list[i] = tasks[i].get_benefit_per_timestamp(curTime)
-        greedy_index = np.argmax(profit_over_duration_list)
+            if profit_over_duration_list[greedy_index] < profit_over_duration_list[i]:
+                greedy_index = i
         # Return if no valid moves
         if profit_over_duration_list[greedy_index] < 0:
             return path

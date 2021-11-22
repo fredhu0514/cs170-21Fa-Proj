@@ -1,11 +1,12 @@
-# Deterministic Greedy Algo based on Profit/Duration
+# Deterministic Greedy Algo On Profit/Duration
 
 ## 1. Sample Test Result
 
 ### - TOTAL TIME `1438`
 ### - TOTAL PROFIT `2820.023124229029`
 
-###  ID Order
+### - ID Order
+`
 60
 97
 57
@@ -64,6 +65,7 @@
 76
 33
 98
+`
 
 ## 2. Time & Space Complexity
 ### - Time  `O(len(tasks)^2)`
