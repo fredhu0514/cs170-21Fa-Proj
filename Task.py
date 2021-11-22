@@ -85,12 +85,13 @@ class Task:
         minutes_late = max(0, minutes_late)
         return self.get_max_benefit() * math.exp(-0.0170 * minutes_late)
 
-    def get_benefit_per_timestamp(self, curTime: int) -> (float, float, int):
-        profit = self.get_max_benefit() * math.exp(-0.0170 * max(0, curTime - self.deadline))
-        end_time = curTime + self.duration
-        if end_time > 1440:
-            return -1.0, -1.0, 0
-        return profit/self.duration, profit, end_time
+    def get_benefit_per_timestamp(self, curTime: int) -> float:
+        if curTime + self.duration > 1440:
+            return -1.0
+        return self.get_max_benefit() * math.exp(-0.0170 * max(0, curTime + self.duration - self.deadline)) / self.duration
+
+    def get_profit(self, curTime: int) -> float:
+        return self.get_max_benefit() * math.exp(-0.0170 * max(0, curTime + self.duration - self.deadline))
 
     def __str__(self):
         """
