@@ -1,17 +1,70 @@
-# CS 170 Project Fall 2021
+# Deterministic Greedy Algo based on Profit/Duration
 
-Take a look at the project spec before you get started!
+## 1. Sample Test Result
 
-Requirements:
+### - TOTAL TIME `1438`
+### - TOTAL PROFIT `2820.023124229029`
 
-Python 3.6+
+###  ID Order
+60
+97
+57
+46
+44
+50
+99
+29
+69
+32
+71
+7
+61
+22
+53
+37
+24
+31
+87
+39
+8
+19
+6
+65
+72
+77
+34
+16
+63
+28
+38
+70
+67
+9
+17
+40
+30
+26
+20
+82
+83
+73
+62
+74
+21
+96
+42
+56
+25
+14
+68
+66
+86
+92
+43
+76
+33
+98
 
-Files:
-- `parse.py`: functions to read/write inputs and outputs
-- `solver.py`: where you should be writing your code to solve inputs
-- `Task.py`: contains a class that is useful for processing inputs
-
-When writing inputs/outputs:
-- Make sure you use the functions `write_input_file` and `write_output_file` provided
-- Run the functions `read_input_file` and `read_output_file` to validate your files before submitting!
-- These are the functions run by the autograder to validate submissions
+## 2. Time & Space Complexity
+### - Time  `O(len(tasks)^2)`
+### - Space `O(len(tasks))`
