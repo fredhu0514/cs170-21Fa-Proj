@@ -69,7 +69,7 @@ class Task:
         """
         return self.perfect_benefit
 
-    def get_late_benefit(self, minutes_late: int) -> int:
+    def get_late_benefit(self, minutes_late: int) -> float:
         """
         Returns the benefit recieved from completing this task
         minutes_late minutes late
@@ -84,6 +84,13 @@ class Task:
         """
         minutes_late = max(0, minutes_late)
         return self.get_max_benefit() * math.exp(-0.0170 * minutes_late)
+
+    def get_benefit_per_timestamp(self, curTime: int) -> (float, float, int):
+        profit = self.get_max_benefit() * math.exp(-0.0170 * max(0, curTime - self.deadline))
+        end_time = curTime + self.duration
+        if end_time > 1440:
+            return -1.0, -1.0, 0
+        return profit/self.duration, profit, end_time
 
     def __str__(self):
         """
