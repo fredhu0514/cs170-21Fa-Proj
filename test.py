@@ -1,10 +1,11 @@
 import solver
 import logging
+from Task import DECAY_RATE
 from parse import read_input_file, write_output_file
 
 log = "test.log"
 logging.basicConfig(filename=log, level=logging.DEBUG, format='%(asctime)s %(message)s', datefmt='%d/%m/%Y %H:%M:%S')
-logging.info("Ready to go:  ")
+logging.info(f"Decay rate at {DECAY_RATE}:  ")
 
 for data_num in [100, 150, 200]:
     benefits_list = []

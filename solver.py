@@ -15,7 +15,7 @@ def solve(tasks):
         profit_over_duration_list = [0] * cur_task_quantity
         greedy_index = 0
         for i in range(cur_task_quantity):
-            profit_over_duration_list[i] = tasks[i].get_benefit_per_timestamp(curTime)
+            profit_over_duration_list[i] = tasks[i].get_decay_profit(curTime)
             if profit_over_duration_list[greedy_index] < profit_over_duration_list[i]:
                 greedy_index = i
         # Return if no valid moves
