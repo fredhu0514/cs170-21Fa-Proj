@@ -1,71 +1,13 @@
-# Deterministic Greedy Algo On Profit/Duration
+# Deterministic Greedy Algo On $\frac{Profit}{Duration}$
 
-## 1. Sample Test Result
+## 1. Test Result
 
-### - TOTAL TIME `1438`
 ### - TOTAL PROFIT `2820.023124229029`
+| Score 100 | Score 150 | Score 200 |
+| :----: | :----: | :----: |
+| `2933.8100997267757` | `3662.695986712175` | `4456.916000586502` |
 
-### - ID Order
-`
-60
-97
-57
-46
-44
-50
-99
-29
-69
-32
-71
-7
-61
-22
-53
-37
-24
-31
-87
-39
-8
-19
-6
-65
-72
-77
-34
-16
-63
-28
-38
-70
-67
-9
-17
-40
-30
-26
-20
-82
-83
-73
-62
-74
-21
-96
-42
-56
-25
-14
-68
-66
-86
-92
-43
-76
-33
-98
-`
+
 
 ## 2. Time & Space Complexity
 ### - Time  `O(len(tasks)^2)`
