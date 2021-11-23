@@ -23,6 +23,9 @@ def dfs(tasks):
         prev_profit, cur_time, cur_path = stack.pop()
         end_time = tasks[cur_path[-1]-1].duration + cur_time
         if end_time > 1440: # Time exceeds
+            if count % 100000 == 0:
+                print(str(count))
+                logging.info("Iteration: " + str(count))
             count += 1
             continue
         cur_profit = tasks[cur_path[-1]-1].get_profit(cur_time) + prev_profit
