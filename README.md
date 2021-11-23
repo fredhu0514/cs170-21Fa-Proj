@@ -1,4 +1,4 @@
-# Deterministic Greedy Algo On $\frac{Profit}{Duration}$
+# Deterministic Greedy Algo ---- Profit / Duration
 
 ## 1. Test Result
 
