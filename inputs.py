@@ -1,6 +1,5 @@
 import numpy as np
 import os
-from parse import read_input_file
 
 def write_input_file(path, n1, n2):
     n = np.random.randint(low=n1+1, high=n2, size=1)[0]
@@ -14,10 +13,13 @@ def write_input_file(path, n1, n2):
 
 if not os.path.isdir('inputs/'):
     os.mkdir('inputs/')
-write_input_file('inputs/100.in', 75, 100)
-write_input_file('inputs/150.in', 100, 150)
-write_input_file('inputs/200.in', 150, 200)
-
-read_input_file('inputs/100.in')
-read_input_file('inputs/150.in')
-read_input_file('inputs/200.in')
+for i in range(50):
+    if not os.path.isdir('inputs/100/'):
+        os.mkdir('inputs/100/')
+    write_input_file('inputs/100/sample' + str(i+1) +'.in', 75, 100)
+    if not os.path.isdir('inputs/150/'):
+        os.mkdir('inputs/150/')
+    write_input_file('inputs/150/sample' + str(i+1) +'.in', 100, 150)
+    if not os.path.isdir('inputs/200/'):
+        os.mkdir('inputs/200/')
+    write_input_file('inputs/200/sample' + str(i+1) +'.in', 150, 200)
