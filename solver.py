@@ -25,7 +25,7 @@ def dfs(tasks):
         if end_time > 1440: # Time exceeds
             count += 1
             continue
-        cur_profit = tasks[cur_path[-1]].get_profit(cur_time) + prev_profit
+        cur_profit = tasks[cur_path[-1]-1].get_profit(cur_time) + prev_profit
         for i in range(1, N + 1):
             if i not in cur_path:
                 stack.append((cur_profit, end_time, cur_path + [i]))
