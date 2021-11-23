@@ -63,11 +63,13 @@ def SeqHelper(CurrTime: int, TotalTime: int, CurrSeq, tasks):
         return (CurrSeq, CurrTime)
     else:
         task = tasks.pop(j)
-        TotalTimeBeforeThisTask = task.get_deadline() - (CurrTime + task.get_duration())
+        TotalTimeBeforeThisTask = TotalTime - (CurrTime + task.get_duration())
         tasks = SortTasks(tasks, CurrTime, CurrTime + TotalTimeBeforeThisTask) # Resort the task to ensure greediness
         CurrSeq, CurrTime = SeqHelper(CurrTime, CurrTime + TotalTimeBeforeThisTask, CurrSeq, tasks) # get the extra sequence of igloos that can be completed before starting the current "task"
+        assert CurrTime <= TotalTime, 'SeqHelper Recursion Error'
         CurrSeq.append(task.get_task_id())
         CurrTime += task.get_duration()
+        assert CurrTime <= TotalTime
         return (CurrSeq, CurrTime)
 
 
