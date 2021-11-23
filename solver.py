@@ -34,6 +34,7 @@ def dfs(tasks):
             write_output_file('./output/' + str(count) + "-" + str(cur_profit) + '.out', max_path)
             logging.info('Solution in ./output/' + str(count) + "-" + str(cur_profit) + '.out')
         if count % 100000 == 0:
+            print(str(count))
             logging.info("Iteration: " + str(count))
         count += 1
     return max_path
