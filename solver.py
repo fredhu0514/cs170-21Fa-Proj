@@ -21,10 +21,12 @@ def dfs(tasks):
         stack.append([i])
     while len(stack) > 0:
         cur_path = stack.pop()
+        cur_profit = get_total_benefit(tasks, cur_path)
+        if cur_profit < 0: # Time exceeds
+            continue
         for i in range(1, N + 1):
             if i not in cur_path:
                 stack.append(cur_path + [i])
-        cur_profit = get_total_benefit(tasks, cur_path)
         if cur_profit > max_profit:
             max_profit = cur_profit
             max_path = cur_path
@@ -44,6 +46,8 @@ def get_total_benefit(tasks, solution):
     for s in solution:
         total_profit += tasks[s - 1].get_profit(curTime)
         curTime += tasks[s - 1].duration
+        if curTime > 1440:
+            return -1
     return total_profit
 
 def show_total_benefit(tasks, solution):
