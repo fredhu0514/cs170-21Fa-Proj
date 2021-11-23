@@ -23,7 +23,7 @@ def dfs(tasks):
         prev_profit, cur_time, cur_path = stack.pop()
         end_time = tasks[cur_path[-1]-1].duration + cur_time
         if end_time > 1440: # Time exceeds
-            if count % 1000000 == 0:
+            if count % 2000000 == 0:
                 print(str(count))
                 logging.info("Iteration: " + str(count))
             count += 1
@@ -38,7 +38,7 @@ def dfs(tasks):
             logging.info("New max profit " + str(max_profit))
             write_output_file('./output/' + str(count) + "-" + str(cur_profit) + '.out', max_path)
             logging.info('Solution in ./output/' + str(count) + "-" + str(cur_profit) + '.out')
-        if count % 1000000 == 0:
+        if count % 2000000 == 0:
             print(str(count))
             logging.info("Iteration: " + str(count))
         count += 1
