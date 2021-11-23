@@ -7,7 +7,7 @@
 ### - ITERATIONS so far: 25498000000
 
 ### - ID Order
-Result is in output file, each name is defined as `count-profit number.out`.
+Results are in output file, each name is defined as `count-profit number.out`.
 
 ## 2. Time & Space Complexity
 ### - Time  `O(!len(tasks))`
