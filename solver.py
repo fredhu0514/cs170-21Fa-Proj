@@ -21,7 +21,7 @@ def dfs(tasks):
         stack.append((0, 0, [i]))
     while len(stack) > 0:
         prev_profit, cur_time, cur_path = stack.pop()
-        end_time = tasks[cur_path[-1]].duration + cur_time
+        end_time = tasks[cur_path[-1]-1].duration + cur_time
         if end_time > 1440: # Time exceeds
             count += 1
             continue
