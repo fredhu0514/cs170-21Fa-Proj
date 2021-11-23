@@ -24,25 +24,22 @@ def solve(tasks):
         # Pop this task
         greedy_task = tasks.pop(greedy_index)
         # Update path
-        path.append(greedy_task.get_task_id())
+        path.append(greedy_task.task_id)
         # Update curTime
-        curTime += greedy_task.get_duration()
+        curTime += greedy_task.duration
 
 def get_total_benefit(tasks, solution):
-    mapp = {}
     curTime = 0
     total_profit = 0
-    for task in tasks:
-        mapp[task.task_id] = task
+    tasks.sort(key=lambda x : x.task_id)
     for s in solution:
-        total_profit += mapp[s].get_profit(curTime)
-        curTime += mapp[s].get_duration()
-    print(f"TOTAL TIME {curTime}")
-    print(f"TOTAL PROFIT {total_profit}")
+        total_profit += tasks[s - 1].get_profit(curTime)
+        curTime += tasks[s - 1].duration
+    return total_profit
 
 
 if __name__ == '__main__':
-    tasks = read_input_file('./test/100.in')
+    tasks = read_input_file('./test/100/sample1.in')
     output = solve(tasks)
     get_total_benefit(read_input_file('./test/100.in'), output)
     write_output_file('./test/100.out', output)
