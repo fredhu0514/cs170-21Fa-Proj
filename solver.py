@@ -18,7 +18,7 @@ def dfs(tasks):
     max_profit = 0
     stack = []
     for i in range(N, 0, -1):
-        stack.append([i])
+        stack.append((0, 0, [i]))
     while len(stack) > 0:
         prev_profit, cur_time, cur_path = stack.pop()
         end_time = tasks[cur_path[-1]].duration + cur_time
