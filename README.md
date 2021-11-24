@@ -8,5 +8,6 @@
 
 ## Time Complexity & Space Complexity:
 Time = `O(n)` (to sort task once) + `O(n)` (# of iterations)*`O(n)` (# of tasks that have to be iterated in total in one `SeqHelper` recursion from the root) = `O(n^2)`
+
 Space = `O(n)` (sorted tasks, optimal sequence, current time)
 
