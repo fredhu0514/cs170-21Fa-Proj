@@ -1,17 +1,7 @@
 # CS 170 Project Fall 2021
 
-Take a look at the project spec before you get started!
-
-Requirements:
-
-Python 3.6+
-
-Files:
-- `parse.py`: functions to read/write inputs and outputs
-- `solver.py`: where you should be writing your code to solve inputs
-- `Task.py`: contains a class that is useful for processing inputs
-
-When writing inputs/outputs:
-- Make sure you use the functions `write_input_file` and `write_output_file` provided
-- Run the functions `read_input_file` and `read_output_file` to validate your files before submitting!
-- These are the functions run by the autograder to validate submissions
+The algorithm does the following iteratively:
+1) Find the task with highest max_profit/duration. (`Sorttask`)
+2) If there are tasks that can be completed before this task provided that this task is guaranteed to be completed before its deadline, find additional tasks with highest max_profit/duration that can be completed and with deadline before this task. (`SeqHelper`)
+3) Add the tasks to optimal sequence.
+4) Stop when the total time to complete all tasks is just about to exceed 1440.
