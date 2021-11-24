@@ -1,7 +1,7 @@
 # Simulating Annealing ---- Profit / Duration with Decay Function
 
 ## 1. Test Result
-## - Avg. on 50 inputs with `DECAY_RATE = 0.000825; ITERATION_PROPORTION = 0.3`
+## - Avg. on 50 inputs with `DECAY_RATE = 0.000825; ITERATION_PROPORTION = 0.3, THRESHOLD_FUNC = 0 if iteration == max_iteration else 0.05`
 | Score 100 | Score 150 | Score 200 |
 | :----: | :----: | :----: |
 | `2969.124301582986`<sub>`rs=23348417`</sub> | `3692.0721882452403`<sub>`rs=20211123`</sub> | `4478.0987016179415`<sub>`rs=79498651`</sub> |
