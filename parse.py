@@ -211,7 +211,6 @@ def check_output(tasks, task_ids:str):
     for i in task_ids:
         TotalTime += tasks[i-1].get_duration()
         TotalBenefit += tasks[i-1].get_late_benefit(TotalTime-tasks[i-1].get_deadline())
-        print(i, TotalTime, tasks[i-1].get_deadline(), TotalBenefit)
     assert TotalTime <= 1440
     return TotalBenefit
         

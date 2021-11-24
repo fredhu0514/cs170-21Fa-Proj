@@ -1,6 +1,7 @@
 from parse import read_input_file, write_output_file, read_output_file, check_output
 import os
 import Task
+import numpy as np
 
 def solve(tasks):
     """
@@ -20,11 +21,11 @@ def solve(tasks):
             break        
         TotalTimeBeforeThisTask = task.get_deadline() - (CurrTime + task.get_duration())
         if TotalTimeBeforeThisTask > 0:
-            tasks = SortTasks(tasks, CurrTime, CurrTime + TotalTimeBeforeThisTask) # Resort the task to ensure greediness
+            #tasks = SortTasks(tasks, CurrTime, CurrTime + TotalTimeBeforeThisTask) # Resort the task to ensure greediness
             CurrSeq, CurrTime = SeqHelper(CurrTime, CurrTime + TotalTimeBeforeThisTask, CurrSeq, tasks) # get the extra sequence of igloos that can be completed before starting the current "task"
         CurrSeq.append(task.get_task_id())
         CurrTime += task.get_duration()
-        tasks = SortTasks(tasks, CurrTime, 1440)
+        #tasks = SortTasks(tasks, CurrTime, 1440)
     return CurrSeq
 
 
@@ -44,7 +45,6 @@ def SeqHelper(CurrTime: int, TotalTime: int, CurrSeq, tasks):
     """
     This function returns an updated sequence that add additional tasks that can be completed between
     CurrTime and TotalTime
-
     Args:
     -   CurrTime: the time already used to polish some igloos by far
     -   CurrBenefit: the benefit attained thus far
@@ -52,25 +52,25 @@ def SeqHelper(CurrTime: int, TotalTime: int, CurrSeq, tasks):
     -   CurrSeq (List[int]): the sequence of already completed task ids
     -   tasks (List[Task]): remaining tasks that might be completed sorted according to benefit/duration
     Output:
-    -   NewCurrSeq: the updated sequence of already completed tasks
-    -   NewCurrTime: the updated time already used to polish igloos by far
-    -   NewCurrBenefit: the updated benefit attained thus far
+    -   CurrSeq: the updated sequence of already completed tasks
+    -   CurrTime: the updated time already used to polish igloos by far
     """
     j = 0
-    while j < len(tasks) and CurrTime + tasks[j].get_duration() > TotalTime:
+    while j < len(tasks) and (CurrTime + tasks[j].get_duration() > TotalTime or tasks[j].get_deadline() <= TotalTime): 
         j += 1
-    if j == len(tasks): # no additional tasks can be completed between this interval
+    if j == len(tasks): # no additional tasks can be completed between this interval and have deadline before this interval
         return (CurrSeq, CurrTime)
     else:
         task = tasks.pop(j)
         TotalTimeBeforeThisTask = TotalTime - (CurrTime + task.get_duration())
-        tasks = SortTasks(tasks, CurrTime, CurrTime + TotalTimeBeforeThisTask) # Resort the task to ensure greediness
+        #tasks = SortTasks(tasks, CurrTime, CurrTime + TotalTimeBeforeThisTask) # Resort the task to ensure greediness
         CurrSeq, CurrTime = SeqHelper(CurrTime, CurrTime + TotalTimeBeforeThisTask, CurrSeq, tasks) # get the extra sequence of igloos that can be completed before starting the current "task"
         assert CurrTime <= TotalTime, 'SeqHelper Recursion Error'
         CurrSeq.append(task.get_task_id())
         CurrTime += task.get_duration()
         assert CurrTime <= TotalTime
         return (CurrSeq, CurrTime)
+
 
 
 
@@ -84,11 +84,17 @@ def SeqHelper(CurrTime: int, TotalTime: int, CurrSeq, tasks):
 #         write_output_file(output_path, output)
 
 # test:
-tasks = read_input_file("samples/100.in")
-output = solve(tasks)
-tasks = read_input_file("samples/100.in")
-print(output, check_output(tasks, output))
+if __name__ == '__main__':
+    benefits = {'100':[], '150':[], '200':[]}
+    for x in ['100', '150', '200']:
+        for input_path in os.listdir('cs170-21Fa-Proj-data/inputs/'+x+'/'):
+            path = 'cs170-21Fa-Proj-data/inputs/'+x+'/'+input_path
+            tasks = read_input_file(path)
+            output = solve(tasks)
+            tasks = read_input_file(path)
+            benefits[x].append(check_output(tasks, output))
+    for x in ['100', '150', '200']:
+        benefits[x] = np.mean(benefits[x])
+        print(x, benefits[x])
 
-real_output = read_output_file("samples/100.out")
-print(real_output, check_output(tasks, real_output))
 
