@@ -1,45 +1,45 @@
 # Data in this branch serves for te purpose of validation.
-### For each length of input (100, 150, 200), 50 sample inputs named as `sample1.in`  to `sample50.in`.
+### For each length of input (small, medium, large), 300 sample inputs named such as `small_1.in`  to `small_300.in`.
 
 ### You should put `inputs` in the same folder as `solver.py`. Then generate the result to an `outputs` folder.
 
 ```angular2html
 .
 |--- _outputs
-|    |--- _100
+|    |--- _small
 |    |    |
-|    |--- _150
-|    |--- _200
+|    |--- _medium
+|    |--- _large
 
 ```
 ```
 .
-├── ouptuts
-│   ├── 100
-│   │   ├── sample1.out
+├── outputs
+│   ├── small
+│   │   ├── small_1.out
 │   │   ├── [...]
-│   │   └── sample50.out
-│   ├── 150
-│   │   ├── sample1.out
+│   │   └── small_300.out
+│   ├── medium
+│   │   ├── medium_1.out
 │   │   ├── [...]
-│   │   └── sample50.out
-│   └── 200
-│       ├── sample1.out
+│   │   └── medium_300.out
+│   └── large
+│       ├── large_1.out
 │       ├── [...]
-│       └── sample50.out
+│       └── large_300.out
 ├── inputs
-│   ├── 100
-│   │   ├── sample1.in
+│   ├── small
+│   │   ├── small_1.in
 │   │   ├── [...]
-│   │   └── sample50.in
-│   ├── 150
-│   │   ├── sample1.in
+│   │   └── small_300.in
+│   ├── medium
+│   │   ├── medium_1.in
 │   │   ├── [...]
-│   │   └── sample50.in
-│   └── 200
-│       ├── sample1.in
+│   │   └── medium_300.in
+│   └── large
+│       ├── large_1.in
 │       ├── [...]
-│       └── sample50.in
+│       └── large_300.in
 ├── solver.py
 ├── parse.py
 ├── Task.py
