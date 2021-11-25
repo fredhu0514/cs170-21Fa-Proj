@@ -13,7 +13,7 @@ def solve(tasks):
     tasks = SortTasks(tasks, 0, 1440) # sort tasks by max_benefit/duration
     CurrSeq = []
     CurrTime = 0
-    while CurrTime < 1440:
+    while CurrTime < 1440 and len(tasks) > 0:
         task = tasks.pop(0)
         while len(tasks) >= 1 and CurrTime + task.get_duration() > 1440: # if the current igloo cannot be completed before 1440, remove it
             task = tasks.pop(0)
@@ -84,17 +84,24 @@ def SeqHelper(CurrTime: int, TotalTime: int, CurrSeq, tasks):
 #         write_output_file(output_path, output)
 
 # test:
+import logging
+from datetime import datetime
+
 if __name__ == '__main__':
-    benefits = {'100':[], '150':[], '200':[]}
-    for x in ['100', '150', '200']:
-        for input_path in os.listdir('cs170-21Fa-Proj-data/inputs/'+x+'/'):
-            path = 'cs170-21Fa-Proj-data/inputs/'+x+'/'+input_path
-            tasks = read_input_file(path)
-            output = solve(tasks)
-            tasks = read_input_file(path)
-            benefits[x].append(check_output(tasks, output))
-    for x in ['100', '150', '200']:
+    logging.basicConfig(filename="GreedySolver1.log", level=logging.INFO)
+    logging.info('New Log at ' + datetime.now().strftime('%m/%d/%Y %H:%M:%S'))
+    benefits = {'small':[], 'medium':[], 'large':[]}
+    for x in benefits.keys():
+        for input_path in os.listdir('inputs/'+x+'/'):
+            if input_path[-2:] == 'in':
+                path = 'inputs/'+x+'/'+input_path
+                tasks = read_input_file(path)
+                output = solve(tasks)
+                tasks = read_input_file(path)
+                benefits[x].append(check_output(tasks, output))
+    for x in benefits.keys():
         benefits[x] = np.mean(benefits[x])
         print(x, benefits[x])
+        logging.info(x + ': ' + str(benefits[x]))
 
 
