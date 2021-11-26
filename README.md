@@ -29,3 +29,8 @@
 ## 2. Time & Space Complexity
 ### - Time  `O(len(tasks)^2)`
 ### - Space `O(len(tasks))`
+
+# 3. On real input performance
+| Decay Rate | Score s | Score m | Score l |
+| :----: | :----: | :----: | :----: |
+| `0.000825` | `2894.323682523749` | `3742.5295671701624` | `4377.049003639885` |

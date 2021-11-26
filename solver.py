@@ -27,6 +27,7 @@ def solve(tasks):
         path.append(greedy_task.task_id)
         # Update curTime
         curTime += greedy_task.duration
+    return path
 
 def get_total_benefit(tasks, solution):
     curTime = 0
