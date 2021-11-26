@@ -27,6 +27,7 @@ def solve(tasks):
         path.append(greedy_task.task_id)
         # Update curTime
         curTime += greedy_task.duration
+    return path
 
 def get_total_benefit(tasks, solution):
     curTime = 0
@@ -39,7 +40,7 @@ def get_total_benefit(tasks, solution):
 
 
 if __name__ == '__main__':
-    tasks = read_input_file('./input/small/small-1.in')
-    # output = solve(tasks)
-    # get_total_benefit(read_input_file('./real_input/small/small-1.in'), output)
-    # write_output_file('./test.out', output)
+    tasks = read_input_file('./input/small/small-2.in')
+    output = solve(tasks)
+    get_total_benefit(read_input_file('./input/small/small-2.in'), output)
+    write_output_file('./test.out', output)

@@ -11,6 +11,7 @@ for data_num in ["small", "medium", "large"]:
     for i in range(1, 301):
         tasks = read_input_file(f'./input/{data_num}/{data_num}-{i}.in')
         output = solver.solve(tasks)
+        print(f'./input/{data_num}/{data_num}-{i}.in')
         benefits = solver.get_total_benefit(read_input_file(f'./input/{data_num}/{data_num}-{i}.in'), output)
         benefits_list.append(benefits)
         write_output_file(f'./output/{data_num}/{data_num}-{i}.out', output)
