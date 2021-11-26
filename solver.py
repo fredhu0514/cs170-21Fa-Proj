@@ -39,7 +39,7 @@ def get_total_benefit(tasks, solution):
 
 
 if __name__ == '__main__':
-    tasks = read_input_file('./test/100/sample1.in')
-    output = solve(tasks)
-    get_total_benefit(read_input_file('./test/100.in'), output)
-    write_output_file('./test/100.out', output)
+    tasks = read_input_file('./input/small/small-1.in')
+    # output = solve(tasks)
+    # get_total_benefit(read_input_file('./real_input/small/small-1.in'), output)
+    # write_output_file('./test.out', output)
