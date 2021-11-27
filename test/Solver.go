@@ -1,20 +1,20 @@
 package test
 
 import (
-	"fmt"
+	"log"
 )
-var lr float64 = 0.0001
-var reward float64 = -0.001
+var lr float64 = 0.01
+var reward float64 = -0.0001
 var gamma float64 = 0.85
 
-func Solve(PTRTaskList *([]Task)) ([]int64, error){
-	profit, path, c := Train(100000, PTRTaskList)
+func Solve(PTRTaskList *([]Task), MaxIter int) ([]int64, error){
+	log.Printf("Max Iteration: %d", MaxIter)
+	log.Printf("lr %f; reward %f; gamma %f",  lr, reward, gamma)
+	profit, path, c := Train(MaxIter, PTRTaskList)
 	if c != nil {
 		panic(c)
 	}
-	fmt.Println("Profit")
-	fmt.Println(profit)
-	fmt.Println("Path")
-	fmt.Println(path)
+	log.Printf("Profit: %f", profit)
+	log.Println(path)
 	return path, nil
 }

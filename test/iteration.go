@@ -2,7 +2,7 @@ package test
 
 import (
 	"errors"
-	"fmt"
+	"log"
 	"math/rand"
 )
 
@@ -56,8 +56,6 @@ func forwardTransition(PTRStateMap *map[string]*State, PTRCurTransition *[]Trans
 		} else {
 			action = curState.LargestQValID()
 		}
-		// TODO: DEBUG
-		// fmt.Print(strconv.Itoa(int(action)) + "-")
 		nextState, newIndex, err := curState.NextState(action, PTRTaskList, PTRStateMap)
 		if err != nil {
 			return errors.New("errors during forward transition")
@@ -69,8 +67,6 @@ func forwardTransition(PTRStateMap *map[string]*State, PTRCurTransition *[]Trans
 		// Update prev index
 		prevIndex = newIndex
 	}
-	// TODO: DEBUG
-	// fmt.Print("\n")
 	return nil
 }
 
@@ -115,21 +111,11 @@ func backwardTransition(MaxProfitEver *[]float64, PTRMaxProfitEverList *[]int64,
 			profit := tStatePTR.curProfit
 			if profit > (*MaxProfitEver)[0]  {
 				// TODO: HYPER PARAMETER DOWN
-				if profit - (*MaxProfitEver)[0] > 1800 {
-					amplifier = 5
-				} else {
-					amplifier = 50
-				}
+				amplifier = 100
 				// TODO: HYPER PARAMETER UP
 				(*MaxProfitEver)[0] = profit
 				*PTRMaxProfitEverList = tStatePTR.curPath
-				fmt.Print("\n")
-				fmt.Print(CurIter)
-				fmt.Print(", ")
-				fmt.Print((*MaxProfitEver)[0])
-				fmt.Print(", ")
-				fmt.Print(len(*PTRStateMap))
-				fmt.Print("\n")
+				log.Printf("%d, %f, %d\n", CurIter, (*MaxProfitEver)[0], len(*PTRStateMap))
 			}
 			iStatePTR.qVals[action].qVal += lr * (reward + gamma * profit * amplifier) - lr * bjIDqValTrialPTR.qVal
 		} else {
@@ -144,5 +130,5 @@ func backwardTransition(MaxProfitEver *[]float64, PTRMaxProfitEverList *[]int64,
 }
 
 func tryExploitation(CurIter int, MaxIter int) bool {
-	return rand.Float64() < float64(1 - CurIter / MaxIter)
+	return rand.Float64() < 0.4
 }
