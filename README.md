@@ -6,7 +6,7 @@
 | :----: | :----: | :----: |
 | `2969.124301582986`<sub>`rs=23348417`</sub> | `3692.0721882452403`<sub>`rs=20211123`</sub> | `4478.0987016179415`<sub>`rs=79498651`</sub> |
 
-### 2. Hyper Params
+## 2. Hyper Params
 | Decay Rate | Random Seed | Iter. % | Threshold Func | Score 100 | Score 150 | Score 200 |
 | :--------: | :---------: | :-----: | :------------: | :-------: | :-------: | :-------: |
 | `0.000825` | `--` | `--` | `--` | `2935.43122208724`<sub>benchmark</sub> | `3664.502188768596`<sub>benchmark</sub> | `4458.473821710208`<sub>benchmark</sub> |
@@ -29,6 +29,11 @@
 | `0.000825` | `23348417` | `0.3` | `0 if iteration == max_iteration else 0.05` | `2963.8229607295098` | `3692.0721882452403`<sub>new benchmark</sub> | `4476.250739216784` |
 | `0.000825` | `79498651` | `0.3` | `0 if iteration == max_iteration else 0.05` | `2969.124301582986`<sub>new benchmark</sub> | `3685.779933928739` | `4476.2072594009405` |
 
-## 2. Time & Space Complexity
+## 3. Time & Space Complexity
 ### - Time  `O(len(tasks)^3)`
 ### - Space `O(len(tasks))`
+
+## 4. Real Test
+| Decay Rate | Random Seed | Iter. % | Threshold Func | Score s | Score m | Score l |
+| :--------: | :---------: | :-----: | :------------: | :-------: | :-------: | :-------: |
+| `0.000825` | `20211123` | `0.3` | `0 if iteration == max_iteration else 0.05` | `2830.0015099810485` | `3662.6639853094193` | `4308.841560586318` |
