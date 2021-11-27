@@ -97,6 +97,7 @@ if __name__ == '__main__':
                 path = 'inputs/'+x+'/'+input_path
                 tasks = read_input_file(path)
                 output = solve(tasks)
+                # write_output_file('outputs/'+x+'/'+input_path[:-2]+'out', output)
                 tasks = read_input_file(path)
                 benefits[x].append(check_output(tasks, output))
     for x in benefits.keys():
