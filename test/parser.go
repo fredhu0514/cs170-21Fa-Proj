@@ -31,10 +31,7 @@ func ReadInputFile(filepath string)  ([]Task, error) {
 
 	// Parse the rest things
 	for  {
-		taskString, err := reader.ReadString('\n')
-		if err == io.EOF {
-			break
-		}
+		taskString, errEOF := reader.ReadString('\n')
 		taskInput := strings.Fields(taskString)
 		if len(taskInput) != 4 {
 			return taskList, errors.New("invalid input length")
@@ -58,6 +55,10 @@ func ReadInputFile(filepath string)  ([]Task, error) {
 			return taskList, errors.New("invalid input benefit type")
 		}
 		taskList = append(taskList, NewTask(id, deadline, duration, benefit))
+
+		if errEOF == io.EOF {
+			break
+		}
 	}
 
 	// Compare preset length and real length

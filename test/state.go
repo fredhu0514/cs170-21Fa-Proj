@@ -2,10 +2,10 @@ package test
 
 import (
 	"errors"
+	"fmt"
 	"strconv"
 )
 
-var StateMap = map[string]State{}
 var MaxTime = int64(1440)
 
 type State struct {
@@ -62,7 +62,7 @@ func NewIDqValTrial(id int64, qVal float64, trial int) IDqValTrial {
 	return obj
 }
 
-func NewState(curProfit	float64,  curPath []int64, curTime int64, qVals []IDqValTrial, updateMap map[int64]IDqValTrial, isFinal bool) (state State) {
+func NewState(curProfit float64, curPath []int64, curTime int64, qVals []IDqValTrial, updateMap map[int64]IDqValTrial, isFinal bool) (state State) {
 	state.curProfit = curProfit
 	state.curPath = curPath
 	state.curTime = curTime
@@ -72,15 +72,17 @@ func NewState(curProfit	float64,  curPath []int64, curTime int64, qVals []IDqVal
 	return state
 }
 
-func (prevState *State) NextState(action int64, taskList []Task) (state State, index string, err error) {
+func (prevState *State) NextState(action int64, PTRTaskList *[]Task, PTRStateMap *map[string]State) (state State, index string, err error) {
+	fmt.Println("E1----")
 	// check if is derived from last step
 	wantedIDqValTrial, ok := prevState.updateMap[action]
 	if !ok {
 		return state, "", errors.New("such move is not derived from last step")
 	}
+	fmt.Println(prevState.updateMap[action])
 
 	// Check if such move really valid
-	curTime := prevState.curTime + taskList[int(action)-1].duration
+	curTime := prevState.curTime + (*PTRTaskList)[int(action)-1].duration
 	if curTime > MaxTime {
 		return state, "", errors.New("invalid move, and should not exits")
 	}
@@ -88,7 +90,9 @@ func (prevState *State) NextState(action int64, taskList []Task) (state State, i
 
 	// Update last time such move
 	wantedIDqValTrial.trial += 1
-
+	fmt.Println("E2----")
+	fmt.Println(prevState.updateMap[action])
+	fmt.Println("E3----")
 	// Update cur path
 	state.curPath = append(prevState.curPath, action)
 
@@ -99,13 +103,13 @@ func (prevState *State) NextState(action int64, taskList []Task) (state State, i
 	}
 
 	// Check if we have spanned this state before
-	newState, ok := StateMap[s]
+	newState, ok := (*PTRStateMap)[s]
 	if ok {
 		return newState, s, nil
 	}
 
 	// Get such task
-	actionTask := taskList[int(action)-1]
+	actionTask := (*PTRTaskList)[int(action)-1]
 
 	// Update cur profit
 	state.curProfit = prevState.curProfit + actionTask.GetProfit(prevState.curTime)
@@ -116,7 +120,7 @@ func (prevState *State) NextState(action int64, taskList []Task) (state State, i
 	for i:=0; i<len(prevState.qVals); i++ {
 		id := prevState.qVals[i].id // All valid moves must be a subset of last state
 		if id != action {
-			if !(taskList[int(id)-1].duration + curTime > MaxTime) { // check if the time passed max time
+			if !((*PTRTaskList)[int(id)-1].duration + curTime > MaxTime) { // check if the time passed max time
 				curQValObj := NewIDqValTrial(id, float64(0), 0) // Set such an object
 				qVals = append(qVals, curQValObj) // Update the qValue
 				updateMap[id] = curQValObj // update the update map
@@ -136,7 +140,7 @@ func (prevState *State) NextState(action int64, taskList []Task) (state State, i
 	}
 
 	// Add this state to the global map
-	StateMap[s] = state
+	(*PTRStateMap)[s] = state
 
 	return state, s, nil
 }
