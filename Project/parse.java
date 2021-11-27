@@ -4,6 +4,8 @@ import java.nio.file.Paths;
 import java.nio.file.Files;
 import java.util.List;
 import java.util.ArrayList;
+import java.lang.reflect.Array;
+
 
 public class parse {
 
@@ -29,6 +31,9 @@ public class parse {
 
         for (int i = 1; i <= num_tasks; i+=1) {
             String[] task_parameters = input_lines.get(i).split("\t", 0);
+            if (task_parameters.length != 4) {
+                task_parameters = input_lines.get(i).split(" ", 0);
+            }
 
             assert (task_parameters.length == 4): String.format("The number of parameters in task %d is incorrect", i);
 
