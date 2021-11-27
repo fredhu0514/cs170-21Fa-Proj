@@ -93,8 +93,6 @@ public class parse {
 
     public static void main(String[] args) throws Exception{
         List<Task> Tasks = read_input_file("Project/inputs/large/large-1.in");
-        List<Integer>task_ids = read_output_file("/Users/zhangjianxiang_tom/Desktop/Files/Fall2021/CS170/cs170-21Fa-Proj/outputs/large/large-1.out");
-        write_output_file("Project/test.out", task_ids);
     }
 
 }
