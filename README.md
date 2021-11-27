@@ -1,4 +1,4 @@
-# Data in this branch serves for te purpose of validation.
+# Java Version
 ### For each length of input (small, medium, large), 300 sample inputs named such as `small-1.in`  to `small-300.in`.
 
 ### You should put `inputs` in the same folder as `solver.py`. Then generate the result to an `outputs` folder.
