@@ -2,7 +2,6 @@ package test
 
 import (
 	"errors"
-	"fmt"
 	"strconv"
 )
 
@@ -12,87 +11,50 @@ type State struct {
 	curProfit	float64
 	curPath		[]int64
 	curTime		int64
-	qVals		[]IDqValTrial
-	updateMap 	map[int64]IDqValTrial
+	qVals 		map[int64]*IDqValTrial
 	isFinal		bool
 }
 
 type IDqValTrial struct {
-	id			int64
 	qVal		float64
 	trial		int
 }
 
-// Get largest QVal id
-func (state *State) LargestQValID() int64 {
-	if state.isFinal {
-		return int64(-1)
-	}
-	maxQVal := state.qVals[0].qVal
-	maxID := state.qVals[0].id
-	for i:=0; i<len(state.qVals); i++{
-		if state.qVals[i].qVal > maxQVal {
-			maxID = state.qVals[i].id
-		}
-	}
-	return maxID
-}
-
-// Get smallest trial id
-func (state *State) SmallestTrialID() int64 {
-	if state.isFinal {
-		return int64(-1)
-	}
-	minTrial := state.qVals[0].qVal
-	minID := state.qVals[0].id
-	for i:=0; i<len(state.qVals); i++{
-		if state.qVals[i].qVal > minTrial {
-			minID = state.qVals[i].id
-		}
-	}
-	return minID
-}
-
-
-func NewIDqValTrial(id int64, qVal float64, trial int) IDqValTrial {
+func NewIDqValTrial(qVal float64, trial int) *IDqValTrial {
 	var obj IDqValTrial
-	obj.id = id
 	obj.qVal = qVal
 	obj.trial = trial
-	return obj
+	return &obj
 }
 
-func NewState(curProfit float64, curPath []int64, curTime int64, qVals []IDqValTrial, updateMap map[int64]IDqValTrial, isFinal bool) (state State) {
+func NewState(curProfit float64, curPath []int64, curTime int64,
+	qVals map[int64]*IDqValTrial, isFinal bool) *State {
+	var state State
 	state.curProfit = curProfit
 	state.curPath = curPath
 	state.curTime = curTime
 	state.qVals = qVals
-	state.updateMap = updateMap
 	state.isFinal = isFinal
-	return state
+	return &state
 }
 
-func (prevState *State) NextState(action int64, PTRTaskList *[]Task, PTRStateMap *map[string]State) (state State, index string, err error) {
-	fmt.Println("E1----")
+func (prevState *State) NextState(action int64, PTRTaskList *[]Task, PTRStateMap *map[string]*State) (statePTR *State, index string, err error) {
+	var state State
 	// check if is derived from last step
-	wantedIDqValTrial, ok := prevState.updateMap[action]
+	PTRwantedIDqValTrial, ok := prevState.qVals[action]
 	if !ok {
-		return state, "", errors.New("such move is not derived from last step")
+		return nil, "", errors.New("such move is not derived from last step")
 	}
-	fmt.Println(prevState.updateMap[action])
 
 	// Check if such move really valid
 	curTime := prevState.curTime + (*PTRTaskList)[int(action)-1].duration
 	if curTime > MaxTime {
-		return state, "", errors.New("invalid move, and should not exits")
+		return nil, "", errors.New("invalid move, and should not exits")
 	}
 	state.curTime = curTime // update cur time if valid
 
 	// Update last time such move
-	wantedIDqValTrial.trial += 1
-	fmt.Println("E2----")
-	fmt.Println(prevState.updateMap[action])
-	fmt.Println("E3----")
+	(*PTRwantedIDqValTrial).trial += 1
 	// Update cur path
 	state.curPath = append(prevState.curPath, action)
 
@@ -115,22 +77,18 @@ func (prevState *State) NextState(action int64, PTRTaskList *[]Task, PTRStateMap
 	state.curProfit = prevState.curProfit + actionTask.GetProfit(prevState.curTime)
 
 	// Create new qVals and updateMap
-	qVals := []IDqValTrial{}
-	updateMap := map[int64]IDqValTrial{}
-	for i:=0; i<len(prevState.qVals); i++ {
-		id := prevState.qVals[i].id // All valid moves must be a subset of last state
+	qVals := map[int64]*IDqValTrial{}
+	for id, _ := range prevState.qVals {
+		// All valid moves must be a subset of last state
 		if id != action {
 			if !((*PTRTaskList)[int(id)-1].duration + curTime > MaxTime) { // check if the time passed max time
-				curQValObj := NewIDqValTrial(id, float64(0), 0) // Set such an object
-				qVals = append(qVals, curQValObj) // Update the qValue
-				updateMap[id] = curQValObj // update the update map
+				qVals[id] = NewIDqValTrial(float64(0), 0) // Set such an object and update the update map
 			}
 		}
 	}
 
 	// Update qVal list
 	state.qVals = qVals
-	state.updateMap = updateMap
 
 	// Check if it is the final state
 	if len(qVals) == 0 {
@@ -140,7 +98,61 @@ func (prevState *State) NextState(action int64, PTRTaskList *[]Task, PTRStateMap
 	}
 
 	// Add this state to the global map
-	(*PTRStateMap)[s] = state
+	(*PTRStateMap)[s] = &state
 
-	return state, s, nil
+	return &state, s, nil
+}
+
+// Get smallest trial id
+func (state *State) SmallestTrialID() (int64) {
+	var minID int64
+	var minTrial int
+	for k, v := range state.qVals {
+		minID = k
+		minTrial = (*v).trial
+		break
+	}
+	for k, v := range state.qVals {
+		if (*v).trial < minTrial {
+			minID = k
+			minTrial = (*v).trial
+		}
+	}
+	return minID
+}
+
+// Get largest QVal id
+func (state *State) LargestQValID() (int64) {
+	var maxID int64
+	var maxQVal float64
+	for k, v := range state.qVals {
+		maxID = k
+		maxQVal = (*v).qVal
+		break
+	}
+	for k, v := range state.qVals {
+		if (*v).qVal > maxQVal {
+			maxID = k
+			maxQVal = (*v).qVal
+		}
+	}
+	return maxID
+}
+
+// Get largest QVal
+func (state *State) MaxQVal() (float64, error) {
+	if state.isFinal {
+		return 0, errors.New("is final state")
+	}
+	var maxQVal float64
+	for _, v := range state.qVals {
+		maxQVal = (*v).qVal
+		break
+	}
+	for _, v := range state.qVals {
+		if (*v).qVal > maxQVal {
+			maxQVal = (*v).qVal
+		}
+	}
+	return maxQVal, nil
 }

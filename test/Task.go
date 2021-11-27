@@ -1,7 +1,7 @@
 package test
 
 import (
-	"math"
+"math"
 )
 
 type Task struct {
