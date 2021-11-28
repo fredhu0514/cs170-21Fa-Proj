@@ -20,8 +20,8 @@ func init() {
 func main(){
 	rand.Seed(int64(20003))
 	path := []string{"small", "medium", "large"}
-	for s:=0; s<=2; s++ {
-		for index:=1; index<=300; index++ {
+	for s:=0; s<=0; s++ {
+		for index:=1; index<=1; index++ {
 			log.Printf("READY TO GO: ")
 			taskFileName := "./inputs/" + path[s] + "/" + path[s] + "-" +strconv.Itoa(index) + ".in"
 			rawOutputFileName := "./outputs/" + path[s] + "/" + path[s] + "-" +strconv.Itoa(index) + ".out"
