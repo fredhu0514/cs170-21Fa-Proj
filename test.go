@@ -20,8 +20,8 @@ func init() {
 func main(){
 	rand.Seed(int64(20003))
 	path := []string{"small", "medium", "large"}
-	for s:=0; s<=0; s++ {
-		for index:=1; index<=1; index++ {
+	for s:=0; s<=3; s++ {
+		for index:=1; index<=300; index++ {
 			log.Printf("READY TO GO: ")
 			taskFileName := "./inputs/" + path[s] + "/" + path[s] + "-" +strconv.Itoa(index) + ".in"
 			rawOutputFileName := "./outputs/" + path[s] + "/" + path[s] + "-" +strconv.Itoa(index) + ".out"
@@ -42,8 +42,18 @@ func main(){
 				panic(err)
 			}
 
+			// Set maxiteration
+			var maxIter int
+			if s == 0 {
+				maxIter = 30000
+			} else if s == 1 {
+				maxIter =22500
+			} else {
+				maxIter =20000
+			}
+
 			// Task into Solve
-			outputList, err := Test.Solve(taskListPTR, rawOPListPTR, 20000)
+			outputList, err := Test.Solve(taskListPTR, rawOPListPTR, maxIter)
 			if err != nil {
 				panic(err)
 			}
