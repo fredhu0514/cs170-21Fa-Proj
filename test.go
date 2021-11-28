@@ -21,7 +21,7 @@ func main(){
 	rand.Seed(int64(20003))
 	path := []string{"small", "medium", "large"}
 	for s:=0; s<=0; s++ {
-		for index:=1; index<=1; index++ {
+		for index:=2; index<=2; index++ {
 			log.Printf("READY TO GO: ")
 			taskFileName := "./inputs/" + path[s] + "/" + path[s] + "-" +strconv.Itoa(index) + ".in"
 			rawOutputFileName := "./outputs/" + path[s] + "/" + path[s] + "-" +strconv.Itoa(index) + ".out"
@@ -43,7 +43,7 @@ func main(){
 			}
 
 			// Task into Solve
-			outputList, err := Test.Solve(taskListPTR, rawOPListPTR, 20000)
+			outputList, err := Test.Solve(taskListPTR, rawOPListPTR, 50000)
 			if err != nil {
 				panic(err)
 			}

@@ -3,6 +3,7 @@ package test
 import (
 	"errors"
 	"log"
+	"math"
 	"math/rand"
 )
 
@@ -166,7 +167,7 @@ func backwardTransition(MaxProfitEver *[]float64, PTRMaxProfitEverList *[]int64,
 					log.Printf("%d, %f, %d\n", CurIter, (*MaxProfitEver)[0], len(*PTRStateMap))
 				}
 			}
-			iStatePTR.qVals[action].qVal += lr * (reward + gamma * profit * amplifier) - lr * bjIDqValTrialPTR.qVal
+			iStatePTR.qVals[action].qVal += lr * (reward + gamma * math.Pow(2, (profit/4000)) * amplifier) - lr * bjIDqValTrialPTR.qVal
 		} else {
 			maxTerminalStateQVal, err := tStatePTR.MaxQVal()
 			if err != nil {
@@ -179,5 +180,14 @@ func backwardTransition(MaxProfitEver *[]float64, PTRMaxProfitEverList *[]int64,
 }
 
 func tryExploitation(CurIter int, MaxIter int) bool {
-	return rand.Float64() < 0.2
+	if CurIter < MaxIter / 5 {
+		return rand.Float64() < 0.05
+	} else if CurIter < (2 * MaxIter / 5) {
+		return rand.Float64() < 0.2
+	} else if CurIter < (3 * MaxIter / 5) {
+		return rand.Float64() < 0.4
+	} else if CurIter < (4 * MaxIter / 5) {
+		return rand.Float64() < 0.6
+	}
+	return rand.Float64() < 0.8
 }
