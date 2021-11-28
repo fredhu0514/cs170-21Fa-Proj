@@ -133,7 +133,7 @@ if __name__ == '__main__':
             if input_path[-2:] == 'in':
                 path = 'inputs/'+x+'/'+input_path
                 tasks = read_input_file(path)
-                output, benefit = solve_iter(tasks, len(tasks)//2)
+                output, benefit = solve_iter(tasks, len(tasks)//5)
                 logging.info('Writing output file for ' + input_path + '...')
                 write_output_file('outputsNew/'+x+'/'+input_path[:-2]+'out', output)
                 benefits[x].append(benefit)
