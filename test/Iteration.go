@@ -44,6 +44,52 @@ func Iteration(MaxProfitEver *[]float64, MaxProfitEverList *[]int64, CurIter int
 	return nil
 }
 
+func GuideIteration(MaxProfitEver *[]float64, MaxProfitEverList *[]int64, PTRStateMap *map[string]*State,
+	PTRCurTransition *[]TransitionUnit, PTRTaskList *[]Task, PTRActList *[]int64) error {
+
+	dummyStart, ok := (*PTRStateMap)[""]
+	if !ok {
+		return errors.New("dummy node DNE!")
+	}
+
+	// guiding Forwards
+	err := guideForwardTransition(PTRStateMap, PTRCurTransition, dummyStart, PTRTaskList, PTRActList)
+	if err != nil {
+		return err
+	}
+
+	// Backward
+	err = backwardTransition(MaxProfitEver, MaxProfitEverList, PTRStateMap, PTRCurTransition, -1)
+	if err != nil {
+		return err
+	}
+
+	// Reassign the global variable CurTransition
+	*PTRCurTransition = []TransitionUnit{}
+	return nil
+}
+
+func guideForwardTransition(PTRStateMap *map[string]*State, PTRCurTransition *[]TransitionUnit,
+	dummyState *State, PTRTaskList *[]Task, PTRActList *[]int64) error {
+	curState := dummyState
+	prevIndex := ""
+	for i := range *PTRActList {
+		// if exploring or exploitation
+		action := (*PTRActList)[i]
+		nextState, newIndex, err := curState.NextState(action, PTRTaskList, PTRStateMap)
+		if err != nil {
+			return errors.New("errors during guiding forward transition")
+		}
+		// Update current path
+		*PTRCurTransition = append(*PTRCurTransition, NewTransitionUnit(prevIndex, newIndex, action))
+		// Update current state
+		curState = nextState
+		// Update prev index
+		prevIndex = newIndex
+	}
+	return nil
+}
+
 func forwardTransition(PTRStateMap *map[string]*State, PTRCurTransition *[]TransitionUnit, CurIter int,
 	MaxIter int, dummyState *State, PTRTaskList *[]Task) error {
 	curState := dummyState
@@ -111,11 +157,14 @@ func backwardTransition(MaxProfitEver *[]float64, PTRMaxProfitEverList *[]int64,
 			profit := tStatePTR.curProfit
 			if profit > (*MaxProfitEver)[0]  {
 				// TODO: HYPER PARAMETER DOWN
-				amplifier = 100
+				amplifier = 1
 				// TODO: HYPER PARAMETER UP
 				(*MaxProfitEver)[0] = profit
 				*PTRMaxProfitEverList = tStatePTR.curPath
-				log.Printf("%d, %f, %d\n", CurIter, (*MaxProfitEver)[0], len(*PTRStateMap))
+				if CurIter != -1 {
+					log.Printf("FIND NEW PROFIT!!!")
+					log.Printf("%d, %f, %d\n", CurIter, (*MaxProfitEver)[0], len(*PTRStateMap))
+				}
 			}
 			iStatePTR.qVals[action].qVal += lr * (reward + gamma * profit * amplifier) - lr * bjIDqValTrialPTR.qVal
 		} else {
@@ -130,5 +179,5 @@ func backwardTransition(MaxProfitEver *[]float64, PTRMaxProfitEverList *[]int64,
 }
 
 func tryExploitation(CurIter int, MaxIter int) bool {
-	return rand.Float64() < 0.4
+	return rand.Float64() < float64(CurIter / MaxIter)
 }

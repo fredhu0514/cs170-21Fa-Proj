@@ -1,6 +1,6 @@
 package test
 
-func Train(MaxIteration int, PTRTaskList *[]Task) (float64, []int64, error) {
+func Train(MaxIteration int, PTRrawOP *[]int64, PTRTaskList *[]Task) (float64, []int64, error) {
 	// Init Max Profit & Max Path
 	MAX_PROFIT := []float64{0}
 	MAX_PATH := []int64{}
@@ -16,6 +16,12 @@ func Train(MaxIteration int, PTRTaskList *[]Task) (float64, []int64, error) {
 	// Init Cur Transition record  and push it into the StateMap
 	CurTransition := []TransitionUnit{}
 	StateMap[""] = NewState(float64(0), nullPath, int64(0), qVals, false)
+
+	// Guide Iter
+	err := GuideIteration(&MAX_PROFIT, &MAX_PATH, &StateMap, &CurTransition, PTRTaskList, PTRrawOP)
+	if err != nil {
+		return 0, nil, err
+	}
 
 	// Init CurIter and ready for iteration
 	CurIter := 0

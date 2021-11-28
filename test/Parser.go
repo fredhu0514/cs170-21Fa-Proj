@@ -72,6 +72,32 @@ func ReadInputFile(filepath string)  (*[]Task, error) {
 	return &taskList, nil
 }
 
+func ReadOutputFile(filepath string)  (*[]int64, error) {
+	solution := []int64{}
+
+	// Get the first line number
+	file, err := os.Open(filepath)
+	if err != nil {
+		return nil, errors.New("file DNE")
+	}
+	reader := bufio.NewReader(file)
+
+	// Parse the rest things
+	for  {
+		taskIDStr, errEOF := reader.ReadString('\n')
+		if errEOF == io.EOF {
+			break
+		}
+		taskIDList := strings.Fields(taskIDStr)
+		taskID, err := strconv.ParseInt(taskIDList[0], 10, 64)
+		if err != nil {
+			return nil, errors.New("cannot parse total task amount")
+		}
+		solution = append(solution, taskID)
+	}
+	return &solution, nil
+}
+
 func WriteOutputFile(filepath string, taskIDs []int64) error {
 	f, err := os.Create(filepath)
 	if err != nil {

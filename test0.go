@@ -5,6 +5,7 @@ import (
 	"log"
 	"math/rand"
 	"os"
+	"strconv"
 )
 
 func init() {
@@ -18,18 +19,37 @@ func init() {
 
 func main(){
 	rand.Seed(int64(2023))
+	path := []string{"small", "medium", "large"}
+	index := 1
+
 	log.Printf("READY TO GO: ")
-	path := "./input/small/small-1.in"
-	log.Println(path)
-	taskListPTR, err := Test.ReadInputFile(path)
+	taskFileName := "./inputs/" + path[0] + "/" + path[0] + "-" +strconv.Itoa(index) + ".in"
+	rawOutputFileName := "./outputs/" + path[0] + "/" + path[0] + "-" +strconv.Itoa(index) + ".out"
+	newOutputFileName := "./newoutput/" + path[0] + "/" + path[0] + "-" +strconv.Itoa(index) + ".out"
+	log.Println("task file: " + taskFileName)
+	log.Println("raw output: " + rawOutputFileName)
+	log.Println("new output: " + newOutputFileName)
+
+	// Read in Tasks
+	taskListPTR, err := Test.ReadInputFile(taskFileName)
 	if err != nil {
 		panic(err)
 	}
-	outputList, err := Test.Solve(taskListPTR, 10000)
+
+	// Read in Output
+	rawOPListPTR, err := Test.ReadOutputFile(rawOutputFileName)
 	if err != nil {
 		panic(err)
 	}
-	err = Test.WriteOutputFile("./shit.out", outputList)
+
+	// Task into Solve
+	outputList, err := Test.Solve(taskListPTR, rawOPListPTR, 40000)
+	if err != nil {
+		panic(err)
+	}
+
+	// Write the tasks order
+	err = Test.WriteOutputFile(newOutputFileName, outputList)
 	if err != nil {
 		panic(err)
 	}
