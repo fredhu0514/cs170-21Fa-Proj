@@ -158,7 +158,7 @@ func backwardTransition(MaxProfitEver *[]float64, PTRMaxProfitEverList *[]int64,
 			profit := tStatePTR.curProfit
 			if profit > (*MaxProfitEver)[0]  {
 				// TODO: HYPER PARAMETER DOWN
-				amplifier = 1
+				amplifier = 10
 				// TODO: HYPER PARAMETER UP
 				(*MaxProfitEver)[0] = profit
 				*PTRMaxProfitEverList = tStatePTR.curPath
@@ -167,7 +167,7 @@ func backwardTransition(MaxProfitEver *[]float64, PTRMaxProfitEverList *[]int64,
 					log.Printf("%d, %f, %d\n", CurIter, (*MaxProfitEver)[0], len(*PTRStateMap))
 				}
 			}
-			iStatePTR.qVals[action].qVal += lr * (reward + gamma * math.Pow(2, (profit/4000)) * amplifier) - lr * bjIDqValTrialPTR.qVal
+			iStatePTR.qVals[action].qVal += lr * (reward + gamma * math.Pow(2, (profit/5000)) * amplifier) - lr * bjIDqValTrialPTR.qVal
 		} else {
 			maxTerminalStateQVal, err := tStatePTR.MaxQVal()
 			if err != nil {
