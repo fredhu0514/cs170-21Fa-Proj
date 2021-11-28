@@ -120,19 +120,19 @@ import logging
 from datetime import datetime
 
 if __name__ == '__main__':
-    logging.basicConfig(filename="GreedySolver4.log", level=logging.INFO)
+    logging.basicConfig(filename="GreedySolver5.log", level=logging.INFO)
     logging.info('New Log at ' + datetime.now().strftime('%m/%d/%Y %H:%M:%S'))
-    if not os.path.isdir('outputsNew/'):
-            os.mkdir('outputsNew/')
+    if not os.path.isdir('outputsSolver5/'):
+            os.mkdir('outputsSolver5')
     benefits = {'small':[], 'medium':[], 'large':[]}
     for x in benefits.keys():
-        if not os.path.isdir('outputsNew/'+x+'/'):
-            os.mkdir('outputsNew/'+x+'/')
+        if not os.path.isdir('outputsSolver5/'+x+'/'):
+            os.mkdir('outputsSolver5/'+x+'/')
     for x in benefits.keys():
         logging.info(x + ': ')
         for input_path in os.listdir('inputs/'+x+'/'):
             if input_path[-2:] == 'in':
-                output_path = 'outputsNew/'+x+'/'+input_path[:-2]+'out'
+                output_path = 'outputsSolver5/'+x+'/'+input_path[:-2]+'out'
                 if os.path.isfile(output_path):
                     continue
                 path = 'inputs/'+x+'/'+input_path
@@ -140,6 +140,7 @@ if __name__ == '__main__':
                 output, benefit = solve_iter(tasks, 15, seed=3034558112) # set max_n to 15 for every task
                 logging.info('Writing output file for ' + input_path + '...')
                 write_output_file(output_path, output)
+                logging.info('Profit: ' + str(benefit))
                 benefits[x].append(benefit)
     for x in benefits.keys():
         benefits[x] = np.mean(benefits[x])
