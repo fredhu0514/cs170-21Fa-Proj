@@ -179,5 +179,5 @@ func backwardTransition(MaxProfitEver *[]float64, PTRMaxProfitEverList *[]int64,
 }
 
 func tryExploitation(CurIter int, MaxIter int) bool {
-	return rand.Float64() < float64(CurIter / MaxIter)
+	return rand.Float64() < 0.2
 }

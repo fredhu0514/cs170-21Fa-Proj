@@ -1,0 +1,32 @@
+2021/11/27 19:49:24.210786 /Users/fredhu/cs170-21Fa-Proj/test.go:25: READY TO GO: 
+2021/11/27 19:49:24.210963 /Users/fredhu/cs170-21Fa-Proj/test.go:29: task file: ./inputs/small/small-1.in
+2021/11/27 19:49:24.210975 /Users/fredhu/cs170-21Fa-Proj/test.go:30: raw output: ./outputs/small/small-1.out
+2021/11/27 19:49:24.210982 /Users/fredhu/cs170-21Fa-Proj/test.go:31: new output: ./newoutput/small/small-1.out
+2021/11/27 19:49:24.211630 /Users/fredhu/cs170-21Fa-Proj/test/Solver.go:12: Max Iteration: 10000
+2021/11/27 19:49:24.211650 /Users/fredhu/cs170-21Fa-Proj/test/Solver.go:13: lr 0.005000; reward 0.001000; gamma 0.800000
+2021/11/27 19:49:26.633784 /Users/fredhu/cs170-21Fa-Proj/test/Solver.go:18: Profit: 3460.005115
+2021/11/27 19:49:26.633847 /Users/fredhu/cs170-21Fa-Proj/test/Solver.go:19: [97 33 34 35 99 46 29 57 50 60 98 100 1 80 88 53 45 8 58 12 61 83 23 75 31 69 77 6 39 82 70 78 20 63 67 32 26 30 40 37 24 22 65 72 28 71 7 38 16 44 21 62 68 19 9 56 87 74]
+2021/11/27 20:26:45.544412 /Users/fredhu/cs170-21Fa-Proj/test.go:25: READY TO GO: 
+2021/11/27 20:26:45.544805 /Users/fredhu/cs170-21Fa-Proj/test.go:29: task file: ./inputs/small/small-1.in
+2021/11/27 20:26:45.544824 /Users/fredhu/cs170-21Fa-Proj/test.go:30: raw output: ./outputs/small/small-1.out
+2021/11/27 20:26:45.544834 /Users/fredhu/cs170-21Fa-Proj/test.go:31: new output: ./newoutput/small/small-1.out
+2021/11/27 20:26:45.545790 /Users/fredhu/cs170-21Fa-Proj/test/Solver.go:12: Max Iteration: 20000
+2021/11/27 20:26:45.545814 /Users/fredhu/cs170-21Fa-Proj/test/Solver.go:13: lr 0.005000; reward 0.001000; gamma 0.800000
+2021/11/27 20:27:03.143289 /Users/fredhu/cs170-21Fa-Proj/test/Solver.go:18: Profit: 3460.005115
+2021/11/27 20:27:03.144890 /Users/fredhu/cs170-21Fa-Proj/test/Solver.go:19: [97 33 34 35 99 46 29 57 50 60 98 100 1 80 88 53 45 8 58 12 61 83 23 75 31 69 77 6 39 82 70 78 20 63 67 32 26 30 40 37 24 22 65 72 28 71 7 38 16 44 21 62 68 19 9 56 87 74]
+2021/11/27 20:29:56.998544 /Users/fredhu/cs170-21Fa-Proj/test.go:25: READY TO GO: 
+2021/11/27 20:29:56.998673 /Users/fredhu/cs170-21Fa-Proj/test.go:29: task file: ./inputs/small/small-1.in
+2021/11/27 20:29:56.998684 /Users/fredhu/cs170-21Fa-Proj/test.go:30: raw output: ./outputs/small/small-1.out
+2021/11/27 20:29:56.998694 /Users/fredhu/cs170-21Fa-Proj/test.go:31: new output: ./newoutput/small/small-1.out
+2021/11/27 20:29:56.999313 /Users/fredhu/cs170-21Fa-Proj/test/Solver.go:12: Max Iteration: 20000
+2021/11/27 20:29:56.999341 /Users/fredhu/cs170-21Fa-Proj/test/Solver.go:13: lr 0.005000; reward 0.001000; gamma 0.800000
+2021/11/27 20:30:11.425047 /Users/fredhu/cs170-21Fa-Proj/test/Solver.go:18: Profit: 3460.005115
+2021/11/27 20:30:11.425125 /Users/fredhu/cs170-21Fa-Proj/test/Solver.go:19: [97 33 34 35 99 46 29 57 50 60 98 100 1 80 88 53 45 8 58 12 61 83 23 75 31 69 77 6 39 82 70 78 20 4 96 95 94 2 93 92 91 90 89 87 86 85 84 81 76 7 21 44 32 19 9 56 87 74]
+2021/11/27 20:32:14.597413 /Users/fredhu/cs170-21Fa-Proj/test.go:25: READY TO GO: 
+2021/11/27 20:32:14.597589 /Users/fredhu/cs170-21Fa-Proj/test.go:29: task file: ./inputs/small/small-1.in
+2021/11/27 20:32:14.597603 /Users/fredhu/cs170-21Fa-Proj/test.go:30: raw output: ./outputs/small/small-1.out
+2021/11/27 20:32:14.597612 /Users/fredhu/cs170-21Fa-Proj/test.go:31: new output: ./newoutput/small/small-1.out
+2021/11/27 20:32:14.598335 /Users/fredhu/cs170-21Fa-Proj/test/Solver.go:12: Max Iteration: 20000
+2021/11/27 20:32:14.598369 /Users/fredhu/cs170-21Fa-Proj/test/Solver.go:13: lr 0.005000; reward 0.001000; gamma 0.800000
+2021/11/27 20:32:29.988037 /Users/fredhu/cs170-21Fa-Proj/test/Solver.go:18: Profit: 3460.005115
+2021/11/27 20:32:29.988123 /Users/fredhu/cs170-21Fa-Proj/test/Solver.go:19: [97 33 34 35 99 46 29 57 50 60 98 100 1 80 88 53 45 8 58 12 61 83 23 75 31 69 77 6 39 82 70 78 20 63 67 32 26 2 96 95 94 93 3 92 91 90 89 87 86 76 74 44 21 19 9 56 87 74]

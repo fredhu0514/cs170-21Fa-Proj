@@ -18,39 +18,41 @@ func init() {
 }
 
 func main(){
-	rand.Seed(int64(2023))
+	rand.Seed(int64(20003))
 	path := []string{"small", "medium", "large"}
-	for index:=1; index<=300; index++ {
-		log.Printf("READY TO GO: ")
-		taskFileName := "./inputs/" + path[0] + "/" + path[0] + "-" +strconv.Itoa(index) + ".in"
-		rawOutputFileName := "./outputs/" + path[0] + "/" + path[0] + "-" +strconv.Itoa(index) + ".out"
-		newOutputFileName := "./newoutput/" + path[0] + "/" + path[0] + "-" +strconv.Itoa(index) + ".out"
-		log.Println("task file: " + taskFileName)
-		log.Println("raw output: " + rawOutputFileName)
-		log.Println("new output: " + newOutputFileName)
+	for s:=0; s<=0; s++ {
+		for index:=1; index<=1; index++ {
+			log.Printf("READY TO GO: ")
+			taskFileName := "./inputs/" + path[s] + "/" + path[s] + "-" +strconv.Itoa(index) + ".in"
+			rawOutputFileName := "./outputs/" + path[s] + "/" + path[s] + "-" +strconv.Itoa(index) + ".out"
+			newOutputFileName := "./newoutput/" + path[s] + "/" + path[s] + "-" +strconv.Itoa(index) + ".out"
+			log.Println("task file: " + taskFileName)
+			log.Println("raw output: " + rawOutputFileName)
+			log.Println("new output: " + newOutputFileName)
 
-		// Read in Tasks
-		taskListPTR, err := Test.ReadInputFile(taskFileName)
-		if err != nil {
-			panic(err)
-		}
+			// Read in Tasks
+			taskListPTR, err := Test.ReadInputFile(taskFileName)
+			if err != nil {
+				panic(err)
+			}
 
-		// Read in Output
-		rawOPListPTR, err := Test.ReadOutputFile(rawOutputFileName)
-		if err != nil {
-			panic(err)
-		}
+			// Read in Output
+			rawOPListPTR, err := Test.ReadOutputFile(rawOutputFileName)
+			if err != nil {
+				panic(err)
+			}
 
-		// Task into Solve
-		outputList, err := Test.Solve(taskListPTR, rawOPListPTR, 4)
-		if err != nil {
-			panic(err)
-		}
+			// Task into Solve
+			outputList, err := Test.Solve(taskListPTR, rawOPListPTR, 20000)
+			if err != nil {
+				panic(err)
+			}
 
-		// Write the tasks order
-		err = Test.WriteOutputFile(newOutputFileName, outputList)
-		if err != nil {
-			panic(err)
+			// Write the tasks order
+			err = Test.WriteOutputFile(newOutputFileName, outputList)
+			if err != nil {
+				panic(err)
+			}
 		}
 	}
 }

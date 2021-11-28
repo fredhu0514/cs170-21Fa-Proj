@@ -33,6 +33,9 @@ func ReadInputFile(filepath string)  (*[]Task, error) {
 	for  {
 		taskString, errEOF := reader.ReadString('\n')
 		taskInput := strings.Fields(taskString)
+		if len(taskInput) == 0 {
+			break
+		}
 		if len(taskInput) != 4 {
 			return nil, errors.New("invalid input length")
 		}
