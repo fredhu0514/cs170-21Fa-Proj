@@ -124,7 +124,7 @@ if __name__ == '__main__':
     logging.info('New Log at ' + datetime.now().strftime('%m/%d/%Y %H:%M:%S'))
     if not os.path.isdir('outputsSolver5/'):
             os.mkdir('outputsSolver5')
-    benefits = {'small':[], 'medium':[], 'large':[]}
+    benefits = {'medium':[], 'large':[]}
     for x in benefits.keys():
         if not os.path.isdir('outputsSolver5/'+x+'/'):
             os.mkdir('outputsSolver5/'+x+'/')
