@@ -3,7 +3,7 @@ import os
 import Task
 import numpy as np
 
-def solve_iter(tasks, max_n):
+def solve_iter(tasks, max_n, seed):
     """
     Args:
     -   tasks: list[Task], list of igloos to polish
@@ -11,6 +11,7 @@ def solve_iter(tasks, max_n):
     Returns:
     -   output: list of igloos in order of polishing  
     """
+    np.random.seed(seed)
     tasks_copy = tasks.copy()
     OptSeq = []
     OptBenefit = 0
@@ -133,7 +134,7 @@ if __name__ == '__main__':
             if input_path[-2:] == 'in':
                 path = 'inputs/'+x+'/'+input_path
                 tasks = read_input_file(path)
-                output, benefit = solve_iter(tasks, len(tasks)//5)
+                output, benefit = solve_iter(tasks, len(tasks)//5, seed=3034558112)
                 logging.info('Writing output file for ' + input_path + '...')
                 write_output_file('outputsNew/'+x+'/'+input_path[:-2]+'out', output)
                 benefits[x].append(benefit)
