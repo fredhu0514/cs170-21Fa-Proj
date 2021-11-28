@@ -1168,3 +1168,283 @@
 2021/11/27 22:39:59.568225 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:167: 2166, 3894.900659, 76279
 2021/11/27 22:40:01.096735 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:166: FIND NEW PROFIT!!!
 2021/11/27 22:40:01.096760 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:167: 5362, 3895.212114, 159875
+2021/11/27 22:40:21.448613 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:18: Profit: 3895.212114
+2021/11/27 22:40:21.448651 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:19: [99 39 81 67 80 16 17 69 11 7 19 12 74 37 62 95 70 57 82 26 2 1 33 42 30 93 10 88 86 24 60 94 50 54 76 68 3 100 98 97 96 92 91 90 89 87 4 85 5 84 83 79 78 77 75 27 29 78 77 73 55 6]
+2021/11/27 22:40:21.450082 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:25: READY TO GO: 
+2021/11/27 22:40:21.450092 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:29: task file: ./inputs/small/small-109.in
+2021/11/27 22:40:21.450096 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:30: raw output: ./outputs/small/small-109.out
+2021/11/27 22:40:21.450098 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:31: new output: ./newoutput/small/small-109.out
+2021/11/27 22:40:21.468209 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:12: Max Iteration: 30000
+2021/11/27 22:40:21.468226 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:13: lr 0.005000; reward 0.001000; gamma 0.800000
+2021/11/27 22:40:21.541801 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:166: FIND NEW PROFIT!!!
+2021/11/27 22:40:21.541831 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:167: 154, 3617.679759, 5267
+2021/11/27 22:40:21.804079 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:166: FIND NEW PROFIT!!!
+2021/11/27 22:40:21.804102 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:167: 704, 3627.040359, 24112
+2021/11/27 22:40:21.902559 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:166: FIND NEW PROFIT!!!
+2021/11/27 22:40:21.902582 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:167: 899, 3648.288028, 30842
+2021/11/27 22:40:23.772827 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:166: FIND NEW PROFIT!!!
+2021/11/27 22:40:23.772851 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:167: 5488, 3649.393548, 146355
+2021/11/27 22:40:42.113511 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:18: Profit: 3649.393548
+2021/11/27 22:40:42.113545 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:19: [15 35 72 46 27 20 60 55 51 4 49 85 88 16 78 12 71 67 48 73 52 65 26 80 11 61 7 75 25 40 21 24 79 83 89 87 86 1 84 82 81 77 76 74 70 69 68 66 2 3 64 63 62 38 6 57 82 59 76]
+2021/11/27 22:40:42.115075 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:25: READY TO GO: 
+2021/11/27 22:40:42.115085 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:29: task file: ./inputs/small/small-110.in
+2021/11/27 22:40:42.115088 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:30: raw output: ./outputs/small/small-110.out
+2021/11/27 22:40:42.115091 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:31: new output: ./newoutput/small/small-110.out
+2021/11/27 22:40:42.118204 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:12: Max Iteration: 30000
+2021/11/27 22:40:42.118218 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:13: lr 0.005000; reward 0.001000; gamma 0.800000
+2021/11/27 22:40:56.355899 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:18: Profit: 2906.024211
+2021/11/27 22:40:56.355929 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:19: [9 39 70 90 43 17 45 11 95 15 77 1 14 25 98 60 96 44 83 24 27 21 66 99 87 22 29 79 26 28 82 37 80 91 57 41 4 49 71 2 97 19 6]
+2021/11/27 22:40:56.357335 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:25: READY TO GO: 
+2021/11/27 22:40:56.357345 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:29: task file: ./inputs/small/small-111.in
+2021/11/27 22:40:56.357348 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:30: raw output: ./outputs/small/small-111.out
+2021/11/27 22:40:56.357351 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:31: new output: ./newoutput/small/small-111.out
+2021/11/27 22:40:56.359097 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:12: Max Iteration: 30000
+2021/11/27 22:40:56.359105 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:13: lr 0.005000; reward 0.001000; gamma 0.800000
+2021/11/27 22:40:56.366484 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:166: FIND NEW PROFIT!!!
+2021/11/27 22:40:56.366499 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:167: 10, 924.576482, 501
+2021/11/27 22:40:56.371052 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:166: FIND NEW PROFIT!!!
+2021/11/27 22:40:56.371061 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:167: 17, 925.370141, 824
+2021/11/27 22:40:56.389960 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:166: FIND NEW PROFIT!!!
+2021/11/27 22:40:56.389980 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:167: 50, 925.372302, 1985
+2021/11/27 22:40:56.392787 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:166: FIND NEW PROFIT!!!
+2021/11/27 22:40:56.392802 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:167: 55, 925.387165, 2157
+2021/11/27 22:40:56.628457 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:166: FIND NEW PROFIT!!!
+2021/11/27 22:40:56.628481 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:167: 217, 926.892410, 8792
+2021/11/27 22:40:58.746323 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:166: FIND NEW PROFIT!!!
+2021/11/27 22:40:58.746345 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:167: 2244, 927.386846, 89130
+2021/11/27 22:41:23.536907 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:18: Profit: 927.386846
+2021/11/27 22:41:23.536941 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:19: [60 55 49 47 42 39 34 29 24 19 14 9 4 65 70 73 78 83 88 93 98 1 6 11 16 21 26 48 99 97 96 95 94 2 92 91 90 89 87 86 85 84 82 81 80 79 77 76 75 74 72 71 69 68 3 67 5 66 63 61]
+2021/11/27 22:41:23.539203 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:25: READY TO GO: 
+2021/11/27 22:41:23.539213 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:29: task file: ./inputs/small/small-112.in
+2021/11/27 22:41:23.539217 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:30: raw output: ./outputs/small/small-112.out
+2021/11/27 22:41:23.539223 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:31: new output: ./newoutput/small/small-112.out
+2021/11/27 22:41:23.556045 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:12: Max Iteration: 30000
+2021/11/27 22:41:23.556063 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:13: lr 0.005000; reward 0.001000; gamma 0.800000
+2021/11/27 22:41:23.977957 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:166: FIND NEW PROFIT!!!
+2021/11/27 22:41:23.977981 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:167: 342, 5167.188001, 28171
+2021/11/27 22:41:26.286877 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:166: FIND NEW PROFIT!!!
+2021/11/27 22:41:26.286898 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:167: 2430, 5167.188001, 195829
+2021/11/27 22:42:09.516119 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:18: Profit: 5167.188001
+2021/11/27 22:42:09.516614 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:19: [76 55 23 17 51 90 11 54 59 63 20 25 24 10 99 9 18 74 96 58 46 79 36 22 42 45 77 80 41 87 6 83 75 100 98 47 66 44 89 33 94 65 12 16 35 91 64 67 15 31 30 38 81 43 26 50 70 82 34 13 95 49 72 53 61 85 78 52 68 92 56 60 69 73 62 88 84 57 97 14 93 86 71 48 1 40 39 37 2 32 29 3 28 27 21 19 8 4 7 5]
+2021/11/27 22:42:09.518958 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:25: READY TO GO: 
+2021/11/27 22:42:09.518969 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:29: task file: ./inputs/small/small-113.in
+2021/11/27 22:42:09.518973 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:30: raw output: ./outputs/small/small-113.out
+2021/11/27 22:42:09.518976 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:31: new output: ./newoutput/small/small-113.out
+2021/11/27 22:42:09.522146 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:12: Max Iteration: 30000
+2021/11/27 22:42:09.522154 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:13: lr 0.005000; reward 0.001000; gamma 0.800000
+2021/11/27 22:42:10.250006 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:166: FIND NEW PROFIT!!!
+2021/11/27 22:42:10.250034 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:167: 357, 3765.000099, 11560
+2021/11/27 22:42:46.182306 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:166: FIND NEW PROFIT!!!
+2021/11/27 22:42:47.535202 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:167: 4153, 3765.029327, 119467
+2021/11/27 22:43:08.048152 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:18: Profit: 3765.029327
+2021/11/27 22:43:08.064273 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:19: [96 41 40 53 15 95 12 28 11 25 5 24 54 10 62 73 67 69 94 17 6 13 91 49 77 2 55 59 35 27 48 81 32 79 90 70 100 99 98 97 93 92 1 3 4 89 88 7 87 86 85 8 83 89 8 88 9]
+2021/11/27 22:43:08.067966 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:25: READY TO GO: 
+2021/11/27 22:43:08.067979 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:29: task file: ./inputs/small/small-114.in
+2021/11/27 22:43:08.067982 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:30: raw output: ./outputs/small/small-114.out
+2021/11/27 22:43:08.067985 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:31: new output: ./newoutput/small/small-114.out
+2021/11/27 22:43:08.085955 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:12: Max Iteration: 30000
+2021/11/27 22:43:08.085971 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:13: lr 0.005000; reward 0.001000; gamma 0.800000
+2021/11/27 22:43:27.151120 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:18: Profit: 3384.000002
+2021/11/27 22:43:27.151153 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:19: [33 23 35 76 78 39 46 6 36 64 98 72 1 82 30 45 29 59 20 60 51 88 21 26 85 93 62 95 49 70 84 79 27 89 100 99 97 2 96 3 94 4 5 92 91 90 87 7 86 83 8 81 73 73 18 2 61 3 99 57 57]
+2021/11/27 22:43:27.152969 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:25: READY TO GO: 
+2021/11/27 22:43:27.152977 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:29: task file: ./inputs/small/small-115.in
+2021/11/27 22:43:27.152981 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:30: raw output: ./outputs/small/small-115.out
+2021/11/27 22:43:27.152993 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:31: new output: ./newoutput/small/small-115.out
+2021/11/27 22:43:27.168285 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:12: Max Iteration: 30000
+2021/11/27 22:43:27.168301 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:13: lr 0.005000; reward 0.001000; gamma 0.800000
+2021/11/27 22:43:28.341870 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:166: FIND NEW PROFIT!!!
+2021/11/27 22:43:28.341892 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:167: 1290, 3542.209014, 42424
+2021/11/27 22:43:48.107653 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:18: Profit: 3542.209014
+2021/11/27 22:43:48.107687 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:19: [33 74 29 36 50 35 57 60 100 80 39 1 53 88 45 8 58 12 61 31 93 46 75 99 77 6 78 69 32 18 34 70 67 76 63 26 20 73 82 24 83 98 97 96 2 95 94 92 91 3 90 87 21 44 95 21 96 92 92 87]
+2021/11/27 22:43:48.109491 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:25: READY TO GO: 
+2021/11/27 22:43:48.109500 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:29: task file: ./inputs/small/small-116.in
+2021/11/27 22:43:48.109504 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:30: raw output: ./outputs/small/small-116.out
+2021/11/27 22:43:48.109507 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:31: new output: ./newoutput/small/small-116.out
+2021/11/27 22:43:48.121727 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:12: Max Iteration: 30000
+2021/11/27 22:43:48.121738 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:13: lr 0.005000; reward 0.001000; gamma 0.800000
+2021/11/27 22:43:48.148453 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:166: FIND NEW PROFIT!!!
+2021/11/27 22:43:48.148475 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:167: 44, 3888.410325, 1754
+2021/11/27 22:43:48.326110 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:166: FIND NEW PROFIT!!!
+2021/11/27 22:43:48.326132 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:167: 350, 3892.305836, 13182
+2021/11/27 22:43:48.494926 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:166: FIND NEW PROFIT!!!
+2021/11/27 22:43:48.494949 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:167: 633, 3892.307902, 23787
+2021/11/27 22:43:49.096381 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:166: FIND NEW PROFIT!!!
+2021/11/27 22:43:49.096403 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:167: 1666, 3894.271329, 62420
+2021/11/27 22:44:10.554573 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:18: Profit: 3894.271329
+2021/11/27 22:44:10.554605 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:19: [29 88 35 41 19 28 61 81 11 24 7 78 91 99 79 22 21 14 43 18 3 36 10 57 62 68 45 51 2 71 74 89 72 23 82 96 75 31 34 70 59 100 98 97 95 94 93 1 92 90 87 86 85 84 83 80 77 73 73 66]
+2021/11/27 22:44:10.556413 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:25: READY TO GO: 
+2021/11/27 22:44:10.556423 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:29: task file: ./inputs/small/small-117.in
+2021/11/27 22:44:10.556426 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:30: raw output: ./outputs/small/small-117.out
+2021/11/27 22:44:10.556429 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:31: new output: ./newoutput/small/small-117.out
+2021/11/27 22:44:10.576753 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:12: Max Iteration: 30000
+2021/11/27 22:44:10.576764 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:13: lr 0.005000; reward 0.001000; gamma 0.800000
+2021/11/27 22:44:30.784161 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:18: Profit: 3756.525096
+2021/11/27 22:44:30.784196 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:19: [71 83 90 85 35 47 67 62 82 97 55 81 23 77 74 39 4 22 29 30 46 24 5 6 65 49 2 84 15 79 34 60 92 17 73 28 86 10 53 13 99 25 66 100 98 1 96 95 3 94 93 91 89 88 7 63 96 95 61 21 18]
+2021/11/27 22:44:30.785713 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:25: READY TO GO: 
+2021/11/27 22:44:30.785726 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:29: task file: ./inputs/small/small-118.in
+2021/11/27 22:44:30.785729 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:30: raw output: ./outputs/small/small-118.out
+2021/11/27 22:44:30.785733 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:31: new output: ./newoutput/small/small-118.out
+2021/11/27 22:44:30.801214 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:12: Max Iteration: 30000
+2021/11/27 22:44:30.801224 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:13: lr 0.005000; reward 0.001000; gamma 0.800000
+2021/11/27 22:44:56.046122 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:18: Profit: 3669.774654
+2021/11/27 22:44:56.046154 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:19: [65 31 81 6 27 86 64 2 48 26 44 97 52 17 28 89 7 46 84 79 41 76 24 11 29 66 54 100 55 82 88 25 92 61 20 35 60 87 36 91 53 78 12 4 21 8 62 34 57 69 73 51 93 15 33 9 56 42 40 10 50 77 43 16 19 13 32 90]
+2021/11/27 22:44:56.048309 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:25: READY TO GO: 
+2021/11/27 22:44:56.048327 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:29: task file: ./inputs/small/small-119.in
+2021/11/27 22:44:56.048333 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:30: raw output: ./outputs/small/small-119.out
+2021/11/27 22:44:56.048336 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:31: new output: ./newoutput/small/small-119.out
+2021/11/27 22:44:56.060404 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:12: Max Iteration: 30000
+2021/11/27 22:44:56.060413 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:13: lr 0.005000; reward 0.001000; gamma 0.800000
+2021/11/27 22:44:56.070864 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:166: FIND NEW PROFIT!!!
+2021/11/27 22:44:56.070884 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:167: 18, 3425.368275, 786
+2021/11/27 22:45:15.790177 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:18: Profit: 3425.368275
+2021/11/27 22:45:15.790210 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:19: [44 12 84 65 22 79 31 18 87 60 85 28 53 71 27 40 29 52 75 17 88 7 51 21 26 4 70 15 68 20 81 19 38 8 90 89 86 83 1 82 80 2 78 77 3 76 74 73 72 69 67 66 5 64 63 62 77 77 76]
+2021/11/27 22:45:15.791952 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:25: READY TO GO: 
+2021/11/27 22:45:15.791961 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:29: task file: ./inputs/small/small-120.in
+2021/11/27 22:45:15.791965 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:30: raw output: ./outputs/small/small-120.out
+2021/11/27 22:45:15.791967 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:31: new output: ./newoutput/small/small-120.out
+2021/11/27 22:45:15.802814 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:12: Max Iteration: 30000
+2021/11/27 22:45:15.802828 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:13: lr 0.005000; reward 0.001000; gamma 0.800000
+2021/11/27 22:45:38.825095 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:18: Profit: 3941.950000
+2021/11/27 22:45:38.825128 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:19: [13 18 67 2 63 29 24 89 65 32 15 21 96 71 45 72 79 57 17 50 99 95 78 91 22 97 46 83 9 1 23 87 60 53 38 73 94 61 43 85 77 40 75 12 93 16 70 76 55 14 33 88 51 59 44 6 58 26 25 11 86 27 28 8 82 3]
+2021/11/27 22:45:38.826478 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:25: READY TO GO: 
+2021/11/27 22:45:38.826487 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:29: task file: ./inputs/small/small-121.in
+2021/11/27 22:45:38.826500 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:30: raw output: ./outputs/small/small-121.out
+2021/11/27 22:45:38.826503 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:31: new output: ./newoutput/small/small-121.out
+2021/11/27 22:45:38.836409 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:12: Max Iteration: 30000
+2021/11/27 22:45:38.836427 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:13: lr 0.005000; reward 0.001000; gamma 0.800000
+2021/11/27 22:45:39.222613 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:166: FIND NEW PROFIT!!!
+2021/11/27 22:45:39.222634 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:167: 754, 3646.353597, 24606
+2021/11/27 22:45:39.263233 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:166: FIND NEW PROFIT!!!
+2021/11/27 22:45:39.263254 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:167: 835, 3654.337915, 27005
+2021/11/27 22:45:40.149243 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:166: FIND NEW PROFIT!!!
+2021/11/27 22:45:40.149266 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:167: 2584, 3673.332520, 81750
+2021/11/27 22:45:59.052318 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:18: Profit: 3673.332520
+2021/11/27 22:45:59.052350 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:19: [86 66 93 16 8 99 91 83 65 69 52 64 48 53 41 36 4 49 75 1 24 26 88 56 11 98 59 97 95 19 39 84 80 90 79 2 100 96 94 92 89 87 85 3 82 81 78 77 5 76 74 6 7 72 76 10 72 3]
+2021/11/27 22:45:59.054110 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:25: READY TO GO: 
+2021/11/27 22:45:59.054129 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:29: task file: ./inputs/small/small-122.in
+2021/11/27 22:45:59.054133 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:30: raw output: ./outputs/small/small-122.out
+2021/11/27 22:45:59.054136 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:31: new output: ./newoutput/small/small-122.out
+2021/11/27 22:45:59.069544 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:12: Max Iteration: 30000
+2021/11/27 22:45:59.069555 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:13: lr 0.005000; reward 0.001000; gamma 0.800000
+2021/11/27 22:45:59.207103 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:166: FIND NEW PROFIT!!!
+2021/11/27 22:45:59.207126 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:167: 289, 3499.766010, 9676
+2021/11/27 22:45:59.412193 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:166: FIND NEW PROFIT!!!
+2021/11/27 22:45:59.412216 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:167: 732, 3499.766011, 24154
+2021/11/27 22:45:59.806529 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:166: FIND NEW PROFIT!!!
+2021/11/27 22:45:59.806553 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:167: 1586, 3499.769665, 52256
+2021/11/27 22:46:16.207824 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:18: Profit: 3499.769665
+2021/11/27 22:46:16.207856 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:19: [64 66 49 27 33 65 53 31 86 58 71 51 38 32 67 46 17 10 29 55 78 85 30 26 75 72 79 39 87 47 68 83 44 73 88 84 1 82 81 2 3 80 4 5 77 76 74 70 69 63 62 54 11 11]
+2021/11/27 22:46:16.209671 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:25: READY TO GO: 
+2021/11/27 22:46:16.209690 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:29: task file: ./inputs/small/small-123.in
+2021/11/27 22:46:16.209693 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:30: raw output: ./outputs/small/small-123.out
+2021/11/27 22:46:16.209696 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:31: new output: ./newoutput/small/small-123.out
+2021/11/27 22:46:16.224154 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:12: Max Iteration: 30000
+2021/11/27 22:46:16.224177 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:13: lr 0.005000; reward 0.001000; gamma 0.800000
+2021/11/27 22:46:38.027816 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:18: Profit: 3440.435000
+2021/11/27 22:46:38.027848 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:19: [91 10 62 99 93 24 58 52 95 85 89 43 27 25 97 74 66 60 64 1 19 48 34 21 20 75 32 49 9 11 38 33 77 29 94 70 18 82 98 96 92 90 88 87 2 3 4 86 84 83 5 6 81 80 79 78 76 73 71 96]
+2021/11/27 22:46:38.029330 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:25: READY TO GO: 
+2021/11/27 22:46:38.029340 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:29: task file: ./inputs/small/small-124.in
+2021/11/27 22:46:38.029343 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:30: raw output: ./outputs/small/small-124.out
+2021/11/27 22:46:38.029346 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:31: new output: ./newoutput/small/small-124.out
+2021/11/27 22:46:38.044330 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:12: Max Iteration: 30000
+2021/11/27 22:46:38.044342 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:13: lr 0.005000; reward 0.001000; gamma 0.800000
+2021/11/27 22:46:38.131281 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:166: FIND NEW PROFIT!!!
+2021/11/27 22:46:38.131302 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:167: 84, 337.566334, 7024
+2021/11/27 22:46:38.213373 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:166: FIND NEW PROFIT!!!
+2021/11/27 22:46:38.213395 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:167: 169, 337.569754, 13539
+2021/11/27 22:46:40.775955 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:166: FIND NEW PROFIT!!!
+2021/11/27 22:46:40.775979 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:167: 2803, 337.721664, 214871
+2021/11/27 22:46:40.977646 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:166: FIND NEW PROFIT!!!
+2021/11/27 22:46:40.977678 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:167: 2998, 338.224166, 228010
+2021/11/27 22:47:18.048147 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:18: Profit: 338.224166
+2021/11/27 22:47:18.048183 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:19: [6 69 76 36 34 90 86 74 63 56 94 19 80 54 47 55 85 37 13 44 18 41 96 39 50 60 24 21 83 68 59 11 33 87 79 64 1 17 51 5 32 23 29 3 66 65 45 77 73 57 16 40 20 22 15 48 4 72 95 49 88 92 14 2 38 7 26 91 46 8 53 89 35 75 43 70 78 62 30 10 28 81 97 27 9 93 84 82 71 67 61 58 52 42 31 25 12]
+2021/11/27 22:47:18.050610 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:25: READY TO GO: 
+2021/11/27 22:47:18.050620 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:29: task file: ./inputs/small/small-125.in
+2021/11/27 22:47:18.050626 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:30: raw output: ./outputs/small/small-125.out
+2021/11/27 22:47:18.050629 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:31: new output: ./newoutput/small/small-125.out
+2021/11/27 22:47:18.061430 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:12: Max Iteration: 30000
+2021/11/27 22:47:18.061440 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:13: lr 0.005000; reward 0.001000; gamma 0.800000
+2021/11/27 22:47:45.580994 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:18: Profit: 4113.635164
+2021/11/27 22:47:45.581027 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:19: [66 61 52 7 19 28 33 83 18 44 57 13 23 50 11 34 9 39 1 63 58 90 91 80 6 78 81 36 88 99 35 59 40 86 69 73 95 12 5 70 25 31 89 84 46 62 49 30 93 98 100 96 20 8 76 79 22 97 43 16 41 87 64 32 82 2 3]
+2021/11/27 22:47:45.582593 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:25: READY TO GO: 
+2021/11/27 22:47:45.582612 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:29: task file: ./inputs/small/small-126.in
+2021/11/27 22:47:45.582616 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:30: raw output: ./outputs/small/small-126.out
+2021/11/27 22:47:45.582619 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:31: new output: ./newoutput/small/small-126.out
+2021/11/27 22:47:45.599662 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:12: Max Iteration: 30000
+2021/11/27 22:47:45.599677 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:13: lr 0.005000; reward 0.001000; gamma 0.800000
+2021/11/27 22:48:06.953543 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:18: Profit: 3821.830000
+2021/11/27 22:48:06.953579 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:19: [82 32 30 80 96 44 58 89 22 6 38 33 45 75 15 62 71 67 1 90 26 77 2 23 10 8 11 78 76 40 13 60 25 81 12 43 21 16 70 100 99 98 97 95 94 93 92 91 88 87 3 86 85 84 83 72 66 72 93 87 34 7]
+2021/11/27 22:48:06.955164 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:25: READY TO GO: 
+2021/11/27 22:48:06.955173 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:29: task file: ./inputs/small/small-127.in
+2021/11/27 22:48:06.955176 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:30: raw output: ./outputs/small/small-127.out
+2021/11/27 22:48:06.955179 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:31: new output: ./newoutput/small/small-127.out
+2021/11/27 22:48:06.969553 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:12: Max Iteration: 30000
+2021/11/27 22:48:06.969571 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:13: lr 0.005000; reward 0.001000; gamma 0.800000
+2021/11/27 22:48:30.248647 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:18: Profit: 3882.980645
+2021/11/27 22:48:30.248678 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:19: [43 76 19 31 63 15 42 37 27 55 8 51 66 58 96 59 44 1 82 21 45 25 13 74 35 6 77 89 95 93 28 97 81 5 2 100 99 98 94 92 91 90 3 88 87 86 85 84 83 4 80 7 79 78 75 33 68 60 33 78 68 41]
+2021/11/27 22:48:30.250685 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:25: READY TO GO: 
+2021/11/27 22:48:30.250703 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:29: task file: ./inputs/small/small-128.in
+2021/11/27 22:48:30.250706 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:30: raw output: ./outputs/small/small-128.out
+2021/11/27 22:48:30.250709 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:31: new output: ./newoutput/small/small-128.out
+2021/11/27 22:48:30.263971 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:12: Max Iteration: 30000
+2021/11/27 22:48:30.263981 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:13: lr 0.005000; reward 0.001000; gamma 0.800000
+2021/11/27 22:48:52.498761 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:18: Profit: 4073.235151
+2021/11/27 22:48:52.498794 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:19: [76 49 92 52 8 98 67 16 78 72 30 23 73 87 82 48 14 3 31 37 5 38 33 81 21 53 65 84 6 43 56 89 24 41 19 15 88 47 86 61 44 99 34 28 59 93 22 40 91 71 79 1 17 20 62 69 63 95 42 85 12 57 27 74 50 54 77 32]
+2021/11/27 22:48:52.500272 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:25: READY TO GO: 
+2021/11/27 22:48:52.500281 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:29: task file: ./inputs/small/small-129.in
+2021/11/27 22:48:52.500285 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:30: raw output: ./outputs/small/small-129.out
+2021/11/27 22:48:52.500288 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:31: new output: ./newoutput/small/small-129.out
+2021/11/27 22:48:52.518543 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:12: Max Iteration: 30000
+2021/11/27 22:48:52.518559 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:13: lr 0.005000; reward 0.001000; gamma 0.800000
+2021/11/27 22:48:53.555754 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:166: FIND NEW PROFIT!!!
+2021/11/27 22:48:53.555777 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:167: 1907, 3996.319152, 65972
+2021/11/27 22:49:12.277893 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:18: Profit: 3996.319152
+2021/11/27 22:49:12.277925 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:19: [9 5 30 63 42 80 93 84 73 83 77 55 45 17 40 23 65 46 37 69 90 43 18 21 74 10 25 99 24 81 76 71 75 19 86 100 98 97 96 95 94 92 91 89 88 1 87 2 85 82 3 79 78 47 15 47 15 47 15 88 47 88]
+2021/11/27 22:49:12.279551 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:25: READY TO GO: 
+2021/11/27 22:49:12.279571 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:29: task file: ./inputs/small/small-130.in
+2021/11/27 22:49:12.279574 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:30: raw output: ./outputs/small/small-130.out
+2021/11/27 22:49:12.279577 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:31: new output: ./newoutput/small/small-130.out
+2021/11/27 22:49:12.294534 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:12: Max Iteration: 30000
+2021/11/27 22:49:12.294549 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:13: lr 0.005000; reward 0.001000; gamma 0.800000
+2021/11/27 22:49:34.921304 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:18: Profit: 3973.000000
+2021/11/27 22:49:34.921338 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:19: [56 84 1 2 67 9 31 71 7 10 25 65 46 49 43 90 15 34 51 53 35 3 85 92 73 83 50 78 17 74 37 69 11 6 47 64 61 26 42 32 79 55 94 23 89 20 16 75 28 36 82 5 81 24 38 70 30 93 68 44 77]
+2021/11/27 22:49:34.923454 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:25: READY TO GO: 
+2021/11/27 22:49:34.923464 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:29: task file: ./inputs/small/small-131.in
+2021/11/27 22:49:34.923468 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:30: raw output: ./outputs/small/small-131.out
+2021/11/27 22:49:34.923471 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:31: new output: ./newoutput/small/small-131.out
+2021/11/27 22:49:34.937703 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:12: Max Iteration: 30000
+2021/11/27 22:49:34.937714 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:13: lr 0.005000; reward 0.001000; gamma 0.800000
+2021/11/27 22:49:35.053533 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:166: FIND NEW PROFIT!!!
+2021/11/27 22:49:35.053556 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:167: 250, 3542.157446, 7098
+2021/11/27 22:49:35.598303 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:166: FIND NEW PROFIT!!!
+2021/11/27 22:49:35.598325 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:167: 1394, 3542.503451, 41979
+2021/11/27 22:49:52.972221 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:18: Profit: 3542.503451
+2021/11/27 22:49:52.972253 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:19: [29 58 44 28 69 71 5 33 65 37 8 19 92 27 43 24 99 79 72 49 57 9 16 48 80 84 88 38 56 76 91 53 83 95 47 42 40 50 77 85 23 26 45 6 35 1 54 100 98 97 96 94 93 90 81 39 73 62 25]
+2021/11/27 22:49:52.973614 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:25: READY TO GO: 
+2021/11/27 22:49:52.973643 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:29: task file: ./inputs/small/small-132.in
+2021/11/27 22:49:52.973646 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:30: raw output: ./outputs/small/small-132.out
+2021/11/27 22:49:52.973649 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:31: new output: ./newoutput/small/small-132.out
+2021/11/27 22:49:52.989015 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:12: Max Iteration: 30000
+2021/11/27 22:49:52.989029 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:13: lr 0.005000; reward 0.001000; gamma 0.800000
+2021/11/27 22:49:53.041073 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:166: FIND NEW PROFIT!!!
+2021/11/27 22:49:53.041095 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:167: 232, 1530.000000, 3529
+2021/11/27 22:49:53.059957 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:166: FIND NEW PROFIT!!!
+2021/11/27 22:49:53.059979 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:167: 313, 1530.000000, 4875
+2021/11/27 22:49:53.189533 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:166: FIND NEW PROFIT!!!
+2021/11/27 22:49:53.189556 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:167: 891, 1530.003423, 13684
+2021/11/27 22:49:53.196482 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:166: FIND NEW PROFIT!!!
+2021/11/27 22:49:53.196495 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:167: 919, 1530.165667, 14125
+2021/11/27 22:50:03.387016 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:18: Profit: 1530.165667
+2021/11/27 22:50:03.387050 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:19: [22 4 2 3 33 10 7 37 28 8 9 32 40 26 11 35 36 12 14 13 29 34 15 27 17 18 30 19 20 21 23 24 25]
+2021/11/27 22:50:03.388726 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:25: READY TO GO: 
+2021/11/27 22:50:03.388745 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:29: task file: ./inputs/small/small-133.in
+2021/11/27 22:50:03.388758 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:30: raw output: ./outputs/small/small-133.out
+2021/11/27 22:50:03.388761 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test_small.go:31: new output: ./newoutput/small/small-133.out
+2021/11/27 22:50:03.409313 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:12: Max Iteration: 30000
+2021/11/27 22:50:03.409326 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Solver.go:13: lr 0.005000; reward 0.001000; gamma 0.800000
+2021/11/27 22:50:05.072371 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:166: FIND NEW PROFIT!!!
+2021/11/27 22:50:05.072393 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:167: 1695, 4032.814438, 109334
+2021/11/27 22:50:05.302352 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:166: FIND NEW PROFIT!!!
+2021/11/27 22:50:05.302375 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:167: 1922, 4032.815148, 123435
+2021/11/27 22:50:08.407728 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:166: FIND NEW PROFIT!!!
+2021/11/27 22:50:08.407754 /home/cc/cs170/fl21/class/cs170-abx/work/cs170-21Fa-Proj/test/Iteration.go:167: 5084, 4032.833394, 299020
