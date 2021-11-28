@@ -3,6 +3,7 @@ package main
 import (
 	Test "./test"
 	"log"
+	"math/rand"
 	"os"
 )
 
@@ -16,6 +17,7 @@ func init() {
 }
 
 func main(){
+	rand.Seed(int64(2023))
 	log.Printf("READY TO GO: ")
 	path := "./input/small/small-1.in"
 	log.Println(path)
@@ -23,7 +25,7 @@ func main(){
 	if err != nil {
 		panic(err)
 	}
-	outputList, err := Test.Solve(taskListPTR, 200000)
+	outputList, err := Test.Solve(taskListPTR, 10000)
 	if err != nil {
 		panic(err)
 	}

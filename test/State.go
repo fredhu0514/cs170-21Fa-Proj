@@ -116,6 +116,10 @@ func (state *State) SmallestTrialID() (int64) {
 		if (*v).trial < minTrial {
 			minID = k
 			minTrial = (*v).trial
+		} else if (*v).trial == minTrial { // for deterministic under random seed
+			if k < minID {
+				minID = k
+			}
 		}
 	}
 	return minID
@@ -134,6 +138,10 @@ func (state *State) LargestQValID() (int64) {
 		if (*v).qVal > maxQVal {
 			maxID = k
 			maxQVal = (*v).qVal
+		} else if (*v).qVal == maxQVal { // for deterministic under random seed
+			if k > maxID {
+				maxID = k
+			}
 		}
 	}
 	return maxID
