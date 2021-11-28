@@ -124,13 +124,16 @@ if __name__ == '__main__':
     logging.info('New Log at ' + datetime.now().strftime('%m/%d/%Y %H:%M:%S'))
     if not os.path.isdir('outputsSolver5/'):
             os.mkdir('outputsSolver5')
-    benefits = {'medium':[], 'large':[]}
+    # benefits = {'medium':[], 'large':[]}
+    benefits = {'large':[]}
     for x in benefits.keys():
         if not os.path.isdir('outputsSolver5/'+x+'/'):
             os.mkdir('outputsSolver5/'+x+'/')
     for x in benefits.keys():
         logging.info(x + ': ')
-        for input_path in os.listdir('inputs/'+x+'/'):
+        file_list = os.listdir('inputs/'+x+'/')
+        file_list.reverse()
+        for input_path in file_list:
             if input_path[-2:] == 'in':
                 output_path = 'outputsSolver5/'+x+'/'+input_path[:-2]+'out'
                 if os.path.isfile(output_path):
