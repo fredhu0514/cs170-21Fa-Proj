@@ -4,7 +4,6 @@ import java.nio.file.Paths;
 import java.nio.file.Files;
 import java.util.List;
 import java.util.ArrayList;
-import java.lang.reflect.Array;
 
 
 public class parse {
@@ -24,13 +23,13 @@ public class parse {
         List<String> input_lines = Files.readAllLines(Paths.get(filename));
 
         assert (isDigit(input_lines.get(0).split("\t", 0)[0])): "First line is not a valid number of tasks";
-        int num_tasks = Integer.parseInt(input_lines.get(0).split("\t", 0)[0]);
+        int num_tasks = Integer.parseInt(input_lines.get(0).split("\\s+", 0)[0]);
         assert (num_tasks == input_lines.size() - 1): "The number of tasks in the first line of the input file does not match the tasks defined in the rest of the input file";
         assert (num_tasks <= 200): "Too many tasks";
         List<Task> tasks = new ArrayList<>();
 
         for (int i = 1; i <= num_tasks; i+=1) {
-            String[] task_parameters = input_lines.get(i).split("\t", 0);
+            String[] task_parameters = input_lines.get(i).split("\\s+", 0);
             if (task_parameters.length != 4) {
                 task_parameters = input_lines.get(i).split(" ", 0);
             }
@@ -96,8 +95,15 @@ public class parse {
         Files.write(Paths.get(filename), output_lines);
     }
 
-    public static void main(String[] args) throws Exception{
-        List<Task> Tasks = read_input_file("Project/inputs/large/large-1.in");
+    public static int check_output(List<Task> tasks, List<Integer> task_ids){
+        int TotalTime = 0;
+        int TotalBenefit = 0;
+        for (int i: task_ids) {
+            TotalTime += tasks.get(i-1).get_duration();
+            TotalBenefit += tasks.get(i-1).get_late_benefit(TotalTime-tasks.get(i-1).get_deadline());
+        }
+        assert (TotalTime <= 1440): "Total time has exceeded 1440";
+        return TotalBenefit;
     }
 
 }
