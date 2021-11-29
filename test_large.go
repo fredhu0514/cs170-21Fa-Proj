@@ -3,7 +3,6 @@ package main
 import (
 	Test "./test"
 	"log"
-	"math/rand"
 	"os"
 	"strconv"
 )
@@ -18,7 +17,6 @@ func init() {
 }
 
 func main(){
-	rand.Seed(int64(20003))
 	path := []string{"small", "medium", "large"}
 	for s:=2; s<=2; s++ {
 		for index:=1; index<=300; index++ {
