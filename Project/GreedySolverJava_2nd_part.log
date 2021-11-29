@@ -1,0 +1,450 @@
+Nov 28, 2021 9:54:29 PM Project.GreedySolver main
+INFO: large:
+Nov 28, 2021 9:54:29 PM Project.GreedySolver main
+INFO: medium:
+Nov 28, 2021 9:54:29 PM Project.GreedySolver main
+INFO: small:
+Nov 28, 2021 9:54:29 PM Project.GreedySolver main
+INFO: small-184.in
+Nov 28, 2021 9:54:36 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-184.in...
+Nov 28, 2021 9:54:36 PM Project.GreedySolver main
+INFO: Profit: 2761.0410422976074
+Nov 28, 2021 9:54:36 PM Project.GreedySolver main
+INFO: small-215.in
+Nov 28, 2021 9:54:43 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-215.in...
+Nov 28, 2021 9:54:43 PM Project.GreedySolver main
+INFO: Profit: 1661.878892865285
+Nov 28, 2021 9:54:43 PM Project.GreedySolver main
+INFO: small-244.in
+Nov 28, 2021 9:54:51 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-244.in...
+Nov 28, 2021 9:54:51 PM Project.GreedySolver main
+INFO: Profit: 3396.2250000027707
+Nov 28, 2021 9:54:51 PM Project.GreedySolver main
+INFO: small-143.in
+Nov 28, 2021 9:54:59 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-143.in...
+Nov 28, 2021 9:54:59 PM Project.GreedySolver main
+INFO: Profit: 3660.915095835783
+Nov 28, 2021 9:54:59 PM Project.GreedySolver main
+INFO: small-112.in
+Nov 28, 2021 9:55:10 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-112.in...
+Nov 28, 2021 9:55:10 PM Project.GreedySolver main
+INFO: Profit: 5167.188000147523
+Nov 28, 2021 9:55:10 PM Project.GreedySolver main
+INFO: small-283.in
+Nov 28, 2021 9:55:17 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-283.in...
+Nov 28, 2021 9:55:17 PM Project.GreedySolver main
+INFO: Profit: 3228.0199634389433
+Nov 28, 2021 9:55:17 PM Project.GreedySolver main
+INFO: small-270.in
+Nov 28, 2021 9:55:24 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-270.in...
+Nov 28, 2021 9:55:24 PM Project.GreedySolver main
+INFO: Profit: 3394.140504811703
+Nov 28, 2021 9:55:24 PM Project.GreedySolver main
+INFO: small-221.in
+Nov 28, 2021 9:55:31 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-221.in...
+Nov 28, 2021 9:55:31 PM Project.GreedySolver main
+INFO: Profit: 2144.000292590175
+Nov 28, 2021 9:55:31 PM Project.GreedySolver main
+INFO: small-190.in
+Nov 28, 2021 9:55:39 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-190.in...
+Nov 28, 2021 9:55:39 PM Project.GreedySolver main
+INFO: Profit: 3585.0439083197834
+Nov 28, 2021 9:55:39 PM Project.GreedySolver main
+INFO: small-201.in
+Nov 28, 2021 9:55:47 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-201.in...
+Nov 28, 2021 9:55:48 PM Project.GreedySolver main
+INFO: Profit: 3484.0
+Nov 28, 2021 9:55:48 PM Project.GreedySolver main
+INFO: small-250.in
+Nov 28, 2021 9:55:52 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-250.in...
+Nov 28, 2021 9:55:52 PM Project.GreedySolver main
+INFO: Profit: 564.9663896300167
+Nov 28, 2021 9:55:52 PM Project.GreedySolver main
+INFO: small-132.in
+Nov 28, 2021 9:55:55 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-132.in...
+Nov 28, 2021 9:55:55 PM Project.GreedySolver main
+INFO: Profit: 1530.0000000074915
+Nov 28, 2021 9:55:55 PM Project.GreedySolver main
+INFO: small-163.in
+Nov 28, 2021 9:56:02 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-163.in...
+Nov 28, 2021 9:56:02 PM Project.GreedySolver main
+INFO: Profit: 3315.003355149351
+Nov 28, 2021 9:56:02 PM Project.GreedySolver main
+INFO: small-264.in
+Nov 28, 2021 9:56:07 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-264.in...
+Nov 28, 2021 9:56:07 PM Project.GreedySolver main
+INFO: Profit: 2829.0058299287834
+Nov 28, 2021 9:56:07 PM Project.GreedySolver main
+INFO: small-235.in
+Nov 28, 2021 9:56:13 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-235.in...
+Nov 28, 2021 9:56:13 PM Project.GreedySolver main
+INFO: Profit: 4851.000000014681
+Nov 28, 2021 9:56:13 PM Project.GreedySolver main
+INFO: small-157.in
+Nov 28, 2021 9:56:19 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-157.in...
+Nov 28, 2021 9:56:19 PM Project.GreedySolver main
+INFO: Profit: 3454.371204771069
+Nov 28, 2021 9:56:19 PM Project.GreedySolver main
+INFO: small-106.in
+Nov 28, 2021 9:56:26 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-106.in...
+Nov 28, 2021 9:56:26 PM Project.GreedySolver main
+INFO: Profit: 3018.386000011771
+Nov 28, 2021 9:56:26 PM Project.GreedySolver main
+INFO: small-297.in
+Nov 28, 2021 9:56:33 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-297.in...
+Nov 28, 2021 9:56:33 PM Project.GreedySolver main
+INFO: Profit: 3633.000000047077
+Nov 28, 2021 9:56:33 PM Project.GreedySolver main
+INFO: small-88.in
+Nov 28, 2021 9:56:42 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-88.in...
+Nov 28, 2021 9:56:42 PM Project.GreedySolver main
+INFO: Profit: 4003.522000012455
+Nov 28, 2021 9:56:42 PM Project.GreedySolver main
+INFO: small-98.in
+Nov 28, 2021 9:56:49 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-98.in...
+Nov 28, 2021 9:56:49 PM Project.GreedySolver main
+INFO: Profit: 3414.102483003077
+Nov 28, 2021 9:56:49 PM Project.GreedySolver main
+INFO: small-287.in
+Nov 28, 2021 9:56:57 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-287.in...
+Nov 28, 2021 9:56:57 PM Project.GreedySolver main
+INFO: Profit: 3352.0000000494283
+Nov 28, 2021 9:56:57 PM Project.GreedySolver main
+INFO: small-116.in
+Nov 28, 2021 9:57:05 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-116.in...
+Nov 28, 2021 9:57:05 PM Project.GreedySolver main
+INFO: Profit: 3903.804000320429
+Nov 28, 2021 9:57:05 PM Project.GreedySolver main
+INFO: small-147.in
+Nov 28, 2021 9:57:13 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-147.in...
+Nov 28, 2021 9:57:13 PM Project.GreedySolver main
+INFO: Profit: 3710.0968210701735
+Nov 28, 2021 9:57:13 PM Project.GreedySolver main
+INFO: small-225.in
+Nov 28, 2021 9:57:23 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-225.in...
+Nov 28, 2021 9:57:23 PM Project.GreedySolver main
+INFO: Profit: 4046.7046651881524
+Nov 28, 2021 9:57:23 PM Project.GreedySolver main
+INFO: small-274.in
+Nov 28, 2021 9:57:31 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-274.in...
+Nov 28, 2021 9:57:31 PM Project.GreedySolver main
+INFO: Profit: 3645.676585823335
+Nov 28, 2021 9:57:31 PM Project.GreedySolver main
+INFO: small-173.in
+Nov 28, 2021 9:57:39 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-173.in...
+Nov 28, 2021 9:57:39 PM Project.GreedySolver main
+INFO: Profit: 3870.145
+Nov 28, 2021 9:57:39 PM Project.GreedySolver main
+INFO: small-122.in
+Nov 28, 2021 9:57:45 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-122.in...
+Nov 28, 2021 9:57:45 PM Project.GreedySolver main
+INFO: Profit: 3515.6953926133388
+Nov 28, 2021 9:57:45 PM Project.GreedySolver main
+INFO: small-240.in
+Nov 28, 2021 9:57:53 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-240.in...
+Nov 28, 2021 9:57:53 PM Project.GreedySolver main
+INFO: Profit: 3530.0
+Nov 28, 2021 9:57:53 PM Project.GreedySolver main
+INFO: small-300.in
+Nov 28, 2021 9:58:00 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-300.in...
+Nov 28, 2021 9:58:00 PM Project.GreedySolver main
+INFO: Profit: 3258.0000032327325
+Nov 28, 2021 9:58:00 PM Project.GreedySolver main
+INFO: small-211.in
+Nov 28, 2021 9:58:07 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-211.in...
+Nov 28, 2021 9:58:07 PM Project.GreedySolver main
+INFO: Profit: 2138.620340828449
+Nov 28, 2021 9:58:07 PM Project.GreedySolver main
+INFO: small-180.in
+Nov 28, 2021 9:58:13 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-180.in...
+Nov 28, 2021 9:58:13 PM Project.GreedySolver main
+INFO: Profit: 3262.0729538111673
+Nov 28, 2021 9:58:13 PM Project.GreedySolver main
+INFO: small-200.in
+Nov 28, 2021 9:58:20 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-200.in...
+Nov 28, 2021 9:58:20 PM Project.GreedySolver main
+INFO: Profit: 3563.5054114044333
+Nov 28, 2021 9:58:20 PM Project.GreedySolver main
+INFO: small-191.in
+Nov 28, 2021 9:58:28 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-191.in...
+Nov 28, 2021 9:58:28 PM Project.GreedySolver main
+INFO: Profit: 3989.789045535842
+Nov 28, 2021 9:58:28 PM Project.GreedySolver main
+INFO: small-251.in
+Nov 28, 2021 9:58:35 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-251.in...
+Nov 28, 2021 9:58:35 PM Project.GreedySolver main
+INFO: Profit: 3846.9823641327907
+Nov 28, 2021 9:58:35 PM Project.GreedySolver main
+INFO: small-133.in
+Nov 28, 2021 9:58:44 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-133.in...
+Nov 28, 2021 9:58:44 PM Project.GreedySolver main
+INFO: Profit: 4053.2886754257293
+Nov 28, 2021 9:58:44 PM Project.GreedySolver main
+INFO: small-162.in
+Nov 28, 2021 9:58:53 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-162.in...
+Nov 28, 2021 9:58:53 PM Project.GreedySolver main
+INFO: Profit: 3956.425000005218
+Nov 28, 2021 9:58:53 PM Project.GreedySolver main
+INFO: small-265.in
+Nov 28, 2021 9:59:00 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-265.in...
+Nov 28, 2021 9:59:00 PM Project.GreedySolver main
+INFO: Profit: 3391.0005151373966
+Nov 28, 2021 9:59:00 PM Project.GreedySolver main
+INFO: small-234.in
+Nov 28, 2021 9:59:08 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-234.in...
+Nov 28, 2021 9:59:08 PM Project.GreedySolver main
+INFO: Profit: 3813.2828327018165
+Nov 28, 2021 9:59:08 PM Project.GreedySolver main
+INFO: small-156.in
+Nov 28, 2021 9:59:14 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-156.in...
+Nov 28, 2021 9:59:14 PM Project.GreedySolver main
+INFO: Profit: 2960.6330256852657
+Nov 28, 2021 9:59:14 PM Project.GreedySolver main
+INFO: small-296.in
+Nov 28, 2021 9:59:19 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-296.in...
+Nov 28, 2021 9:59:19 PM Project.GreedySolver main
+INFO: Profit: 2981.000002379924
+Nov 28, 2021 9:59:19 PM Project.GreedySolver main
+INFO: small-107.in
+Nov 28, 2021 9:59:27 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-107.in...
+Nov 28, 2021 9:59:27 PM Project.GreedySolver main
+INFO: Profit: 3610.0000631379135
+Nov 28, 2021 9:59:27 PM Project.GreedySolver main
+INFO: small-89.in
+Nov 28, 2021 9:59:33 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-89.in...
+Nov 28, 2021 9:59:33 PM Project.GreedySolver main
+INFO: Profit: 3545.686109544185
+Nov 28, 2021 9:59:33 PM Project.GreedySolver main
+INFO: small-99.in
+Nov 28, 2021 9:59:37 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-99.in...
+Nov 28, 2021 9:59:37 PM Project.GreedySolver main
+INFO: Profit: 528.8568226028707
+Nov 28, 2021 9:59:37 PM Project.GreedySolver main
+INFO: small-117.in
+Nov 28, 2021 9:59:44 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-117.in...
+Nov 28, 2021 9:59:44 PM Project.GreedySolver main
+INFO: Profit: 3813.0661119426327
+Nov 28, 2021 9:59:44 PM Project.GreedySolver main
+INFO: small-286.in
+Nov 28, 2021 9:59:51 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-286.in...
+Nov 28, 2021 9:59:51 PM Project.GreedySolver main
+INFO: Profit: 3497.0235120897946
+Nov 28, 2021 9:59:51 PM Project.GreedySolver main
+INFO: small-146.in
+Nov 28, 2021 9:59:56 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-146.in...
+Nov 28, 2021 9:59:56 PM Project.GreedySolver main
+INFO: Profit: 2240.215647091138
+Nov 28, 2021 9:59:56 PM Project.GreedySolver main
+INFO: small-224.in
+Nov 28, 2021 10:00:03 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-224.in...
+Nov 28, 2021 10:00:03 PM Project.GreedySolver main
+INFO: Profit: 3787.5582215864715
+Nov 28, 2021 10:00:03 PM Project.GreedySolver main
+INFO: small-275.in
+Nov 28, 2021 10:00:09 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-275.in...
+Nov 28, 2021 10:00:09 PM Project.GreedySolver main
+INFO: Profit: 3518.0000000045957
+Nov 28, 2021 10:00:09 PM Project.GreedySolver main
+INFO: small-172.in
+Nov 28, 2021 10:00:12 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-172.in...
+Nov 28, 2021 10:00:12 PM Project.GreedySolver main
+INFO: Profit: 1112.2342814012566
+Nov 28, 2021 10:00:12 PM Project.GreedySolver main
+INFO: small-123.in
+Nov 28, 2021 10:00:20 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-123.in...
+Nov 28, 2021 10:00:20 PM Project.GreedySolver main
+INFO: Profit: 3462.3430000000008
+Nov 28, 2021 10:00:20 PM Project.GreedySolver main
+INFO: small-241.in
+Nov 28, 2021 10:00:27 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-241.in...
+Nov 28, 2021 10:00:27 PM Project.GreedySolver main
+INFO: Profit: 3738.0000003644705
+Nov 28, 2021 10:00:27 PM Project.GreedySolver main
+INFO: small-181.in
+Nov 28, 2021 10:00:33 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-181.in...
+Nov 28, 2021 10:00:33 PM Project.GreedySolver main
+INFO: Profit: 3852.0
+Nov 28, 2021 10:00:33 PM Project.GreedySolver main
+INFO: small-210.in
+Nov 28, 2021 10:00:41 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-210.in...
+Nov 28, 2021 10:00:41 PM Project.GreedySolver main
+INFO: Profit: 4185.122794098864
+Nov 28, 2021 10:00:41 PM Project.GreedySolver main
+INFO: small-230.in
+Nov 28, 2021 10:00:49 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-230.in...
+Nov 28, 2021 10:00:49 PM Project.GreedySolver main
+INFO: Profit: 4128.780000000776
+Nov 28, 2021 10:00:49 PM Project.GreedySolver main
+INFO: small-261.in
+Nov 28, 2021 10:00:56 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-261.in...
+Nov 28, 2021 10:00:56 PM Project.GreedySolver main
+INFO: Profit: 3637.239082107407
+Nov 28, 2021 10:00:56 PM Project.GreedySolver main
+INFO: small-103.in
+Nov 28, 2021 10:01:04 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-103.in...
+Nov 28, 2021 10:01:04 PM Project.GreedySolver main
+INFO: Profit: 3680.7000005182927
+Nov 28, 2021 10:01:04 PM Project.GreedySolver main
+INFO: small-292.in
+Nov 28, 2021 10:01:12 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-292.in...
+Nov 28, 2021 10:01:12 PM Project.GreedySolver main
+INFO: Profit: 3614.278784668548
+Nov 28, 2021 10:01:12 PM Project.GreedySolver main
+INFO: small-152.in
+Nov 28, 2021 10:01:20 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-152.in...
+Nov 28, 2021 10:01:20 PM Project.GreedySolver main
+INFO: Profit: 3685.1600170150646
+Nov 28, 2021 10:01:20 PM Project.GreedySolver main
+INFO: small-255.in
+Nov 28, 2021 10:01:27 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-255.in...
+Nov 28, 2021 10:01:27 PM Project.GreedySolver main
+INFO: Profit: 4312.573007739612
+Nov 28, 2021 10:01:27 PM Project.GreedySolver main
+INFO: small-195.in
+Nov 28, 2021 10:01:35 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-195.in...
+Nov 28, 2021 10:01:35 PM Project.GreedySolver main
+INFO: Profit: 3626.222025869143
+Nov 28, 2021 10:01:35 PM Project.GreedySolver main
+INFO: small-204.in
+Nov 28, 2021 10:01:43 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-204.in...
+Nov 28, 2021 10:01:43 PM Project.GreedySolver main
+INFO: Profit: 3509.000003537908
+Nov 28, 2021 10:01:43 PM Project.GreedySolver main
+INFO: small-166.in
+Nov 28, 2021 10:01:52 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-166.in...
+Nov 28, 2021 10:01:52 PM Project.GreedySolver main
+INFO: Profit: 4043.152876001186
+Nov 28, 2021 10:01:52 PM Project.GreedySolver main
+INFO: small-137.in
+Nov 28, 2021 10:01:57 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-137.in...
+Nov 28, 2021 10:01:57 PM Project.GreedySolver main
+INFO: Profit: 3553.7330062368355
+Nov 28, 2021 10:01:57 PM Project.GreedySolver main
+INFO: small-8.in
+Nov 28, 2021 10:02:04 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-8.in...
+Nov 28, 2021 10:02:04 PM Project.GreedySolver main
+INFO: Profit: 3538.440218707481
+Nov 28, 2021 10:02:04 PM Project.GreedySolver main
+INFO: small-127.in
+Nov 28, 2021 10:02:12 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-127.in...
+Nov 28, 2021 10:02:12 PM Project.GreedySolver main
+INFO: Profit: 3893.74856524699
+Nov 28, 2021 10:02:12 PM Project.GreedySolver main
+INFO: small-176.in
+Nov 28, 2021 10:02:18 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-176.in...
+Nov 28, 2021 10:02:18 PM Project.GreedySolver main
+INFO: Profit: 3694.86594040209
+Nov 28, 2021 10:02:18 PM Project.GreedySolver main
+INFO: small-214.in
+Nov 28, 2021 10:02:26 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-214.in...
+Nov 28, 2021 10:02:26 PM Project.GreedySolver main
+INFO: Profit: 2536.253010972615
+Nov 28, 2021 10:02:26 PM Project.GreedySolver main
+INFO: small-185.in
+Nov 28, 2021 10:02:34 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-185.in...
+Nov 28, 2021 10:02:34 PM Project.GreedySolver main
+INFO: Profit: 3733.0001589950866
+Nov 28, 2021 10:02:34 PM Project.GreedySolver main
+INFO: small-245.in
+Nov 28, 2021 10:02:37 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-245.in...
+Nov 28, 2021 10:02:37 PM Project.GreedySolver main
+INFO: Profit: 555.4556397698603
+Nov 28, 2021 10:02:37 PM Project.GreedySolver main
+INFO: small-142.in
+Nov 28, 2021 10:02:43 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-142.in...
+Nov 28, 2021 10:02:43 PM Project.GreedySolver main
+INFO: Profit: 3028.2866121960155
+Nov 28, 2021 10:02:43 PM Project.GreedySolver main
+INFO: small-282.in
+Nov 28, 2021 10:02:49 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-282.in...
+Nov 28, 2021 10:02:49 PM Project.GreedySolver main
+INFO: Profit: 2954.0000000469536
+Nov 28, 2021 10:02:49 PM Project.GreedySolver main
+INFO: small-113.in
+Nov 28, 2021 10:02:56 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-113.in...
+Nov 28, 2021 10:02:56 PM Project.GreedySolver main
+INFO: Profit: 3777.0000789608453
+Nov 28, 2021 10:02:56 PM Project.GreedySolver main
+INFO: small-271.in
+Nov 28, 2021 10:03:03 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-271.in...
+Nov 28, 2021 10:03:03 PM Project.GreedySolver main
+INFO: Profit: 3473.0000004357967
+Nov 28, 2021 10:03:03 PM Project.GreedySolver main
+INFO: small-220.in
+Nov 28, 2021 10:03:11 PM Project.GreedySolver main
+INFO: Writing output file for Project/inputs/small/small-220.in...
+Nov 28, 2021 10:03:11 PM Project.GreedySolver main
+INFO: Profit: 3711.9960029473214

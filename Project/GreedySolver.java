@@ -15,7 +15,13 @@ public class GreedySolver {
         public int compare(Task a, Task b)
         {
             double diff = a.get_max_benefit()/a.get_duration() - b.get_max_benefit()/b.get_duration();
-            return Double.compare(-diff, 0);
+            if (diff < 0) {
+                return 1;
+            }
+            if (diff > 0) {
+                return -1;
+            }
+            return 0;
         }
     }
 
@@ -30,9 +36,9 @@ public class GreedySolver {
     }
 
     private void SortTasks(List<Task> tasks, int CurrTime, int TotalTime, String By) {
-        if (By == "Profit") {
+        if (By.equals("Profit")) {
             Collections.sort(tasks, new ProfitSort());
-        } else if (By == "Deadline") {
+        } else if (By.equals("Deadline")) {
             Collections.sort(tasks, new DeadlineSort());
         }
     }
@@ -55,7 +61,10 @@ public class GreedySolver {
             SortTasks(top_viable_tasks.subList(0, Math.min(n+1, top_viable_tasks.size())), CurrTime, TotalTime, "Deadline");
         }
         Task task = top_viable_tasks.get(0);
+        int prevSize = tasks.size();
         tasks.remove(task);
+        assert (prevSize == tasks.size() + 1): "Error during removal process";
+
         int TotalTimeBeforeThisTask = TotalTime - (CurrTime + task.get_duration());
         Map<Integer, List<Integer>> other_map = SeqHelper(CurrTime, CurrTime + TotalTimeBeforeThisTask, CurrSeq, tasks, max_n, generator);
         CurrSeq = other_map.get(0);
@@ -84,7 +93,10 @@ public class GreedySolver {
                 break;
             }
             Task task = top_viable_tasks.get(0);
+            int prevSize = tasks.size();
             tasks.remove(task);
+            assert (prevSize == tasks.size() + 1): "Error during removal process";
+
             int TotalTimeBeforeThisTask = task.get_deadline() - (CurrTime + task.get_duration());
             if (TotalTimeBeforeThisTask > 0) {
                 Map<Integer, List<Integer>> other_map = SeqHelper(CurrTime, CurrTime + TotalTimeBeforeThisTask, CurrSeq, tasks, max_n, generator);
@@ -97,25 +109,26 @@ public class GreedySolver {
         return CurrSeq;
     }
 
-    private Map<Integer, List<Integer>> solve_iter(List<Task> tasks, Integer max_n, long seed) {
+    private Map<Integer, List<Double>> solve_iter(List<Task> tasks, Integer max_n, long seed) {
         Random generator = new Random(seed);
         List<Task> tasks_copy = new ArrayList<>(tasks);
-        for (Task task:tasks) {
-            tasks_copy.add(task);
-        }
-        List<Integer> OptSeq = new ArrayList<>();
-        int OptBenefit = 0;
-        for (int i = 0; i < max_n*2000; i++) {
-            List<Integer> output = solve(tasks, max_n, generator);
+        List<Double> OptSeq = new ArrayList<>();
+        double OptBenefit = 0;
+        for (int i = 0; i < max_n*5000; i++) {
+            List<Integer> temp_output = solve(tasks, max_n, generator);
+            List<Double> output = new ArrayList<>();
+            for (int id:temp_output) {
+                output.add((double) id);
+            }
             tasks = tasks_copy;
             tasks_copy = new ArrayList<>(tasks);
-            int benefit = parse.check_output(tasks, output);
+            double benefit = parse.check_output(tasks, temp_output);
             if (benefit > OptBenefit) {
                 OptBenefit = benefit;
                 OptSeq = output;
             }
         }
-        Map<Integer, List<Integer>> map = new HashMap<>();
+        Map<Integer, List<Double>> map = new HashMap<>();
         map.put(0, OptSeq);
         map.put(1, new ArrayList<>(Arrays.asList(OptBenefit)));
         return map;
@@ -136,7 +149,7 @@ public class GreedySolver {
             if (!outputFolder.exists()) {
                 outputFolder.mkdir();
             }
-            Map<String, List<Integer>> benefits = new HashMap<>();
+            Map<String, List<Double>> benefits = new HashMap<>();
             String[] keys = new String[]{"large", "medium", "small"};
             for (String key:keys) {
                 benefits.put(key, new ArrayList<>());
@@ -155,11 +168,17 @@ public class GreedySolver {
                         if (new File(outputPath).exists()) {
                             continue;
                         }
+                        logger.info(filename);
                         List<Task> tasks = parse.read_input_file("Project/inputs/" + key + "/" + filename);
-                        Map<Integer, List<Integer>> map = gs.solve_iter(tasks, 20, Long.parseLong("3034558112"));
+                        Map<Integer, List<Double>> map = gs.solve_iter(tasks, 20, Long.parseLong("3034558112"));
                         logger.info("Writing output file for " + input_path + "...");
-                        parse.write_output_file(outputPath, map.get(0));
-                        assert parse.check_output(tasks, map.get(0)) == map.get(1).get(0);
+                        List<Double> temp_output = map.get(0);
+                        List<Integer> output = new ArrayList<>();
+                        for (double id:temp_output) {
+                            output.add((int) id);
+                        }
+                        parse.write_output_file(outputPath, output);
+                        assert parse.check_output(tasks, output) == map.get(1).get(0);
                         logger.info("Profit: " + Double.toString(map.get(1).get(0)));
                         benefits.get(key).add(map.get(1).get(0));
                     }
@@ -171,8 +190,6 @@ public class GreedySolver {
                 mean_benefit = mean_benefit / benefits.get(key).size();
                 logger.info(key + ": " + Double.toString(mean_benefit));
             }
-
-
 
         } catch (SecurityException e) {
             e.printStackTrace();
