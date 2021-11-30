@@ -1,4 +1,5 @@
 from parse import read_input_file, write_output_file
+from PQ import *
 import os
 
 def solve(tasks):
@@ -13,7 +14,7 @@ def solve(tasks):
     G.initialize_edges()
     G.initialize_distances()
     G.initialize_paths()
-    return Bellman_Ford(G, len(tasks))
+    return Dijkstra(G)
     
 
 class TaskGraph():
@@ -70,10 +71,33 @@ class TaskGraph():
         deadline = self.tasks[task_index].get_deadline()
         duration = self.tasks[task_index].get_duration()
         time_late = t + duration - deadline
-        return 0 - self.tasks[task_index].get_late_benefit(time_late)
+        return 100 - self.tasks[task_index].get_late_benefit(time_late)
 
 def Dijkstra(G):
+    fringe = UpdateableQueue()
+    for v in G.vertex:
+        fringe.push(v, float("inf"))
+    fringe.push(G.start, 0)
+    
+    while len(fringe) > 0:
+        processing = fringe.pop()
+        for to in G.edges[processing]:
+            new_distance = G.distances[processing] + G.get_length(to)
+            if new_distance < G.distances[to] and to[0] not in G.paths[processing]:
+                new_path = G.paths[processing].copy()
+                new_path.append(to[0])
+                G.distances[to] = new_distance
+                G.paths[to] = new_path
+                fringe.push(to, new_distance)
 
+    min_dis = float("inf")
+    opt_path = None
+    for v in G.vertex:
+        if G.distances[v] < min_dis:
+            min_dis = G.distances[v]
+            opt_path = G.paths[v]
+
+    return opt_path
 
 # Here's an example of how to run your solver.
 # if __name__ == '__main__':
@@ -84,7 +108,7 @@ def Dijkstra(G):
 #         write_output_file(output_path, output
 
 if __name__ == '__main__':
-    tasks = read_input_file('./samples/100.in')
+    tasks = read_input_file('./samples/simple.in')
     output = solve(tasks)
     print(output)
-    write_output_file('./100.out', output)
+    write_output_file('./samples/simple.out', output)
