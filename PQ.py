@@ -23,7 +23,10 @@ class UpdateableQueue:
 
     def push(self, key, priority):
         self.priority_values[key] = priority
-        heapq.heappush(self.heap, (priority, key))
+        #print(type(key))
+        #print(type(priority)
+        
+        heapq.heappush(self.heap, (float(priority), key))
 
     def pop(self):
         if not self.heap:

@@ -1,17 +1,5 @@
-# CS 170 Project Fall 2021
+the Dijkstra version is theoretically wrong. Just ignore
+Two Bellman-Ford are basically the same.
+It takes more than an hour to update all edges once, which is RIDICULOUS. Not sure it's because it's reading disk (slow memory access) or because there are simply too many edges.
 
-Take a look at the project spec before you get started!
-
-Requirements:
-
-Python 3.6+
-
-Files:
-- `parse.py`: functions to read/write inputs and outputs
-- `solver.py`: where you should be writing your code to solve inputs
-- `Task.py`: contains a class that is useful for processing inputs
-
-When writing inputs/outputs:
-- Make sure you use the functions `write_input_file` and `write_output_file` provided
-- Run the functions `read_input_file` and `read_output_file` to validate your files before submitting!
-- These are the functions run by the autograder to validate submissions
+For small, there are about 100*1440*100 vertices and way more edges in the graph. Not a good number.

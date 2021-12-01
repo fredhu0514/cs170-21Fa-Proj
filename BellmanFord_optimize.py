@@ -16,12 +16,18 @@ def solve(tasks):
     here1 = time.time()
     print("finished vertice initialization")
     print(here1 - start)
+    '''
+    G.initalize_edges()
+    here2 = time.time()
+    print("finished edges initialization")
+    '''
+    #print(here2 - here1)
     G.initialize_distances()
     G.initialize_paths()
     here2 = time.time()
     print("finished other initialization")
     print(here2 - here1)
-    return Dijkstra(G)
+    return BellmanFord(G)
     
 
 class TaskGraph():
@@ -34,6 +40,8 @@ class TaskGraph():
         self.edges = {}
         self.distances = {}
         self.paths = {}
+        self.global_min = float("inf")
+        self.global_best_path = list()
 
     def initialize_vertices(self):
         for i in range(self.task_num):
@@ -41,12 +49,16 @@ class TaskGraph():
                 for j in range(self.task_num):
                     if j == i:
                         self.vertex.add((i, t, -2))
-                        self.edges[(i, t, -2)] = set()
+                        #self.edges[(i, t, -2)] = set()
                     else:
                         self.vertex.add((i, t, j))
-                        self.edges[(i, t, j)] = set()
+                        #self.edges[(i, t, j)] = set()
         self.vertex.add(self.start)
-        self.edges[self.start] = set()
+        #self.edges[self.start] = set()
+
+    def initalize_edges(self):
+        for v in self.vertex:
+            self.edges[v] = self.get_tos(v)
 
     def get_tos(self, v):
         tos = []
@@ -85,36 +97,30 @@ class TaskGraph():
         time_late = t + duration - deadline
         return - self.tasks[task_index].get_late_benefit(time_late)
 
-def Dijkstra(G):
-    fringe = UpdateableQueue()
-    fringe.push(G.start, 0)
-    num = 0
-    percentage = 0
-    total = len(G.vertex)
+    def update(self, v, u):
+        new_distance = self.distances[v] + self.get_length(u)
+        if new_distance < self.distances[u] and u[0] not in self.paths[v]:
+            new_path = self.paths[v].copy()
+            new_path.append(u[0])
+            self.distances[u] = new_distance
+            self.paths[u] = new_path
+            if new_distance < self.global_min:
+                self.global_min = new_distance
+                self.global_best_path = new_path.copy()
 
+def BellmanFord(G):
     start = time.time()
-    while len(fringe) > 0:
-        num += 1
-        if num / total > 0.01:
-            print("1%")
-            num = 0
-            percentage += 1
-            here = time.time()
-            print("finished" + str(percentage) + "%")
-            print("past 1%:")
-            print(here - start)
-            start = here
-        processing = fringe.pop()
-        tos = G.get_tos(processing)
-        for to in tos:
-            new_distance = G.distances[processing] + G.get_length(to)
-            if new_distance < G.distances[to] and to[0] not in G.paths[processing]:
-                new_path = G.paths[processing].copy()
-                new_path.append(to[0])
-                G.distances[to] = new_distance
-                G.paths[to] = new_path
-                fringe.push(to, new_distance)
-        del tos
+    print(len(G.vertex))
+    print("total num vertex")
+    for k in range(len(G.vertex)):
+        print(k)
+        here = time.time()
+        print(here - start)
+        start = here
+        for v in G.vertex:
+            for u in G.get_tos(v):
+                G.update(v, u)
+        print("global min:      " + str(global_min))
 
     min_dis = float("inf")
     opt_path = None
@@ -127,6 +133,7 @@ def Dijkstra(G):
     for index in opt_path:
         opt_ids.append(G.tasks[index].get_task_id())
     return opt_ids
+    
 
 # Here's an example of how to run your solver.
 # if __name__ == '__main__':
