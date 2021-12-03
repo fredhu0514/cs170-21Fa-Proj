@@ -15,16 +15,14 @@ func NewState() *State {
 
 type Metric struct {
 	Pivots			*[][]State // len(tasks) * SPACE_CONSTANT w/ SPACE_CONSTANT>60 because largest is 60
-	LargestProfit	*float64
-	LargestPath		*[]int
+	LargestProfit	float64
+	LargestPath		[]int
 }
 
 func NewMetric(tasks *[]Task) *Metric {
 	var matrix Metric
-	tempProfit := 0.0
-	matrix.LargestProfit = &tempProfit
-	tempPath := []int{}
-	matrix.LargestPath = &tempPath
+	matrix.LargestProfit = 0.0
+	matrix.LargestPath = []int{}
 	var pivot [][]State
 	for i:=0; i<len(*tasks); i++ {
 		var timeList []State

@@ -16,8 +16,8 @@ func Iteration(tasks *[]Task) *[]int {
 			curTimePTR := curTime % SPACE_CONSTANT
 
 			// If cur task duration plus cur time > 1440 set the profit to -1
-			curTaskDuartion := (*tasks)[curIDPTR].duration
-			if curTaskDuartion + int64(curTime) > int64(1440) {
+			curTaskDuartion := int((*tasks)[curIDPTR].duration)
+			if curTaskDuartion + curTime > 1440 {
 				(*matrixPTR.Pivots)[curIDPTR][curTimePTR].Profit = -1.0 // Set the time infeasible profit to -1
 				continue
 			}
@@ -82,7 +82,7 @@ func Iteration(tasks *[]Task) *[]int {
 			}
 			(*matrixPTR.Pivots)[curIDPTR][curTimePTR].Profit = maxProfit + (*tasks)[curIDPTR].GetProfit(int64(curTime))
 			// TODO: DEBUG
-			fmt.Println(*maxPathPTR, curIDPTR)
+			fmt.Println(*maxPathPTR, curIDPTR, curTime, maxID)
 			for iii := range *maxPathPTR {
 				if curIDPTR == (*maxPathPTR)[iii] {
 					fmt.Println(curIDPTR, *maxPathPTR)
@@ -92,6 +92,7 @@ func Iteration(tasks *[]Task) *[]int {
 			for jjj := 0; jjj < len(*maxPathPTR) - 1; jjj++ {
 				for kkk := jjj + 1; kkk<len(*maxPathPTR); kkk++ {
 					if (*maxPathPTR)[jjj] == (*maxPathPTR)[kkk] {
+						fmt.Println(curTime, curIDPTR)
 						panic(errors.New("DAMN1"))
 					}
  				}
@@ -104,17 +105,41 @@ func Iteration(tasks *[]Task) *[]int {
 					}
 				}
 			}
+			for jjj := 0; jjj < len(*maxPathPTR) - 1; jjj++ {
+				for kkk := jjj + 1; kkk<len(*maxPathPTR); kkk++ {
+					if (*maxPathPTR)[jjj] == (*maxPathPTR)[kkk] {
+						panic(errors.New("DAMN3"))
+					}
+				}
+			}
 			(*matrixPTR.Pivots)[curIDPTR][curTimePTR].Path = &newPath
+			for jjj := 0; jjj < len(*(*matrixPTR.Pivots)[curIDPTR][curTimePTR].Path) - 1; jjj++ {
+				for kkk := jjj + 1; kkk<len(*(*matrixPTR.Pivots)[curIDPTR][curTimePTR].Path); kkk++ {
+					if (*(*matrixPTR.Pivots)[curIDPTR][curTimePTR].Path)[jjj] == (*(*matrixPTR.Pivots)[curIDPTR][curTimePTR].Path)[kkk] {
+						panic(errors.New("DAMN4"))
+					}
+				}
+			}
 
 			// ** Check if this is the largest value ever
-			if (*matrixPTR.Pivots)[curIDPTR][curTimePTR].Profit > *matrixPTR.LargestProfit {
+			if (*matrixPTR.Pivots)[curIDPTR][curTimePTR].Profit > matrixPTR.LargestProfit {
 				// fmt.Println("NEW MAX HERE", (*matrixPTR.Pivots)[curIDPTR][curTimePTR].Profit)
-				*matrixPTR.LargestProfit = (*matrixPTR.Pivots)[curIDPTR][curTimePTR].Profit
-				matrixPTR.LargestPath = (*matrixPTR.Pivots)[curIDPTR][curTimePTR].Path
+				matrixPTR.LargestProfit = (*matrixPTR.Pivots)[curIDPTR][curTimePTR].Profit
+				matrixPTR.LargestPath = *((*matrixPTR.Pivots)[curIDPTR][curTimePTR].Path)
 			}
+
 
 		}
 	}
-	fmt.Println(*matrixPTR.LargestProfit)
-	return matrixPTR.LargestPath
+	fmt.Println(matrixPTR.LargestProfit)
+	return &(matrixPTR.LargestPath)
+}
+
+func ElementNArray(e int, a *[]int) bool {
+	for i := range *a {
+		if (*a)[i] == e {
+			return false
+		}
+	}
+	return true
 }
