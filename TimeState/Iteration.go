@@ -17,6 +17,7 @@ func Iteration(tasks *[]Task) *[]int {
 			// Default values
 			maxPrevProfit := -10.0
 			maxPrevPathPTR := &([]int{})
+			maxID := -1
 
 			// See past ids
 			for prevID:=0; prevID<len(realTasks); prevID++ {
@@ -44,6 +45,15 @@ func Iteration(tasks *[]Task) *[]int {
 				if maxPrevProfit < prevProfit {
 					maxPrevProfit = prevProfit
 					maxPrevPathPTR = &(metric.Matrix[prevTimePTR][prevID].Path)
+					maxID = prevID
+				}
+				// Heuristic
+				if maxPrevProfit == prevProfit {
+					if realTasks[prevID].deadline < realTasks[maxID].deadline {
+						maxPrevProfit = prevProfit
+						maxPrevPathPTR = &(metric.Matrix[prevTimePTR][prevID].Path)
+						maxID = prevID
+					}
 				}
 			}
 

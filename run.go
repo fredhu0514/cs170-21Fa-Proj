@@ -9,7 +9,7 @@ import (
 
 func init() {
 	log.SetFlags(log.Ldate | log.Lmicroseconds | log.Llongfile)
-	logFile, err := os.OpenFile("./test.log", os.O_CREATE | os.O_RDWR | os.O_APPEND,0644)
+	logFile, err := os.OpenFile("./test2.log", os.O_CREATE | os.O_RDWR | os.O_APPEND,0644)
 	if err  != nil {
 		log.Panic("CANNOT OPEN LOG FILE")
 	}
@@ -22,7 +22,7 @@ func main() {
 		for index:=1; index<=300; index++ {
 			log.Printf("READY TO GO: ")
 			taskFileName := "./inputs/" + path[s] + "/" + path[s] + "-" +strconv.Itoa(index) + ".in"
-			outputFileName := "./outputs/" + path[s] + "/" + path[s] + "-" +strconv.Itoa(index) + ".out"
+			outputFileName := "./outputs2/" + path[s] + "/" + path[s] + "-" +strconv.Itoa(index) + ".out"
 			log.Println("task file: " + taskFileName)
 			log.Println("output dir: " + outputFileName)
 
