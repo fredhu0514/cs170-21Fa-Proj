@@ -1,5 +1,7 @@
 package TimeState
 
+import "log"
+
 func Iteration(tasks *[]Task) *[]int {
 	metric := InitMetric(tasks)
 	realTasks := *tasks
@@ -65,6 +67,7 @@ func Iteration(tasks *[]Task) *[]int {
 			}
 		}
 	}
+	log.Println("Profit:", metric.MaxProfit)
 	return &(metric.MaxPath)
 }
 
