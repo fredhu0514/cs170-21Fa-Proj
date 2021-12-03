@@ -1,21 +1,11 @@
 package TimeState
 
-import (
-	"fmt"
-	"math/rand"
-)
 
-var lr float64 = 0.01
-var reward float64 = 0
-var gamma float64 = 0.85
-var maxIteration int = 200000
-
-func Solver(tasks *[]Task) (*[]int64) {
-	rand.Seed(20010514)
-	profit, maxPathPTR, err := Iteration(tasks, maxIteration)
-	if err != nil {
-		panic(err)
+func Solver(tasks *[]Task) *[]int64 {
+	rawOutputPTR := Iteration(tasks)
+	var output []int64
+	for i:=0; i<len(*rawOutputPTR);i++ {
+		output = append(output, int64((*rawOutputPTR)[i]+1))
 	}
-	fmt.Println(profit)
-	return maxPathPTR
+	return &output
 }
