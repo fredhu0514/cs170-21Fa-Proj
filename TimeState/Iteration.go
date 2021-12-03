@@ -1,145 +1,85 @@
 package TimeState
 
-import (
-	"errors"
-	"fmt"
-)
-
-var SPACE_CONSTANT int = 120
+import "fmt"
 
 func Iteration(tasks *[]Task) *[]int {
-	matrixPTR := NewMetric(tasks)
-	matrixPTR = matrixPTR.Preprocessing(tasks)
-	for curTime:=1; curTime<1440; curTime++ {
-		for curIDPTR:=0; curIDPTR<len(*tasks); curIDPTR++ {
-			// Set time Index to mod SPACE_CONSTANT
-			curTimePTR := curTime % SPACE_CONSTANT
-
-			// If cur task duration plus cur time > 1440 set the profit to -1
-			curTaskDuartion := int((*tasks)[curIDPTR].duration)
-			if curTaskDuartion + curTime > 1440 {
-				(*matrixPTR.Pivots)[curIDPTR][curTimePTR].Profit = -1.0 // Set the time infeasible profit to -1
+	metric := InitMetric(tasks)
+	fmt.Println(metric.Matrix[0])
+	fmt.Println(metric.Matrix[1])
+	realTasks := *tasks
+	for curRealTime:=1; curRealTime<1440; curRealTime++ {
+		curTimePTR := curRealTime % Time_Length
+		for curID:=0; curID<len(realTasks); curID++ {
+			// If current task duration + current real time > 1440; abort
+			if int(realTasks[curID].duration) + curRealTime > 1440 {
+				metric.Matrix[curTimePTR][curID].Profit = -1.0
 				continue
 			}
 
-			// Another iteration through all tasks
-			maxID := -1
-			maxProfit := -1.0
-			var maxPathPTR *[]int
-			for prevIDPTR:=0; prevIDPTR<len(*tasks); prevIDPTR++ {
-				// If current task is the same as the prev task
-				if prevIDPTR == curIDPTR {
+			// Default values
+			maxPrevProfit := -10.0
+			maxPrevPathPTR := &([]int{})
+
+			// See past ids
+			for prevID:=0; prevID<len(realTasks); prevID++ {
+				// prevID cannot equal to current id; abort
+				if prevID == curID {
+					continue
+				}
+				// Previous Time cannot smaller than 0; abort
+				timeDiff := curRealTime - int(realTasks[prevID].duration)
+				if timeDiff < 0 {
+					continue
+				}
+				// profit at (Previous Time, prevID) < 0; abort
+				prevTimePTR := timeDiff % Time_Length
+				prevProfit := metric.Matrix[prevTimePTR][prevID].Profit
+				if prevProfit < 0.0 {
+					continue
+				}
+				// if curID is in the path at (Previous Time, prevID); abort
+				if SliceInArray(curID, &(metric.Matrix[prevTimePTR][prevID].Path)) {
 					continue
 				}
 
-				// Prev Task start time
-				prevRealTime := curTime - int((*tasks)[prevIDPTR].duration)
-				if prevRealTime < 0 {
-					continue
-				}
-				prevTime := ((prevRealTime % SPACE_CONSTANT) + SPACE_CONSTANT) % SPACE_CONSTANT
-
-				// Check if that position is valid (reachable)
-				prevProfit := (*matrixPTR.Pivots)[prevIDPTR][prevTime].Profit
-				if prevProfit < 0 { // Invalid (unreachable)
-					continue
-				}
-
-				// Check if curID is in the path of Previous
-				meetSameCurID := false
-				prevPathPTR := (*matrixPTR.Pivots)[prevIDPTR][prevTime].Path
-				for psIndex:=0; psIndex<len(*prevPathPTR); psIndex++ {
-					if (*prevPathPTR)[psIndex] == curIDPTR {
-						meetSameCurID = true
-						break
-					}
-				}
-				if meetSameCurID {
-					continue
-				}
-
-				// current metric is at least valid
-				if prevProfit > maxProfit {
-					maxProfit = prevProfit
-					maxID = prevIDPTR
-					maxPathPTR = prevPathPTR
+				// Satisfies all conditions
+				if maxPrevProfit < prevProfit {
+					maxPrevProfit = prevProfit
+					maxPrevPathPTR = &(metric.Matrix[prevTimePTR][prevID].Path)
 				}
 			}
 
-			// If through max the maxProfit and maxID are still default, means this point is not reachable
-			if maxProfit < 0 {
-				if maxID >= 0 {
-					panic(errors.New("inconsistent of maxProfit and maxID"))
-				}
-				// set current to unreachable
-				(*matrixPTR.Pivots)[curIDPTR][curTimePTR].Profit = -1.0 // Set the time infeasible profit to -1
+			// If none previous can reach current state; abort
+			if maxPrevProfit < 0.0 {
+				metric.Matrix[curTimePTR][curID].Profit = -1.0
 				continue
 			}
 
-			// Else, there is a valid value, retrieve and re-assign
-			if maxID < 0 {
-				panic(errors.New("inconsistent of maxProfit and maxID, and this is even more weird"))
-			}
-			(*matrixPTR.Pivots)[curIDPTR][curTimePTR].Profit = maxProfit + (*tasks)[curIDPTR].GetProfit(int64(curTime))
-			// TODO: DEBUG
-			fmt.Println(*maxPathPTR, curIDPTR, curTime, maxID)
-			for iii := range *maxPathPTR {
-				if curIDPTR == (*maxPathPTR)[iii] {
-					fmt.Println(curIDPTR, *maxPathPTR)
-					panic(errors.New("SHOULD NOT"))
-				}
-			}
-			for jjj := 0; jjj < len(*maxPathPTR) - 1; jjj++ {
-				for kkk := jjj + 1; kkk<len(*maxPathPTR); kkk++ {
-					if (*maxPathPTR)[jjj] == (*maxPathPTR)[kkk] {
-						fmt.Println(curTime, curIDPTR)
-						panic(errors.New("DAMN1"))
-					}
- 				}
-			}
-			newPath := append(*maxPathPTR, curIDPTR)
-			for jjj := 0; jjj < len(newPath) - 1; jjj++ {
-				for kkk := jjj + 1; kkk<len(newPath); kkk++ {
-					if (newPath)[jjj] == (newPath)[kkk] {
-						panic(errors.New("DAMN2"))
-					}
-				}
-			}
-			for jjj := 0; jjj < len(*maxPathPTR) - 1; jjj++ {
-				for kkk := jjj + 1; kkk<len(*maxPathPTR); kkk++ {
-					if (*maxPathPTR)[jjj] == (*maxPathPTR)[kkk] {
-						panic(errors.New("DAMN3"))
-					}
-				}
-			}
-			(*matrixPTR.Pivots)[curIDPTR][curTimePTR].Path = &newPath
-			for jjj := 0; jjj < len(*(*matrixPTR.Pivots)[curIDPTR][curTimePTR].Path) - 1; jjj++ {
-				for kkk := jjj + 1; kkk<len(*(*matrixPTR.Pivots)[curIDPTR][curTimePTR].Path); kkk++ {
-					if (*(*matrixPTR.Pivots)[curIDPTR][curTimePTR].Path)[jjj] == (*(*matrixPTR.Pivots)[curIDPTR][curTimePTR].Path)[kkk] {
-						panic(errors.New("DAMN4"))
-					}
-				}
-			}
+			// Exist a max prev state
+			// fmt.Println(metric.Matrix[curTimePTR][curID])
+			metric.Matrix[curTimePTR][curID].Profit = maxPrevProfit + realTasks[curID].GetProfit(int64(curRealTime))
+			metric.Matrix[curTimePTR][curID].Path = metric.Matrix[curTimePTR][curID].Path[:0] // Empty it first
+			metric.Matrix[curTimePTR][curID].Path = append(metric.Matrix[curTimePTR][curID].Path, *maxPrevPathPTR...) // Prev Path
+			metric.Matrix[curTimePTR][curID].Path = append(metric.Matrix[curTimePTR][curID].Path, curID) // CurID
+			// fmt.Println(metric.Matrix[curTimePTR][curID])
 
-			// ** Check if this is the largest value ever
-			if (*matrixPTR.Pivots)[curIDPTR][curTimePTR].Profit > matrixPTR.LargestProfit {
-				// fmt.Println("NEW MAX HERE", (*matrixPTR.Pivots)[curIDPTR][curTimePTR].Profit)
-				matrixPTR.LargestProfit = (*matrixPTR.Pivots)[curIDPTR][curTimePTR].Profit
-				matrixPTR.LargestPath = *((*matrixPTR.Pivots)[curIDPTR][curTimePTR].Path)
+			// ** Global Compare
+			if metric.MaxProfit < metric.Matrix[curTimePTR][curID].Profit {
+				metric.MaxProfit = metric.Matrix[curTimePTR][curID].Profit
+				metric.MaxPath = metric.MaxPath[:0]
+				metric.MaxPath = append(metric.MaxPath, metric.Matrix[curTimePTR][curID].Path...)
 			}
-
-
 		}
 	}
-	fmt.Println(matrixPTR.LargestProfit)
-	return &(matrixPTR.LargestPath)
+	fmt.Println("PROFIT: ", metric.MaxProfit)
+	return &(metric.MaxPath)
 }
 
-func ElementNArray(e int, a *[]int) bool {
-	for i := range *a {
-		if (*a)[i] == e {
-			return false
+func SliceInArray(slice int, array *[]int) bool {
+	for i := range *array {
+		if slice == (*array)[i] {
+			return true
 		}
 	}
-	return true
+	return false
 }
