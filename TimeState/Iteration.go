@@ -1,11 +1,7 @@
 package TimeState
 
-import "fmt"
-
 func Iteration(tasks *[]Task) *[]int {
 	metric := InitMetric(tasks)
-	fmt.Println(metric.Matrix[0])
-	fmt.Println(metric.Matrix[1])
 	realTasks := *tasks
 	for curRealTime:=1; curRealTime<1440; curRealTime++ {
 		curTimePTR := curRealTime % Time_Length
@@ -56,12 +52,10 @@ func Iteration(tasks *[]Task) *[]int {
 			}
 
 			// Exist a max prev state
-			// fmt.Println(metric.Matrix[curTimePTR][curID])
 			metric.Matrix[curTimePTR][curID].Profit = maxPrevProfit + realTasks[curID].GetProfit(int64(curRealTime))
 			metric.Matrix[curTimePTR][curID].Path = metric.Matrix[curTimePTR][curID].Path[:0] // Empty it first
 			metric.Matrix[curTimePTR][curID].Path = append(metric.Matrix[curTimePTR][curID].Path, *maxPrevPathPTR...) // Prev Path
 			metric.Matrix[curTimePTR][curID].Path = append(metric.Matrix[curTimePTR][curID].Path, curID) // CurID
-			// fmt.Println(metric.Matrix[curTimePTR][curID])
 
 			// ** Global Compare
 			if metric.MaxProfit < metric.Matrix[curTimePTR][curID].Profit {
@@ -71,7 +65,6 @@ func Iteration(tasks *[]Task) *[]int {
 			}
 		}
 	}
-	fmt.Println("PROFIT: ", metric.MaxProfit)
 	return &(metric.MaxPath)
 }
 
