@@ -12,17 +12,10 @@ func Iteration(tasks *[]Task) *[]int {
 	matrixPTR = matrixPTR.Preprocessing(tasks)
 	for curTime:=1; curTime<1440; curTime++ {
 		for curIDPTR:=0; curIDPTR<len(*tasks); curIDPTR++ {
-			//// TODO: DEBUG
-			//if curTime % 100 == 0 {
-			//	if curIDPTR == 1 {
-			//		fmt.Println(curTime, curIDPTR)
-			//	}
-			//}
-
 			// Set time Index to mod SPACE_CONSTANT
 			curTimePTR := curTime % SPACE_CONSTANT
 
-			// If cur task plus cur time > 1440 set the profit to -1
+			// If cur task duration plus cur time > 1440 set the profit to -1
 			curTaskDuartion := (*tasks)[curIDPTR].duration
 			if curTaskDuartion + int64(curTime) > int64(1440) {
 				(*matrixPTR.Pivots)[curIDPTR][curTimePTR].Profit = -1.0 // Set the time infeasible profit to -1
@@ -48,7 +41,7 @@ func Iteration(tasks *[]Task) *[]int {
 
 				// Check if that position is valid (reachable)
 				prevProfit := (*matrixPTR.Pivots)[prevIDPTR][prevTime].Profit
-				if prevProfit < 0 {
+				if prevProfit < 0 { // Invalid (unreachable)
 					continue
 				}
 
@@ -85,18 +78,41 @@ func Iteration(tasks *[]Task) *[]int {
 
 			// Else, there is a valid value, retrieve and re-assign
 			if maxID < 0 {
-				panic(errors.New("inconsistent of maxProfit and maxID, and this is even more werid"))
+				panic(errors.New("inconsistent of maxProfit and maxID, and this is even more weird"))
 			}
 			(*matrixPTR.Pivots)[curIDPTR][curTimePTR].Profit = maxProfit + (*tasks)[curIDPTR].GetProfit(int64(curTime))
+			// TODO: DEBUG
+			fmt.Println(*maxPathPTR, curIDPTR)
+			for iii := range *maxPathPTR {
+				if curIDPTR == (*maxPathPTR)[iii] {
+					fmt.Println(curIDPTR, *maxPathPTR)
+					panic(errors.New("SHOULD NOT"))
+				}
+			}
+			for jjj := 0; jjj < len(*maxPathPTR) - 1; jjj++ {
+				for kkk := jjj + 1; kkk<len(*maxPathPTR); kkk++ {
+					if (*maxPathPTR)[jjj] == (*maxPathPTR)[kkk] {
+						panic(errors.New("DAMN1"))
+					}
+ 				}
+			}
 			newPath := append(*maxPathPTR, curIDPTR)
+			for jjj := 0; jjj < len(newPath) - 1; jjj++ {
+				for kkk := jjj + 1; kkk<len(newPath); kkk++ {
+					if (newPath)[jjj] == (newPath)[kkk] {
+						panic(errors.New("DAMN2"))
+					}
+				}
+			}
 			(*matrixPTR.Pivots)[curIDPTR][curTimePTR].Path = &newPath
 
 			// ** Check if this is the largest value ever
 			if (*matrixPTR.Pivots)[curIDPTR][curTimePTR].Profit > *matrixPTR.LargestProfit {
 				// fmt.Println("NEW MAX HERE", (*matrixPTR.Pivots)[curIDPTR][curTimePTR].Profit)
-				matrixPTR.LargestProfit = &((*matrixPTR.Pivots)[curIDPTR][curTimePTR].Profit)
+				*matrixPTR.LargestProfit = (*matrixPTR.Pivots)[curIDPTR][curTimePTR].Profit
 				matrixPTR.LargestPath = (*matrixPTR.Pivots)[curIDPTR][curTimePTR].Path
 			}
+
 		}
 	}
 	fmt.Println(*matrixPTR.LargestProfit)
