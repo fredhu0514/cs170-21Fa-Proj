@@ -284,7 +284,7 @@ public class GeneticSolver {
             }
             parents = offsprings;
         }
-        System.out.println(best_benefit);
+        //System.out.println(best_benefit);
         return best_output;
     }
 
@@ -313,7 +313,7 @@ public class GeneticSolver {
             }
         }
         if (new_outputs.get(0).equals(new_outputs.get(9))) {
-            String output_path = "OutputsGenetic/" + input_path.substring(0, input_path.length()-2)+"out";
+            String output_path = "OutputsGeneticNew/" + input_path.substring(0, input_path.length()-2)+"out";
             parse.write_output_file(output_path, output);
             UnImprovables.add(input_path);
             return output;
@@ -366,7 +366,7 @@ public class GeneticSolver {
             CurrTime += task.get_duration();
         }
         output.addAll(CurrSeq);
-        String output_path = "OutputsGenetic/" + input_path.substring(0, input_path.length()-2)+"out";
+        String output_path = "OutputsGeneticNew/" + input_path.substring(0, input_path.length()-2)+"out";
         parse.write_output_file(output_path, output);
         return output;
 
