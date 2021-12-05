@@ -82,7 +82,7 @@ public class parse {
                 System.out.println(String.format("Task %d has an invalid non-float max benefit %s", i, task_parameters[3]));
                 return null;
             }
-            assert (max_benefit > 0 & max_benefit < 100.0): String.format("Task %d has an invalid max benefit %d", i, max_benefit);
+            assert (max_benefit > 0 & max_benefit < 100.0): String.format("Task %d has an invalid max benefit %f", i, max_benefit);
 
             Task task = new Task(task_id, deadline, duration, max_benefit);
             Tasks.add(task);
@@ -121,7 +121,7 @@ public class parse {
         Files.write(Paths.get(filename), output_lines);
     }
 
-    public static double check_output(List<Task> tasks, List<Integer> task_ids){
+    public static double check_output(List<Task> tasks, List<Integer> task_ids) {
         int TotalTime = 0;
         double TotalBenefit = 0;
         List<Integer> currTasks = new ArrayList<>();
@@ -131,7 +131,9 @@ public class parse {
             TotalTime += tasks.get(i-1).get_duration();
             TotalBenefit += tasks.get(i-1).get_late_benefit(TotalTime-tasks.get(i-1).get_deadline());
         }
-        assert (TotalTime <= 1440): "Total time has exceeded 1440";
+        if (TotalTime > 1440) {
+            System.out.println("Time Error!!!!");
+        }
         return TotalBenefit;
     }
 

@@ -111,21 +111,26 @@ public class GreedySolver {
 
     private Map<Integer, List<Double>> solve_iter(List<Task> tasks, Integer max_n, long seed) {
         Random generator = new Random(seed);
+        tasks = new ArrayList<>(tasks);
         List<Task> tasks_copy = new ArrayList<>(tasks);
         List<Double> OptSeq = new ArrayList<>();
         double OptBenefit = 0;
-        for (int i = 0; i < max_n*5000; i++) {
-            List<Integer> temp_output = solve(tasks, max_n, generator);
-            List<Double> output = new ArrayList<>();
-            for (int id:temp_output) {
-                output.add((double) id);
-            }
-            tasks = tasks_copy;
-            tasks_copy = new ArrayList<>(tasks);
-            double benefit = parse.check_output(tasks, temp_output);
-            if (benefit > OptBenefit) {
-                OptBenefit = benefit;
-                OptSeq = output;
+        for (int n = max_n; n > 0; n -= max_n/3) {
+            seed += n*15000;
+            for (int i = 0; i < n*15000; i++) {
+                generator = new Random(seed + i);
+                List<Integer> temp_output = solve(tasks, n, generator);
+                List<Double> output = new ArrayList<>();
+                for (int id:temp_output) {
+                    output.add((double) id);
+                }
+                tasks = tasks_copy;
+                tasks_copy = new ArrayList<>(tasks);
+                double benefit = parse.check_output(tasks, temp_output);
+                if (benefit > OptBenefit) {
+                    OptBenefit = benefit;
+                    OptSeq = output;
+                }
             }
         }
         Map<Integer, List<Double>> map = new HashMap<>();
@@ -136,16 +141,16 @@ public class GreedySolver {
 
     public static void main(String[] args) throws Exception{
         GreedySolver gs = new GreedySolver();
-        Logger logger = Logger.getLogger("GreedySolverJava");
+        Logger logger = Logger.getLogger("GreedySolverJavaNew");
         FileHandler fh;
         try {
             // This block configure the logger with handler and formatter
-            fh = new FileHandler("GreedySolverJava.log");
+            fh = new FileHandler("GreedySolverJavaNew.log");
             logger.addHandler(fh);
             SimpleFormatter formatter = new SimpleFormatter();
             fh.setFormatter(formatter);
 
-            File outputFolder = new File("OutputGreedy/");
+            File outputFolder = new File("OutputGreedyNew/");
             if (!outputFolder.exists()) {
                 outputFolder.mkdir();
             }
@@ -155,7 +160,7 @@ public class GreedySolver {
                 benefits.put(key, new ArrayList<>());
             }
             for (String key:keys) {
-                File currFolder = new File("OutputGreedy/" + key + "/");
+                File currFolder = new File("OutputGreedyNew/" + key + "/");
                 if (!currFolder.exists()) {
                     currFolder.mkdir();
                 }
@@ -164,23 +169,37 @@ public class GreedySolver {
                 for (File input_path: inputFolder.listFiles()) {
                     String filename = input_path.getName();
                     if (filename.endsWith("in")) {
-                        String outputPath = "OutputGreedy/" + key + "/" + filename.substring(0, filename.length()-2) + "out";
+                        String outputPath = "OutputGreedyNew/" + key + "/" + filename.substring(0, filename.length()-2) + "out";
                         if (new File(outputPath).exists()) {
                             continue;
                         }
                         logger.info(filename);
                         List<Task> tasks = parse.read_input_file("Project/inputs/" + key + "/" + filename);
-                        Map<Integer, List<Double>> map = gs.solve_iter(tasks, 20, Long.parseLong("3034558112"));
-                        logger.info("Writing output file for " + input_path + "...");
-                        List<Double> temp_output = map.get(0);
+                        Map<Integer, List<Double>> best_map = new HashMap<>();
+                        best_map.put(1, new ArrayList<>(List.of((double) 0)));
+                        for (String s: new String[]{"3034558112"}) {
+                            Map<Integer, List<Double>> map = gs.solve_iter(tasks, 30, Long.parseLong(s));
+                            if (map.get(1).get(0) > best_map.get(1).get(0)) {
+                                best_map = map;
+                            }
+                        }
+                        List<Double> temp_output = best_map.get(0);
                         List<Integer> output = new ArrayList<>();
                         for (double id:temp_output) {
                             output.add((int) id);
                         }
+                        List<Integer> old_output = parse.read_output_file("Project/outputs/"+ key + "/" + filename.substring(0, filename.length()-2) + "out");
+                        double benefit_diff = best_map.get(1).get(0) - parse.check_output(tasks, old_output);
+                        if (benefit_diff > 0) {
+                            System.out.println(String.format("The new greedy output beats old greedy by %f !", benefit_diff));
+                        } else {
+                            output = old_output;
+                        }
                         parse.write_output_file(outputPath, output);
-                        assert parse.check_output(tasks, output) == map.get(1).get(0);
-                        logger.info("Profit: " + Double.toString(map.get(1).get(0)));
-                        benefits.get(key).add(map.get(1).get(0));
+                        //assert parse.check_output(tasks, output) == map.get(1).get(0);
+                        logger.info("Writing output file for " + input_path + "...");
+                        logger.info("Profit: " + Double.toString(best_map.get(1).get(0) + Math.max(0,-benefit_diff)));
+                        benefits.get(key).add(best_map.get(1).get(0) + Math.max(0,-benefit_diff));
                     }
                 }
 
