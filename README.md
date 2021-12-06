@@ -1,51 +1,8 @@
-# Java Version
-# Memory Required is too large for DP
-# But GreedySolver.java is the same as solver5.py
-### For each length of input (small, medium, large), 300 sample inputs named such as `small-1.in`  to `small-300.in`.
-
-### You should put `inputs` in the same folder as `solver.py`. Then generate the result to an `outputs` folder.
-
-```angular2html
-.
-|--- -outputs
-|    |--- -small
-|    |    |
-|    |--- -medium
-|    |--- -large
-
-```
-```
-.
-├── outputs
-│   ├── small
-│   │   ├── small-1.out
-│   │   ├── [...]
-│   │   └── small-300.out
-│   ├── medium
-│   │   ├── medium-1.out
-│   │   ├── [...]
-│   │   └── medium-300.out
-│   └── large
-│       ├── large-1.out
-│       ├── [...]
-│       └── large-300.out
-├── inputs
-│   ├── small
-│   │   ├── small-1.in
-│   │   ├── [...]
-│   │   └── small-300.in
-│   ├── medium
-│   │   ├── medium-1.in
-│   │   ├── [...]
-│   │   └── medium-300.in
-│   └── large
-│       ├── large-1.in
-│       ├── [...]
-│       └── large-300.in
-├── solver.py
-├── parse.py
-├── Task.py
-├── README.md
-├── test.py
-└── test.log
-```
+### Instructions
+1. Run `Project/GeneticSolverOld.java` to generate folder `OutputsGeneticOld`, rename it to `OutputsGenetic_1strun` and drag it inside the `Project` Folder.
+2. Run `Project/GreedySolverOld.java` to generate folder `OutputGreedyOld`, rename it to `outputs` and drag it inside the `Project` Folder.
+3. Run `Project/GreedySolver.java` to generate folder `OutputGreedy`, rename it to `OutputGreedyNew` and drag it inside the `Project` Folder.
+4. Run `run.go` to generate folder `outputs2`, rename it to `outputs_go(test2)` and drag it inside the `Project` Folder.
+5 Navigate to `Project` Folder
+6. Run `solver_output1.py` to `solver_output7.py` to obtain folder `outputs1` to `outputs7` respectively.
+7. Run `Project/GeneticSolver.java`, which should give `OutputsGeneticNew` in the root directory as the final output.

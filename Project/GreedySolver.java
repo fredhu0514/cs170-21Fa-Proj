@@ -28,7 +28,7 @@ public class GreedySolver {
     private class DeadlineSort implements Comparator<Task>
     {
         // Used for sorting in ascending order of
-        // profit/duration
+        // deadline
         public int compare(Task a, Task b)
         {
             return a.get_deadline() - b.get_deadline();

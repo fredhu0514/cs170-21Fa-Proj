@@ -33,7 +33,7 @@ public class GeneticSolver {
     private class DeadlineSort implements Comparator<Task>
     {
         // Used for sorting in ascending order of
-        // profit/duration
+        // deadline
         public int compare(Task a, Task b)
         {
             return a.get_deadline() - b.get_deadline();
@@ -42,7 +42,7 @@ public class GeneticSolver {
 
     private class FitnessSort implements Comparator<List<Integer>> {
         // Used for sorting in descending order of
-        // total profit
+        // total profit of a sequence of tasks
         private final List<Task> tasks;
         public FitnessSort(List<Task> tasks) {
             this.tasks = tasks;
@@ -291,18 +291,26 @@ public class GeneticSolver {
     public static List<Integer> solveInputs(String input_path, List<String> UnImprovables) throws Exception{
         List<Task> tasks = parse.read_input_file("Project/inputs/" + input_path);
         List<Integer> output0 = parse.read_output_file("Project/outputs/" + input_path.substring(0, input_path.length()-2)+"out"); // java greedy solver (not new)
+        List<Integer> output00 = parse.read_output_file("Project/outputs_go(test2)/" + input_path.substring(0, input_path.length()-2)+"out");
+        List<Integer> output01 = parse.read_output_file("Project/OutputGreedyNew/" + input_path.substring(0, input_path.length()-2)+"out");
+        List<Integer> output02 = parse.read_output_file("Project/OutputsGenetic_1strun/" + input_path.substring(0, input_path.length()-2)+"out");
         List<Integer> output1 = parse.read_output_file("Project/outputs1/" + input_path.substring(0, input_path.length()-2)+"out");
         List<Integer> output2 = parse.read_output_file("Project/outputs2/" + input_path.substring(0, input_path.length()-2)+"out");
         List<Integer> output3 = parse.read_output_file("Project/outputs3/" + input_path.substring(0, input_path.length()-2)+"out");
         List<Integer> output4 = parse.read_output_file("Project/outputs4/" + input_path.substring(0, input_path.length()-2)+"out");
-        List<List<Integer>> initial_outputs = new ArrayList<>(List.of(output0, output1, output2, output3, output4));
+        List<Integer> output5 = parse.read_output_file("Project/outputs5/" + input_path.substring(0, input_path.length()-2)+"out");
+        List<Integer> output6 = parse.read_output_file("Project/outputs6/" + input_path.substring(0, input_path.length()-2)+"out");
+        List<Integer> output7 = parse.read_output_file("Project/outputs7/" + input_path.substring(0, input_path.length()-2)+"out");
+        List<List<Integer>> initial_outputs = new ArrayList<>(List.of(output0, output00, output01, output02, output1, output2, output3, output4, output5, output6, output7));
+        GeneticSolver GrandSolver = new GeneticSolver(0);
+        Collections.sort(initial_outputs, GrandSolver.new FitnessSort(tasks));
+        initial_outputs = new ArrayList<>(List.of(initial_outputs.get(10), new ArrayList<>(initial_outputs.get(10)))); //make a copy of the
         List<Integer> output = new ArrayList<>();
         List<List<Integer>> new_outputs = new ArrayList<>();
         for (int i = 3000001; i <= 3000050; i++) {
             output = new GeneticSolver(i).solve(tasks, initial_outputs, 0.5, 0.10, 0.05, 0.02, 0.02, 30, 100);
             new_outputs.add(output);
         }
-        GeneticSolver GrandSolver = new GeneticSolver(0);
         Collections.sort(new_outputs, GrandSolver.new FitnessSort(tasks));
         new_outputs = new_outputs.subList(40, 50);
         if (new_outputs.get(0).equals(new_outputs.get(9))) { // second chance
@@ -318,15 +326,15 @@ public class GeneticSolver {
             UnImprovables.add(input_path);
             return output;
         }
+        System.out.println("Improvements!");
         for (int c = 1; c <= 50; c++) {
             for (int i = 1; i <= 50; i++) {
-                output = new GeneticSolver(i).solve(tasks, new_outputs, 0.5, 0.10, 0.05, 0.02, 0.05, 30, 100);
+                output = new GeneticSolver(i).solve(tasks, new_outputs, 0.5, 0.10, 0.05, 0.02, 0.02, 30, 100);
                 new_outputs.add(output);
-                while (new_outputs.size() > 50) {
+                if (new_outputs.size() > 50) {
                     new_outputs.remove(0);
                 }
             }
-
             if (new_outputs.get(0).equals(new_outputs.get(new_outputs.size()-1))) {
                 break;
             }
@@ -404,7 +412,7 @@ public class GeneticSolver {
                 File inputFolder = new File("Project/inputs/" + key + "/");
                 for (File input_path: inputFolder.listFiles()) {
                     String filename = input_path.getName();
-                    if (filename.endsWith("in")) {
+                    if (filename.endsWith(".in")) {
                         String path_name = key + "/" + filename;
                         logger.info(filename);
                         List<Integer> output = solveInputs(path_name, UnImprovable);

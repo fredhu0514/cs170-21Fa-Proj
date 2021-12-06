@@ -30,7 +30,7 @@ def SortTasks(tasks, CurrTime):
     Args:
     -   tasks: list[Task], list of igloos to polish
     Output:
-    -   tasks: list[Task], list of igloos to polish sorted by 
+    -   tasks: list[Task], list of igloos to polish sorted by deadline & benefit
     """
     tasks.sort(key = lambda task: task.get_deadline()+task.get_late_benefit(CurrTime+task.get_duration()-task.get_deadline())/task.get_duration())
     return tasks
