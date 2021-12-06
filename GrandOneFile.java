@@ -146,6 +146,22 @@ public class GrandOneFile {
             return task_index * 60 + time;
         }
 
+        private int get_max_tasks(List<Task> tasks) {
+            int max = 0;
+            int total = 0;
+            ArrayList<Integer>  durations = new ArrayList<>();
+            for (Task task : tasks) {
+                durations.add(task.get_duration());
+            }
+            durations.sort(Integer::compareTo);
+
+            while (total < 1440) {
+                total += durations.get(max);
+                max += 1;
+            }
+            return max;
+        }
+
         private void initialize(int num, ArrayList<Double> profit, ArrayList<ArrayList<Integer>> path_list, ArrayList<HashSet<Integer>> path_set, Boolean head) {
             if (head) {
                 for (int i = 1; i <= num; i ++) {
@@ -171,6 +187,7 @@ public class GrandOneFile {
         Uses (i, t) as finishing task i at time t
         Note, i here means index in the list of tasks, instead of the true task id.
          */
+            int max_num = get_max_tasks(tasks);
             int task_num = tasks.size();
 
             HashMap<Integer, ArrayList<Double>> prev_profits = new HashMap<Integer, ArrayList<Double>>();
@@ -196,17 +213,21 @@ public class GrandOneFile {
 
             double global_max = Double.NEGATIVE_INFINITY;
             List<Integer> global_best_path = null;
-
+            long start = System.currentTimeMillis();
             for (int t = 1; t < Max_time; t += time_interval) {
+                System.out.print(t);
+                System.out.println("last epoch:");
+                long here = System.currentTimeMillis();
+                System.out.print((here - start)/1000);
+                start = here;
                 for (int delta = 0; delta < 60; delta ++) {
-
+/*
                     System.out.println(t + delta);
-                    /*
                     System.out.println(prev_paths_list);
                     System.out.println(new_paths_list);
 
                      */
-                    for (int i = 0; i < tasks.size(); i ++) {
+                    for (int i = 0; i < tasks.size(); i++) {
                         int current_time = t + delta;
                         int starting_time = current_time - tasks.get(i).get_duration();
                         if (starting_time < t) {
@@ -224,9 +245,9 @@ public class GrandOneFile {
                                 new_paths_set.put(two_d_index, this_path_set);
 
                                 Boolean actually_put = false;
-                                for (int predecessor_task_index: prev_possible_t.get(starting_time)) {
+                                for (int predecessor_task_index : prev_possible_t.get(starting_time)) {
                                     int predecessor_two_d_index = get_index(predecessor_task_index, starting_time - t + 60);
-                                    for (int k = 0; k < task_num; k ++) {
+                                    for (int k = 0; k < task_num; k++) {
                                         Set path_set = prev_paths_set.get(predecessor_two_d_index).get(k);
                                         ArrayList path_list = prev_paths_list.get(predecessor_two_d_index).get(k);
                                         double profit = prev_profits.get(predecessor_two_d_index).get(k);
@@ -266,7 +287,7 @@ public class GrandOneFile {
                                     new_possible_t.get(current_time).add(i);
                                 }
                             }
-                    } else {
+                        } else {
                             if (new_possible_t.containsKey(starting_time)) {
                                 int two_d_index = get_index(i, delta);
 
@@ -281,9 +302,9 @@ public class GrandOneFile {
                                 new_paths_set.put(two_d_index, this_path_set);
 
                                 Boolean actually_put = false;
-                                for (int predecessor_task_index: new_possible_t.get(starting_time)) {
+                                for (int predecessor_task_index : new_possible_t.get(starting_time)) {
                                     int predecessor_two_d_index = get_index(predecessor_task_index, starting_time - t);
-                                    for (int k = 0; k < new_paths_set.get(predecessor_two_d_index).size(); k ++) {
+                                    for (int k = 0; k < new_paths_set.get(predecessor_two_d_index).size(); k++) {
                                         Set path_set = new_paths_set.get(predecessor_two_d_index).get(k);
                                         ArrayList path_list = new_paths_list.get(predecessor_two_d_index).get(k);
                                         double profit = new_profits.get(predecessor_two_d_index).get(k);
@@ -321,10 +342,71 @@ public class GrandOneFile {
                                         new_possible_t.put(current_time, new HashSet<Integer>());
                                     }
                                     new_possible_t.get(current_time).add(i);
+                                }
+                            }
+                        }
+                    }
+                }
+
+                for (int j = 0; j < max_num - 1; j ++) {
+                    ///"to update the choices more time"
+                    for (int d = 0; d < 60; d ++) {
+                /*
+                System.out.println(prev_paths_list);
+                System.out.println(new_paths_list);
+
+                 */
+                        for (int i = 0; i < task_num; i ++) {
+                            int current_time = t + d;
+                            int starting_time = current_time - tasks.get(i).get_duration();
+                            int two_d_index = get_index(i, d);
+                            if (new_profits.containsKey(two_d_index) && new_possible_t.containsKey(starting_time)) {
+                                ArrayList<Double> this_profit = new_profits.get(two_d_index);
+                                ArrayList<ArrayList<Integer>> this_path_list = new_paths_list.get(two_d_index);
+                                ArrayList<HashSet<Integer>> this_path_set = new_paths_set.get(two_d_index);
+
+                                for (int predecessor_task_index: new_possible_t.get(starting_time)) {
+                                    int predecessor_two_d_index = get_index(predecessor_task_index, starting_time - t);
+                                    for (int k = 0; k < new_paths_set.get(predecessor_two_d_index).size(); k ++) {
+                                        Set path_set = new_paths_set.get(predecessor_two_d_index).get(k);
+                                        ArrayList path_list = new_paths_list.get(predecessor_two_d_index).get(k);
+                                        double profit = new_profits.get(predecessor_two_d_index).get(k);
+                                        double this_new_profit = profit + tasks.get(i).get_benefit_starting_time(starting_time);
+                                        if (!path_set.contains(i) && this_new_profit > this_profit.get(k)) {
+                                            HashSet<Integer> single_new_set = new HashSet<Integer>();
+                                            single_new_set.addAll(path_set);
+                                            single_new_set.add(i);
+                                            //System.out.println("here");
+                                            ArrayList<Integer> single_new_list = new ArrayList<Integer>();
+                                            single_new_list.addAll(path_list);
+                                            single_new_list.add(i);
+
+                                            System.out.println(i);
+                                            System.out.println(k);
+                                            System.out.println(this_new_profit);
+                                            System.out.println(this_profit.get(k));
+                                            System.out.println(single_new_list);
+                                            System.out.println(this_profit);
+                                            System.out.println(this_path_list);
+
+                                            if (k != i) {
+                                                System.out.println("here");
+                                                this_profit.set(k, this_new_profit);
+                                                this_path_list.set(k, single_new_list);
+                                                this_path_set.set(k, single_new_set);
+                                            }
+
+
+                                            if (this_new_profit > global_max) {
+                                                global_max = this_new_profit;
+                                                global_best_path = single_new_list;
+                                            }
+                                        }
                                     }
                                 }
                             }
                         }
+                    }
                 }
 
                 prev_profits = new_profits;
