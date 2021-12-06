@@ -1,19 +1,16 @@
 import java.lang.Math;
 import java.nio.file.Paths;
 import java.nio.file.Files;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.HashMap;
+import java.util.*;
 
 public class GrandOneFile {
 
-    public class Task {
+    public static class Task {
 
-        private int task_id;
-        private int deadline;
-        private int duration;
-        private double perfect_benefit;
+        private final int task_id;
+        private final int deadline;
+        private final int duration;
+        private final double perfect_benefit;
 
         public Task(int task_id, int deadline, int duration, double perfect_benefit) {
             this.task_id = task_id;
@@ -32,6 +29,10 @@ public class GrandOneFile {
 
         public int get_duration() {
             return this.duration;
+        }
+
+        public double get_benefit_starting_time(int time) {
+            return this.get_late_benefit(time + this.duration - this.deadline);
         }
 
         public double get_max_benefit() {
@@ -67,7 +68,6 @@ public class GrandOneFile {
             int num_tasks = Integer.parseInt(input_lines.get(0).split("\t", 0)[0]);
             assert (num_tasks == input_lines.size() - 1) : "The number of tasks in the first line of the input file does not match the tasks defined in the rest of the input file";
             assert (num_tasks <= 200) : "Too many tasks";
-            List<Task> tasks = new ArrayList<>();
 
             for (int i = 1; i <= num_tasks; i += 1) {
                 String[] task_parameters = input_lines.get(i).split("\t", 0);
@@ -137,153 +137,224 @@ public class GrandOneFile {
         }
     }
 
-    public class solver {
+    public static class solver {
 
-        public List<Integer> solve(List<Task> tasks) {
-        /*
-        Idea: DP solver as in TSP
-        Recurrence Relation: f(set, i) = f(set - {i}, j) + benefits(i, time spent so far)
-        Base case: f([i], i) = benefits by completing i
-         */
-            List<Double> OptSeq = new ArrayList<>();
-            double OptBenefit = 0;
-            int n = tasks.size();
-            List<List<Integer>> allCombinations = AllCombinations(n);
-            Map<List<Integer>, List<Double>> map = new HashMap<>();
-            /**
-             * key: [S, id]
-             * value: [CurrTime, CurrBenefit, path]
-             */
-            for (List<Integer> comb : allCombinations) {
-                if (comb.size() == 2) {
-                    // [id, id], only one task is chosen and completed
-                    Task task = tasks.get(1);
-                    List<Double> currKeyValue = new ArrayList<>();
-                    currKeyValue.add((double) task.get_duration());
-                    currKeyValue.add(task.get_late_benefit(task.get_duration() - task.get_deadline()));
-                    currKeyValue.add((double) task.get_task_id());
-                    map.put(comb, currKeyValue);
-                    continue;
+        private int get_index(int task_index, int time) {
+            if (task_index == -1) {
+                return -1;
+            }
+            return task_index * 60 + time;
+        }
+
+        private void initialize(int num, ArrayList<Double> profit, ArrayList<ArrayList<Integer>> path_list, ArrayList<HashSet<Integer>> path_set, Boolean head) {
+            if (head) {
+                for (int i = 1; i <= num; i ++) {
+                    profit.add(0.0);
+                    path_list.add(new ArrayList<Integer>());
+                    path_set.add(new HashSet<Integer>());
                 }
-                int i = comb.get(comb.size() - 1);
-                Task task = tasks.get(i);
-                List<Integer> prevPath = new ArrayList<>(); // get S - {i}
-                for (int j = 0; j < comb.size() - 1; j++) {
-                    if (comb.get(j) != i) {
-                        prevPath.add(j);
-                    }
-                }
-                List<List<Integer>> PossiblePrevCombs = new ArrayList<>(); // get all possible [S - {i} - {j}, j]
-                for (int id : prevPath) {
-                    List<Integer> prevCombs = new ArrayList<>();
-                    prevCombs.addAll(prevPath);
-                    prevCombs.add(id);
-                }
-                double prevTime = map.get(PossiblePrevCombs.get(0)).get(0);
-                double currTime = prevTime + task.get_duration();
-                if (currTime > 1440) {
-                    List<Double> currKeyValue = new ArrayList<>();
-                    currKeyValue.add(currTime);
-                    map.put(comb, currKeyValue); // add the time to map so that there is no error in later iterations
-                    break;
-                } else {
-                    List<Double> bestPrevPath = new ArrayList<>();
-                    double bestPrevBenefit = 0;
-                    for (List<Integer> prevComb : PossiblePrevCombs) {
-                        List<Double> mapValue = map.get(prevComb);
-                        if (mapValue.get(1) > bestPrevBenefit) {
-                            bestPrevBenefit = mapValue.get(1);
-                            bestPrevPath = mapValue.subList(2, mapValue.size());
-                        }
-                    }
-                    double currBenefit = bestPrevBenefit + task.get_late_benefit((int) currTime - task.get_deadline());
-                    List<Double> currPath = new ArrayList<>();
-                    currPath.addAll(bestPrevPath);
-                    currPath.add((double) i);
-                    if (currBenefit > OptBenefit) {
-                        OptBenefit = currBenefit;
-                        OptSeq = currPath;
-                    }
-                    List<Double> currKeyValue = new ArrayList<>();
-                    currKeyValue.add(currTime);
-                    currKeyValue.add(currBenefit);
-                    currKeyValue.addAll(currPath);
-                    map.put(comb, currKeyValue);
+            } else {
+                for (int i = 1; i <= num; i ++) {
+                    profit.add(Double.NEGATIVE_INFINITY);
+                    path_list.add(new ArrayList<Integer>());
+                    path_set.add(new HashSet<Integer>());
                 }
             }
-            List<Integer> task_ids = new ArrayList<>();
-            for (double id : OptSeq) {
-                task_ids.add((int) id);
-            }
-            return task_ids;
 
         }
 
-        public List<int[]> PowerList(int n) {
+
+
+        public List<Integer> solve(List<Task> tasks, int Max_time, int time_interval) {
         /*
-        returns Powerset of 1,2,...,n in list form
-        ordered by the length of list
+        DP solving based on time interval of 60
+        Uses (i, t) as finishing task i at time t
+        Note, i here means index in the list of tasks, instead of the true task id.
          */
-            List<int[]> list = new ArrayList<>();
-            List<int[]> temp = new ArrayList<>();
-            for (int i = 1; i <= n; i++) {
-                temp.add(new int[]{i});
-            }
-            list.addAll(temp);
-            for (int i = 2; i <= n; i++) {
-                List<int[]> newTemp = new ArrayList<>();
-                for (int[] x : temp) {
-                    for (int j = x[i - 2] + 1; j <= n; j++) { // j must be larger than the last element of x
-                        boolean contains = false;
-                        for (int k = 0; k < i - 1; k++) { //x.length = i-1
-                            if (x[k] == j) {
-                                contains = true;
-                                break;
+            int task_num = tasks.size();
+
+            HashMap<Integer, ArrayList<Double>> prev_profits = new HashMap<Integer, ArrayList<Double>>();
+            HashMap<Integer, ArrayList<ArrayList<Integer>>> prev_paths_list = new  HashMap<Integer, ArrayList<ArrayList<Integer>>>();
+            HashMap<Integer, ArrayList<HashSet<Integer>>> prev_paths_set = new HashMap<Integer, ArrayList<HashSet<Integer>>>();
+            HashMap<Integer, HashSet<Integer>> prev_possible_t = new HashMap<Integer, HashSet<Integer>>();
+
+            ArrayList<Double> starter_profit = new ArrayList<Double>();
+            ArrayList<ArrayList<Integer>> starter_path_list = new ArrayList<ArrayList<Integer>>();
+            ArrayList<HashSet<Integer>> starter_path_set = new ArrayList<HashSet<Integer>>();
+
+            initialize(task_num, starter_profit, starter_path_list, starter_path_set, true);
+
+            prev_profits.put(-1, starter_profit);
+            prev_paths_list.put(-1, starter_path_list);
+            prev_paths_set.put(-1, starter_path_set);
+            prev_possible_t.put(0, new HashSet(List.of(-1)));
+
+            HashMap<Integer, ArrayList<Double>> new_profits = new HashMap<Integer, ArrayList<Double>>();
+            HashMap<Integer, ArrayList<ArrayList<Integer>>> new_paths_list = new  HashMap<Integer, ArrayList<ArrayList<Integer>>>();
+            HashMap<Integer, ArrayList<HashSet<Integer>>> new_paths_set = new HashMap<Integer, ArrayList<HashSet<Integer>>>();
+            HashMap<Integer, HashSet<Integer>> new_possible_t = new HashMap<Integer, HashSet<Integer>>();
+
+            double global_max = Double.NEGATIVE_INFINITY;
+            List<Integer> global_best_path = null;
+
+            for (int t = 1; t < Max_time; t += time_interval) {
+                for (int delta = 0; delta < 60; delta ++) {
+
+                    System.out.println(t + delta);
+                    /*
+                    System.out.println(prev_paths_list);
+                    System.out.println(new_paths_list);
+
+                     */
+                    for (int i = 0; i < tasks.size(); i ++) {
+                        int current_time = t + delta;
+                        int starting_time = current_time - tasks.get(i).get_duration();
+                        if (starting_time < t) {
+                            if (prev_possible_t.containsKey(starting_time)) {
+                                int two_d_index = get_index(i, delta);
+
+                                ArrayList<Double> this_profit = new ArrayList<Double>();
+                                ArrayList<ArrayList<Integer>> this_path_list = new ArrayList<ArrayList<Integer>>();
+                                ArrayList<HashSet<Integer>> this_path_set = new ArrayList<HashSet<Integer>>();
+
+                                initialize(task_num, this_profit, this_path_list, this_path_set, false);
+
+                                new_profits.put(two_d_index, this_profit);
+                                new_paths_list.put(two_d_index, this_path_list);
+                                new_paths_set.put(two_d_index, this_path_set);
+
+                                Boolean actually_put = false;
+                                for (int predecessor_task_index: prev_possible_t.get(starting_time)) {
+                                    int predecessor_two_d_index = get_index(predecessor_task_index, starting_time - t + 60);
+                                    for (int k = 0; k < task_num; k ++) {
+                                        Set path_set = prev_paths_set.get(predecessor_two_d_index).get(k);
+                                        ArrayList path_list = prev_paths_list.get(predecessor_two_d_index).get(k);
+                                        double profit = prev_profits.get(predecessor_two_d_index).get(k);
+
+                                        double this_new_profit = profit + tasks.get(i).get_benefit_starting_time(starting_time);
+                                        if (!path_set.contains(i) && this_new_profit > this_profit.get(k)) {
+                                            HashSet<Integer> single_new_set = new HashSet<Integer>();
+                                            single_new_set.addAll(path_set);
+                                            single_new_set.add(i);
+
+                                            ArrayList<Integer> single_new_list = new ArrayList<Integer>();
+                                            single_new_list.addAll(path_list);
+                                            single_new_list.add(i);
+
+                                            if (k != i) {
+                                                actually_put = true;
+                                                this_profit.set(k, this_new_profit);
+                                                this_path_list.set(k, single_new_list);
+                                                this_path_set.set(k, single_new_set);
+                                            }
+
+                                            if (this_new_profit > global_max) {
+                                                global_max = this_new_profit;
+                                                global_best_path = single_new_list;
+                                            }
+                                        }
+                                    }
+                                }
+                                if (!actually_put) {
+                                    new_profits.remove(two_d_index);
+                                    new_paths_list.remove(two_d_index);
+                                    new_paths_set.remove(two_d_index);
+                                } else {
+                                    if (!new_possible_t.containsKey(current_time)) {
+                                        new_possible_t.put(current_time, new HashSet<Integer>());
+                                    }
+                                    new_possible_t.get(current_time).add(i);
+                                }
+                            }
+                    } else {
+                            if (new_possible_t.containsKey(starting_time)) {
+                                int two_d_index = get_index(i, delta);
+
+                                ArrayList<Double> this_profit = new ArrayList<Double>();
+                                ArrayList<ArrayList<Integer>> this_path_list = new ArrayList<ArrayList<Integer>>();
+                                ArrayList<HashSet<Integer>> this_path_set = new ArrayList<HashSet<Integer>>();
+
+                                initialize(task_num, this_profit, this_path_list, this_path_set, false);
+
+                                new_profits.put(two_d_index, this_profit);
+                                new_paths_list.put(two_d_index, this_path_list);
+                                new_paths_set.put(two_d_index, this_path_set);
+
+                                Boolean actually_put = false;
+                                for (int predecessor_task_index: new_possible_t.get(starting_time)) {
+                                    int predecessor_two_d_index = get_index(predecessor_task_index, starting_time - t);
+                                    for (int k = 0; k < new_paths_set.get(predecessor_two_d_index).size(); k ++) {
+                                        Set path_set = new_paths_set.get(predecessor_two_d_index).get(k);
+                                        ArrayList path_list = new_paths_list.get(predecessor_two_d_index).get(k);
+                                        double profit = new_profits.get(predecessor_two_d_index).get(k);
+
+                                        double this_new_profit = profit + tasks.get(i).get_benefit_starting_time(starting_time);
+                                        if (!path_set.contains(i) && this_new_profit > this_profit.get(k)) {
+                                            HashSet<Integer> single_new_set = new HashSet<Integer>();
+                                            single_new_set.addAll(path_set);
+                                            single_new_set.add(i);
+
+                                            ArrayList<Integer> single_new_list = new ArrayList<Integer>();
+                                            single_new_list.addAll(path_list);
+                                            single_new_list.add(i);
+
+                                            if (k != i) {
+                                                actually_put = true;
+                                                this_profit.set(k, this_new_profit);
+                                                this_path_list.set(k, single_new_list);
+                                                this_path_set.set(k, single_new_set);
+                                            }
+
+                                            if (this_new_profit > global_max) {
+                                                global_max = this_new_profit;
+                                                global_best_path = single_new_list;
+                                            }
+                                        }
+                                    }
+                                }
+                                if (!actually_put) {
+                                    new_profits.remove(two_d_index);
+                                    new_paths_list.remove(two_d_index);
+                                    new_paths_set.remove(two_d_index);
+                                } else {
+                                    if (!new_possible_t.containsKey(current_time)) {
+                                        new_possible_t.put(current_time, new HashSet<Integer>());
+                                    }
+                                    new_possible_t.get(current_time).add(i);
+                                    }
+                                }
                             }
                         }
-                        if (!contains) {
-                            int[] newX = new int[i];
-                            for (int k = 0; k < i - 1; k++) {
-                                newX[k] = x[k];
-                            }
-                            newX[i - 1] = j;
-                            newTemp.add(newX);
-                        }
-                    }
                 }
-                temp = newTemp;
-                list.addAll(temp);
-            }
-            return list;
-        }
 
-        public List<List<Integer>> AllCombinations(int n) {
-            /*
-             *  returns [S, id] for all S in PowerList and id in S
-             * */
-            List<List<Integer>> list = new ArrayList<>();
-            List<int[]> powerlist = PowerList(n);
-            for (int[] lst : powerlist) {
-                for (int x : lst) {
-                    List<Integer> newLst = new ArrayList<>();
-                    for (int i = 0; i < lst.length; i++) {
-                        newLst.add(lst[i]);
-                    }
-                    newLst.add(x);
-                    list.add(newLst);
-                }
-            }
-            return list;
+                prev_profits = new_profits;
+                prev_paths_list = new_paths_list;
+                prev_paths_set = new_paths_set;
+                prev_possible_t = new_possible_t;
 
+                new_profits = new HashMap<Integer, ArrayList<Double>>();
+                new_paths_list = new  HashMap<Integer, ArrayList<ArrayList<Integer>>>();
+                new_paths_set = new HashMap<Integer, ArrayList<HashSet<Integer>>>();
+                new_possible_t = new HashMap<Integer, HashSet<Integer>>();
+            }
+            System.out.print("best path is");
+            System.out.print(global_max);
+
+            ArrayList<Integer> output = new ArrayList<>();
+            for (int i: global_best_path) {
+                output.add(tasks.get(i).get_task_id());
+            }
+
+            return output;
         }
     }
 
     public static void main(String[] args) throws Exception{
         GrandOneFile gof = new GrandOneFile();
         GrandOneFile.parse p = gof.new parse();
-        GrandOneFile.solver s = gof.new solver();
-        List<Task> tasks = p.read_input_file("Project/inputs/small/small-1.in");
-        List<Integer> output = s.solve(tasks);
+        GrandOneFile.solver s = new solver();
+        List<Task> tasks = p.read_input_file("samples/100.in");
+        List<Integer> output = s.solve(tasks, 1440, 60);
         System.out.println(output);
     }
 }
