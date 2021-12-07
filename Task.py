@@ -9,3 +9,9 @@ class Task:
 
     def get_profit(self, curTime: int) -> float:
         return self.perfect_benefit * math.exp(-0.0170 * max(0, curTime + self.duration - self.deadline))
+
+    def get_benefit_per_timestamp(self, curTime: int) -> float:
+        if curTime + self.duration > 1440:
+            return -1.0
+        return self.perfect_benefit * math.exp(
+            -0.0170 * max(0, curTime + self.duration - self.deadline)) / self.duration
