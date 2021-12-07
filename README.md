@@ -1,17 +1,9 @@
 # CS 170 Project Fall 2021
 
-Take a look at the project spec before you get started!
+- Use [current time, task duration, task ddl, task profit at current time, if we choose this task at this moment] as the training data set and get an SVM model for further predictions.
 
-Requirements:
+- At each round if no value is predicted to be 1, then we do deterministic greedy as value/timestamp. Else, we select the largest value/timestamp from the output given 1s.
 
-Python 3.6+
+- Only get 91 small cases, the result is awful. Possibly because our training data is not the optimal (our current best solution is suboptimal). Furthermore, the training is not perfect, must lost some dimension of information.
 
-Files:
-- `parse.py`: functions to read/write inputs and outputs
-- `solver.py`: where you should be writing your code to solve inputs
-- `Task.py`: contains a class that is useful for processing inputs
-
-When writing inputs/outputs:
-- Make sure you use the functions `write_input_file` and `write_output_file` provided
-- Run the functions `read_input_file` and `read_output_file` to validate your files before submitting!
-- These are the functions run by the autograder to validate submissions
+- Therefore, do not recommend this method.
