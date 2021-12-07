@@ -69,6 +69,10 @@ class Task:
         """
         return self.perfect_benefit
 
+    def get_benefit_starting_time(self, time):
+        time_late = time + self.duration - self.deadline
+        return self.get_late_benefit(time_late)
+
     def get_late_benefit(self, minutes_late: int) -> int:
         """
         Returns the benefit recieved from completing this task
