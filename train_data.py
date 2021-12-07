@@ -22,7 +22,7 @@ def add_data(output_list, task_list):
         curTime += curTask.duration
 
 
-for _type in ["small"]:
+for _type in ["medium"]:
     for t_id in range(1, 300):
         task_list = p.read_input_file(f"./inputs/{_type}/{_type}-{t_id}.in")
         output_list = p.read_output_file(f"./train/{_type}/{_type}-{t_id}.out")
@@ -43,7 +43,7 @@ train_df = pos_df.append([neg_df])
 
 clf = svm.SVC()
 clf.fit(train_df[['cur_time', 'duration', 'ddl', 'cur_profit']], train_df["label"])
-filename = 'small_svm.sav'
+filename = 'medium_svm.sav'
 pickle.dump(clf, open(filename, 'wb'))
 
 
