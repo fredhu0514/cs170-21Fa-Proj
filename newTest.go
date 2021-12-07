@@ -2,6 +2,7 @@ package main
 
 import (
 	TS "./TimeState"
+	"log"
 	"strconv"
 )
 
@@ -17,6 +18,12 @@ func main() {
 	}
 
 	output := TS.Solver(taskListPTR)
+
+	profit, err := TS.AllProfit(taskListPTR, output)
+	if err != nil {
+		panic(err)
+	}
+	log.Println("REAL PROFIT: ", profit)
 
 	// Write the tasks order
 	err = TS.WriteOutputFile(newOutputFileName, *output)

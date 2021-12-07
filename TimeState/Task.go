@@ -32,6 +32,14 @@ func NewTask(task_id int64, deadline int64, duration int64, benefit float64) (Ta
 	return t
 }
 
-func (task *Task) GetProfit(curTime int64) float64 {
+func (task *Task) GetRealProfit(curTime int64) float64 {
 	return task.benefit * math.Exp(-0.0170 * math.Max(0, float64(curTime + task.duration - task.deadline)))
+}
+
+func (task *Task) GetProfit(curTime int64) float64 {
+    if curTime + task.duration > task.deadline {
+        return 0
+    } else {
+        return task.benefit
+    }
 }

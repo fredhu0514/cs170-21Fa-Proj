@@ -13,9 +13,9 @@ def get_total_benefit(tasks, solution):
 if __name__ == '__main__':
     import os
     print(os.getcwd())
-    tasks = read_input_file('./inputs/small/small-73.in')
+    tasks = read_input_file('./inputs/small/small-1.in')
     print(tasks)
-    output = read_output_file('./testOP/small/small-73.out')
+    output = read_output_file('./outputs/small/small-1.out')
     print(output)
     profit = get_total_benefit(tasks, output)
     print(profit)
