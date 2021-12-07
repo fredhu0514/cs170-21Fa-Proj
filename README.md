@@ -1,3 +1,3 @@
-# DP with all or nothing
+# DP with value over time
 
-- worse than with profit even after deadline
+- GG even worse than all or nothing, because the design is false...

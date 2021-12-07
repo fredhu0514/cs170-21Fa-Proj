@@ -37,9 +37,5 @@ func (task *Task) GetRealProfit(curTime int64) float64 {
 }
 
 func (task *Task) GetProfit(curTime int64) float64 {
-    if curTime + task.duration > task.deadline {
-        return 0
-    } else {
-        return task.benefit
-    }
+	return task.benefit * math.Exp(-0.0170 * math.Max(0, float64(curTime + task.duration - task.deadline)))
 }
