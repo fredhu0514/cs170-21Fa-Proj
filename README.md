@@ -5,4 +5,6 @@
 4. Run `run.go` to generate folder `outputs2`, rename it to `outputs_go(test2)` and drag it inside the `Project` Folder.
 5 Navigate to `Project` Folder
 6. Run `solver_output1.py` to `solver_output7.py` to obtain folder `outputs1` to `outputs7` respectively.
-7. Run `Project/GeneticSolver.java`, which should give `OutputsGeneticNew` in the root directory as the final output.
+7. Run `Project/GeneticSolver.java`, which should give `OutputsGeneticNew` in the root directory.
+8. Run `Project/DPsolverNew.java`, which should give `OutputDPNew` in the root directory.
+9. Submit outputs of both 7 and 8 (one by one) to the autograder.
