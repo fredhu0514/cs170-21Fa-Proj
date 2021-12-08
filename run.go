@@ -17,7 +17,7 @@ func init() {
 }
 
 func main() {
-	path := []string{"small", "medium", "large"}
+	path := []string{"large", "medium", "small"}
 	for s:=0; s<=3; s++ {
 		for index:=1; index<=300; index++ {
 			log.Printf("READY TO GO: ")

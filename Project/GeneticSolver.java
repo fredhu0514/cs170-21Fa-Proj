@@ -399,7 +399,7 @@ public class GeneticSolver {
             }
             Map<String, List<Double>> benefits = new HashMap<>();
             List<String> UnImprovable = new ArrayList<>();
-            String[] keys = new String[]{"small", "medium", "large"};
+            String[] keys = new String[]{"large", "medium", "small"};
             for (String key:keys) {
                 benefits.put(key, new ArrayList<>());
             }
