@@ -15,7 +15,6 @@ def solve(tasks):
     CurrTime = 0
     while CurrTime < 1440 and len(tasks) > 0:
         task = tasks.pop(0)
-        print(task.get_task_id())
         while len(tasks) >= 1 and CurrTime + task.get_duration() > 1440: # if the current igloo cannot be completed before 1440, remove it
             task = tasks.pop(0)
         if CurrTime + task.get_duration() > 1440: # iterate until an igloo is found to not exceed the hard deadline of 1440
