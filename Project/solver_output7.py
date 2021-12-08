@@ -100,7 +100,7 @@ from datetime import datetime
 if __name__ == '__main__':
     logging.basicConfig(filename="GreedySolver7py.log", level=logging.INFO)
     logging.info('New Log at ' + datetime.now().strftime('%m/%d/%Y %H:%M:%S'))
-    benefits = {'small':[], 'medium':[], 'large':[]}
+    benefits = {'large':[], 'medium':[], 'small':[]}
     if not os.path.isdir('outputs7/'):
         os.mkdir('outputs7/')
     for x in benefits.keys():

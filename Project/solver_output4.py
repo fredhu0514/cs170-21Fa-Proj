@@ -54,7 +54,7 @@ from datetime import datetime
 if __name__ == '__main__':
     logging.basicConfig(filename="GreedySolver4py.log", level=logging.INFO)
     logging.info('New Log at ' + datetime.now().strftime('%m/%d/%Y %H:%M:%S'))
-    benefits = {'small':[], 'medium':[], 'large':[]}
+    benefits = {'large':[], 'medium':[], 'small':[]}
     if not os.path.isdir('outputs4/'):
         os.mkdir('outputs4/')
     for x in benefits.keys():

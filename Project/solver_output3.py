@@ -123,7 +123,7 @@ if __name__ == '__main__':
     logging.basicConfig(filename="GreedySolver3py.log", level=logging.INFO)
     logging.info('New Log at ' + datetime.now().strftime('%m/%d/%Y %H:%M:%S'))
     logging.info('max n = ' + str(15) + ':')
-    benefits = {'small':[], 'medium':[], 'large':[]}
+    benefits = {'large':[], 'medium':[], 'small':[]}
     if not os.path.isdir('outputs3/'):
         os.mkdir('outputs3/')
     for x in benefits.keys():

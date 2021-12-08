@@ -98,7 +98,7 @@ from datetime import datetime
 if __name__ == '__main__':
     logging.basicConfig(filename="GreedySolver2py.log", level=logging.INFO)
     logging.info('New Log at ' + datetime.now().strftime('%m/%d/%Y %H:%M:%S'))
-    benefits = {'small':[], 'medium':[], 'large':[]}
+    benefits = {'large':[], 'medium':[], 'small':[]}
     if not os.path.isdir('outputs2/'):
         os.mkdir('outputs2/')
     for x in benefits.keys():

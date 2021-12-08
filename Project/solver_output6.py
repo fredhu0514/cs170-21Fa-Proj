@@ -104,7 +104,7 @@ from datetime import datetime
 if __name__ == '__main__':
     logging.basicConfig(filename="GreedySolver6py.log", level=logging.INFO)
     logging.info('New Log at ' + datetime.now().strftime('%m/%d/%Y %H:%M:%S'))
-    benefits = {'small':[], 'medium':[], 'large':[]}
+    benefits = {'large':[], 'medium':[], 'small':[]}
     if not os.path.isdir('outputs6/'):
         os.mkdir('outputs6/')
     for x in benefits.keys():
